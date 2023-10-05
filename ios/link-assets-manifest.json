@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/DMSans.ttf",
+      "sha1": "52d4f475534271ece8eb846df8e8177664ec7fb4"
+    },
+    {
+      "path": "src/assets/fonts/Garet Bold.ttf",
+      "sha1": "20d2dea767229835a29335af1f90b84b9426d2cb"
+    },
+    {
+      "path": "src/assets/fonts/Garet.ttf",
+      "sha1": "76031cfb3cffe71a37b70a2b914ed02da1393b81"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat.ttf",
+      "sha1": "d7ddcd6682a72ff6044cf2015a71b183494ce320"
+    },
+    {
+      "path": "src/assets/fonts/Monument.ttf",
+      "sha1": "c33ea03af283861515cbacc81d1ad0d24d002d86"
+    },
+    {
+      "path": "src/assets/fonts/Poppins Regular.ttf",
+      "sha1": "a4ef48c17479236fea2197b9a68bf7c6163e0388"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Medium.ttf",
+      "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
+    }
+  ]
+}
