@@ -3,9 +3,9 @@ import React from 'react';
 import { Image, StatusBar, StyleSheet, View, FlatList } from 'react-native';
 import colors from '../../global/colors';
 import { MainHeader } from '../../components/mainHeader';
-import { DashboardCard } from '../../components/dashboardCard';
 import { CardSeparator } from '../../components/separators/card';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
+import { DashboardCard } from '../../components/dashboardCard';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 

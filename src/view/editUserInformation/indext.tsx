@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { units } from '../../hooks/hooks';
 import { InputForm } from '../../components/inputFom';
 import { LongButton } from '../../components/longButton';
+import { SelectForm } from '../../components/selectForm';
 
 
 const EditUserInformation = () => {
@@ -23,10 +24,13 @@ const EditUserInformation = () => {
                 <InputForm label="Data de Nascimento" placeholder="Data de Nascimento" />
                 <InputForm label="Email" placeholder="Email" />
                 <InputForm label="Nova senha (opcional)" placeholder="Opcional" />
-                <InputForm label="Objetivo" placeholder="Objetivo" />
                 <InputForm label="Nome" placeholder="Nome" />
+                <SelectForm label="Objetivo" items={[
+                    { label: 'Perda de peso', value: 'loss' },
+                    { label: 'Ganho de massa', value: 'gain' },
+                ]} />
             </View>
-            <LongButton title="Salvar"/>
+            <LongButton title="Salvar" onPress={() => { }} />
         </SafeAreaView>
     );
 };
