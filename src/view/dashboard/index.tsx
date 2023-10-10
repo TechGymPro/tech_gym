@@ -49,7 +49,7 @@ const style = StyleSheet.create({
         backgroundColor: colors.lightBackground,
     },
     image: {
-        height: '28%',
+        height: '27%',
         width: '100%',
         resizeMode: 'cover',
     },

@@ -52,11 +52,11 @@ const style = StyleSheet.create({
     upScreenWK: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        height: '48%',
+        height: '45%',
     },
     downScreenWK: {
         backgroundColor: colors.secondary,
-        height: '52%',
+        height: '56%',
         borderTopLeftRadius: 18,
         borderTopRightRadius: 18,
     },
@@ -90,13 +90,13 @@ const style = StyleSheet.create({
     },
     welcomeContainer: {
         alignItems: 'center',
-        height: '30%',
+        height: '22%',
         justifyContent: 'center',
     },
     bigWelcome: {
         color: colors.mainTextColor,
         fontSize: 44,
-        fontFamily: 'Garet',
+        fontFamily: 'Garet Bold',
     },
     smallWellcome: {
         color: colors.subtextColor,
@@ -105,22 +105,23 @@ const style = StyleSheet.create({
         marginTop: -5,
     },
     inputsContainer: {
-        height: 130,
+        height: 145,
         justifyContent: 'space-between',
         marginBottom: units.vh * 5,
+        marginTop: units.vh * 1,
     },
     loginButton: {
         alignSelf: 'center',
-        width: units.vw * 40,
+        width: units.vw * 42,
         backgroundColor: colors.primary,
         borderRadius: 4,
-        height: 38,
+        height: 42,
         alignItems: 'center',
         justifyContent: 'center',
     },
     buttonText: {
         color: colors.lightTextColor,
         fontFamily: 'Garet Bold',
-        fontSize: 15,
+        fontSize: 18,
     },
 });

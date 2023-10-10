@@ -12,7 +12,7 @@ export const DashboardCard: React.FC<Props> = ({ item }) => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
     return (
-        <TouchableOpacity style={style.container} onPress={() => item.icon === 'training' ? null : item.icon === 'fitness' ? null : item.icon === 'settings' ? null : item.icon === 'notification' ? navigation.navigate('Notifications') : null}>
+        <TouchableOpacity style={style.container} onPress={() => item.icon === 'training' ? null : item.icon === 'fitness' ? navigation.navigate('Measurements') : item.icon === 'settings' ? navigation.navigate('EditUserInformation') : item.icon === 'notification' ? navigation.navigate('Notifications') : null}>
             {item.icon === 'training'
                 ?
                 <Image source={require('../../assets/img/training-ico.png')} style={style.icoTraining} />
@@ -38,21 +38,21 @@ export const DashboardCard: React.FC<Props> = ({ item }) => {
 const style = StyleSheet.create({
     container: {
         backgroundColor: colors.secondary,
-        height: 150,
-        width: 150,
+        height: 140,
+        width: 140,
         borderRadius: 15,
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingVertical: '8%',
     },
     icoTraining: {
-        width: '55%',
+        width: '60%',
         height: 40,
         marginTop: 10,
     },
     ico: {
-        width: 60,
-        height: 60,
+        width: 55,
+        height: 55,
     },
     text: {
         color: colors.mainTextColor,

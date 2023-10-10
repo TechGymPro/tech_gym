@@ -21,6 +21,12 @@
 		818EFA34BF2A4893812B5454 /* Garet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C74B4042ED14F78B26A2788 /* Garet.ttf */; };
 		925ADCE3E22346A980950BB4 /* Garet Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 591E3AB1A588452F914163B9 /* Garet Bold.ttf */; };
 		FB2D7CD8048B4EE2B8BF9CDB /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B71F73E7202D4CCCBECCA435 /* Poppins-Medium.ttf */; };
+		49F86BEE021F42B18A9DB82C /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8FC326ACDAD490C9686F6CF /* Montserrat-ExtraLight.ttf */; };
+		8526FDBF96034493AEEA7168 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9744BA3E8E334C83A2682A3A /* Montserrat-Light.ttf */; };
+		D854D5DC4CDE45C8874CAD0F /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD525005F9054DE58C86A299 /* Montserrat-Thin.ttf */; };
+		8DDCCB9AEDD64FB0A128507C /* Garet.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAF82F0B125740C69161D4E1 /* Garet.zip */; };
+		E7B1D669C6AF4318B05230AA /* Montserrat.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3A56E99724694D1E9EDE2BEB /* Montserrat.zip */; };
+		04872B8B671D40F0AD5B2847 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 246BFE2D18894479A104C9AA /* Montserrat-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +64,12 @@
 		8C74B4042ED14F78B26A2788 /* Garet.ttf */ = {isa = PBXFileReference; name = "Garet.ttf"; path = "../src/assets/fonts/Garet.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		591E3AB1A588452F914163B9 /* Garet Bold.ttf */ = {isa = PBXFileReference; name = "Garet Bold.ttf"; path = "../src/assets/fonts/Garet Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		B71F73E7202D4CCCBECCA435 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A8FC326ACDAD490C9686F6CF /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Montserrat-ExtraLight.ttf"; path = "../src/assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9744BA3E8E334C83A2682A3A /* Montserrat-Light.ttf */ = {isa = PBXFileReference; name = "Montserrat-Light.ttf"; path = "../src/assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD525005F9054DE58C86A299 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; name = "Montserrat-Thin.ttf"; path = "../src/assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DAF82F0B125740C69161D4E1 /* Garet.zip */ = {isa = PBXFileReference; name = "Garet.zip"; path = "../src/assets/fonts/Garet.zip"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3A56E99724694D1E9EDE2BEB /* Montserrat.zip */ = {isa = PBXFileReference; name = "Montserrat.zip"; path = "../src/assets/fonts/Montserrat.zip"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		246BFE2D18894479A104C9AA /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +185,12 @@
 				8C74B4042ED14F78B26A2788 /* Garet.ttf */,
 				591E3AB1A588452F914163B9 /* Garet Bold.ttf */,
 				B71F73E7202D4CCCBECCA435 /* Poppins-Medium.ttf */,
+				A8FC326ACDAD490C9686F6CF /* Montserrat-ExtraLight.ttf */,
+				9744BA3E8E334C83A2682A3A /* Montserrat-Light.ttf */,
+				AD525005F9054DE58C86A299 /* Montserrat-Thin.ttf */,
+				DAF82F0B125740C69161D4E1 /* Garet.zip */,
+				3A56E99724694D1E9EDE2BEB /* Montserrat.zip */,
+				246BFE2D18894479A104C9AA /* Montserrat-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -281,6 +299,12 @@
 				818EFA34BF2A4893812B5454 /* Garet.ttf in Resources */,
 				925ADCE3E22346A980950BB4 /* Garet Bold.ttf in Resources */,
 				FB2D7CD8048B4EE2B8BF9CDB /* Poppins-Medium.ttf in Resources */,
+				49F86BEE021F42B18A9DB82C /* Montserrat-ExtraLight.ttf in Resources */,
+				8526FDBF96034493AEEA7168 /* Montserrat-Light.ttf in Resources */,
+				D854D5DC4CDE45C8874CAD0F /* Montserrat-Thin.ttf in Resources */,
+				8DDCCB9AEDD64FB0A128507C /* Garet.zip in Resources */,
+				E7B1D669C6AF4318B05230AA /* Montserrat.zip in Resources */,
+				04872B8B671D40F0AD5B2847 /* Montserrat-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

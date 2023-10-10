@@ -14,8 +14,32 @@
       "sha1": "76031cfb3cffe71a37b70a2b914ed02da1393b81"
     },
     {
+      "path": "src/assets/fonts/Garet.zip",
+      "sha1": "e50a9e7df241a8d94f337ec969fc2afc4ed210c9"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-ExtraLight.ttf",
+      "sha1": "9437f01c62e4f0c1d42b5cf3e244997aafbea70d"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Light.ttf",
+      "sha1": "9dfbddad5025d8d224b4939e54c1a4ac8ac6015b"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Thin.ttf",
+      "sha1": "7061ef5f2b5aef62263dbe728114ccd25014aa4e"
+    },
+    {
       "path": "src/assets/fonts/Montserrat.ttf",
       "sha1": "d7ddcd6682a72ff6044cf2015a71b183494ce320"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat.zip",
+      "sha1": "ab5e4cf860dbe7e22881b61944adfe5bda8486e7"
     },
     {
       "path": "src/assets/fonts/Monument.ttf",

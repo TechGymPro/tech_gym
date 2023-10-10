@@ -26,10 +26,10 @@ const style = StyleSheet.create({
     input: {
         width: '100%',
         backgroundColor: colors.inputFormBackground,
-        height: 38,
+        height: 44,
         borderRadius: 16,
         paddingHorizontal: 20,
-        fontSize: 13,
+        fontSize: 16,
         color: colors.inputTextColor,
         fontFamily: 'DMSans',
     },
