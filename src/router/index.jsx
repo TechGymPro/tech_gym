@@ -6,6 +6,8 @@ import Notifications from '../view/notifications';
 import EditUserInformation from '../view/editUserInformation/indext';
 import Measurements from '../view/measurements/dashboard';
 import MeasurementsEdit from '../view/measurements/edit';
+import Training from '../view/training';
+import TrainingPlay from '../view/trainingPlay';
 
 const {createNativeStackNavigator} = require('@react-navigation/native-stack');
 
@@ -43,16 +45,30 @@ export const Router = () => {
             headerShown: false,
           }}
         />
-                <Stack.Screen
+        <Stack.Screen
           name="Measurements"
           component={Measurements}
           options={{
             headerShown: false,
           }}
         />
-                <Stack.Screen
+        <Stack.Screen
           name="MeasurementsEdit"
           component={MeasurementsEdit}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Training"
+          component={Training}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="TrainingPlay"
+          component={TrainingPlay}
           options={{
             headerShown: false,
           }}

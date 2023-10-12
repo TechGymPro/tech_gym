@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import { Image, StatusBar, StyleSheet, View, FlatList } from 'react-native';
+import { Image, StatusBar, StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import colors from '../../global/colors';
 import { MainHeader } from '../../components/mainHeader';
 import { CardSeparator } from '../../components/separators/card';
@@ -13,7 +13,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 const Dashboard = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <MainHeader customBackButton={() => navigation.navigate('Login')} />
             <Image style={style.image} source={require('../../assets/img/menTraining.jpg')} />
             <FlatList
@@ -37,7 +37,7 @@ const Dashboard = () => {
                 )}
             />
             <StatusBar barStyle={'light-content'} backgroundColor={colors.primary} />
-        </View>
+        </SafeAreaView>
     );
 };
 

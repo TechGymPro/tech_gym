@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
 import { MainHeader } from '../../../components/mainHeader';
 import { ResizableWhiteCard } from '../../../components/resizableWhiteCard';
 import colors from '../../../global/colors';
@@ -14,7 +14,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 const Measurements = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <MainHeader />
             <ResizableWhiteCard width="86%" height={units.vh * 20} marginTop={24}
                 children={
@@ -83,7 +83,7 @@ const Measurements = () => {
                 }
             />
             <LongButton title="Editar Informações" customMarginBottom={units.vh * 6} onPress={()=>navigation.navigate('MeasurementsEdit')}/>
-        </View>
+        </SafeAreaView>
     );
 };
 
