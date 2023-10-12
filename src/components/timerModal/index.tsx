@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import colors from '../../global/colors';
 import { ResizableWhiteCard } from '../resizableWhiteCard';
 import Icon from 'react-native-vector-icons/Fontisto';
