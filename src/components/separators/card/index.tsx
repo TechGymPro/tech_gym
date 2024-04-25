@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import { style } from './style';
 
 interface Props {
     customHeight?: number;
@@ -11,8 +12,3 @@ export const CardSeparator: React.FC<Props> = ({ customHeight }) => {
     );
 };
 
-const style = StyleSheet.create({
-    separate: {
-        height: 30,
-    },
-});

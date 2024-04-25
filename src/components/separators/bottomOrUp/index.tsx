@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import { style } from './style';
 
 
 export const BottomOrTopSeparator = () => {
@@ -8,8 +9,3 @@ export const BottomOrTopSeparator = () => {
     );
 };
 
-const style = StyleSheet.create({
-    separate: {
-        height: 50,
-    },
-});

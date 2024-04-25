@@ -1,14 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import colors from '../../global/colors';
 import RNPickerSelect, { Item } from 'react-native-picker-select';
+import { style } from './style';
 
 interface Props {
     label: string;
     items: Item[];
+    onChange: (value: any) => void;
+    value: number;
 }
 
-export const SelectForm: React.FC<Props> = ({ label, items }) => {
+export const SelectForm: React.FC<Props> = ({ label, items, onChange, value }) => {
     return (
         <View style={style.container}>
             <Text style={style.InputLabel}>{label}</Text>
@@ -25,8 +28,9 @@ export const SelectForm: React.FC<Props> = ({ label, items }) => {
                         color: colors.thirdColor,
                         value: null,
                     }}
-                    onValueChange={(value) => console.log(value)}
+                    onValueChange={(e) => onChange(e)}
                     items={items}
+                    value={value}
                 />
             </View>
         </View>
@@ -34,29 +38,3 @@ export const SelectForm: React.FC<Props> = ({ label, items }) => {
 };
 
 
-const style = StyleSheet.create({
-    container: {
-        paddingHorizontal: '15%',
-        justifyContent: 'space-between',
-    },
-    input: {
-        width: '100%',
-        backgroundColor: colors.inputFormBackground,
-        height: 44,
-        borderRadius: 16,
-        paddingHorizontal: 20,
-        fontSize: 16,
-        color: colors.inputTextColor,
-        fontFamily: 'DMSans',
-    },
-    InputLabel: {
-        fontSize: 12,
-        color: colors.secondaryTextColor,
-        paddingBottom: 6,
-        marginLeft: 2,
-        fontFamily: 'DMSans',
-    },
-    text: {
-
-    },
-});

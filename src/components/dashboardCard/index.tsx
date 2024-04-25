@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
-import colors from '../../global/colors';
+import { Text, TouchableOpacity, Image } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { style } from './style';
 
 interface Props {
     item: { label: string, icon: string };
@@ -35,29 +35,4 @@ export const DashboardCard: React.FC<Props> = ({ item }) => {
     );
 };
 
-const style = StyleSheet.create({
-    container: {
-        backgroundColor: colors.secondary,
-        height: 140,
-        width: 140,
-        borderRadius: 15,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingVertical: '8%',
-    },
-    icoTraining: {
-        width: '60%',
-        height: 40,
-        marginTop: 10,
-    },
-    ico: {
-        width: 55,
-        height: 55,
-    },
-    text: {
-        color: colors.mainTextColor,
-        fontFamily: 'Poppins Regular',
-        fontSize: 14,
-    },
-});
 

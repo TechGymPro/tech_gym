@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { DimensionValue, StyleSheet, View } from 'react-native';
-import colors from '../../global/colors';
+import { DimensionValue, View } from 'react-native';
+import { style } from './style';
 
 interface Props {
     width: DimensionValue;
@@ -23,9 +23,3 @@ export const ResizableWhiteCard: React.FC<Props> = ({ height, width, children, m
     );
 };
 
-const style = StyleSheet.create({
-    container: {
-        backgroundColor: colors.secondary,
-        alignSelf: 'center',
-    },
-});

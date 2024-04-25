@@ -1,71 +1,93 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, SafeAreaView, Text, View } from 'react-native';
 import { MainHeader } from '../../components/mainHeader';
 import colors from '../../global/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { units } from '../../hooks/hooks';
 import { InputForm } from '../../components/inputFom';
 import { LongButton } from '../../components/longButton';
 import { SelectForm } from '../../components/selectForm';
+import { style } from './style';
+import { units, useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { updateUserBirthday, updateUserEmail, updateUserName, updateUserObjective, userData } from '../../redux/authSlice';
+import { api } from '../../api/base';
+import { LoadingScreen } from '../../components/loadingScreen';
 
 
 const EditUserInformation = () => {
-    return (
-        <SafeAreaView style={style.container}>
+    const user = useAppSelector(userData);
+    const dispatch = useAppDispatch();
+    const [birthday, setBirthday] = useState(user && user.student_birth ? new Date(user.student_birth).toLocaleDateString('en-GB') : '');
+    const [email, setEmail] = useState(user && user.student_email ? user.student_email : '');
+    const [newPassword, setNewPassword] = useState('');
+    const [name, setName] = useState(user && user.student_name ? user.student_name : '');
+    const [objective, setObjective] = useState(user && user.objective_id ? user.objective_id : 1);
+    const [loading, setLoading] = useState(false);
 
-            <MainHeader />
-            <View style={style.titleContainer}>
-                <View style={style.iconContainer}>
-                    <Icon name="edit" size={20} color={colors.secondary} />
-                </View>
-                <Text style={style.tittle}>Informações de usuário</Text>
-            </View>
-            <View style={style.inputsContainer}>
-                <InputForm label="Data de Nascimento" placeholder="Data de Nascimento" />
-                <InputForm label="Email" placeholder="Email" />
-                <InputForm label="Nova senha (opcional)" placeholder="Opcional" />
-                <InputForm label="Nome" placeholder="Nome" />
-                <SelectForm label="Objetivo" items={[
-                    { label: 'Perda de peso', value: 'loss' },
-                    { label: 'Ganho de massa', value: 'gain' },
-                ]} />
-            </View>
-            <LongButton title="Salvar" onPress={() => { }} />
-        </SafeAreaView>
+    const save = async () => {
+        try {
+            if (user) {
+                setLoading(true);
+                await api.put('updateUser', {
+                    id: user.student_id,
+                    email: email !== user.student_email ? email : null,
+                    password: newPassword.length > 0 ? newPassword : null,
+                    name: name !== user.student_name ? name : null,
+                    objective: objective !== user.objective_id ? objective : null,
+                    birthday: new Date(birthday) !== new Date(user.student_birth) ? new Date(birthday) : null,
+                });
+
+                if (email !== user.student_email) {
+                    dispatch(updateUserEmail(email));
+                }
+                if (name !== user.student_name) {
+                    dispatch(updateUserName(name));
+                }
+                if (objective !== user.objective_id) {
+                    dispatch(updateUserObjective(objective));
+                }
+                if (birthday !== user.student_birth) {
+                    dispatch(updateUserBirthday(new Date(birthday)));
+                }
+
+                Alert.alert('Salvo com sucesso');
+                setLoading(false);
+            }
+        } catch (error) {
+            Alert.alert('Erro ao Salvar', 'Por favor tente novamente');
+            setLoading(false);
+        }
+    };
+
+    return (
+        <>
+            {loading
+                ?
+                <LoadingScreen />
+                :
+                <SafeAreaView style={style.container}>
+                    <MainHeader />
+                    <View style={style.titleContainer}>
+                        <View style={style.iconContainer}>
+                            <Icon name="edit" size={units.vw * 4.8} color={colors.secondary} />
+                        </View>
+                        <Text style={style.tittle}>Informações de usuário</Text>
+                    </View>
+                    <View style={style.inputsContainer}>
+                        <InputForm label="Data de Nascimento" placeholder="Data de Nascimento" value={birthday} onChange={(e) => setBirthday(e)} time />
+                        <InputForm label="Email" placeholder="Email" value={email} onChange={(e) => setEmail(e)} />
+                        <InputForm label="Nova senha (opcional)" placeholder="Opcional" value={newPassword} onChange={(e) => setNewPassword(e)} />
+                        <InputForm label="Nome" placeholder="Nome" value={name} onChange={(e) => setName(e)} />
+                        <SelectForm onChange={(e) => setObjective(e)} value={objective} label="Objetivo" items={[
+                            { label: 'Perda de peso', value: 1 },
+                            { label: 'Ganho de massa', value: 2 },
+                        ]} />
+                    </View>
+                    <LongButton title="Salvar" onPress={() => save()} />
+                </SafeAreaView>
+            }
+        </>
     );
 };
 
-const style = StyleSheet.create({
-    container: {
-        backgroundColor: colors.lightBackground,
-        height: units.vh * 100,
-    },
-    iconContainer: {
-        backgroundColor: colors.thirdColor,
-        height: 40,
-        width: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 40 / 2,
-    },
-    tittle: {
-        color: colors.mainTextColor,
-        fontFamily: 'Montserrat',
-        fontSize: 18,
-    },
-    titleContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '65%',
-        alignSelf: 'center',
-        marginTop: units.vh * 4,
-        marginBottom: units.vh * 4,
-    },
-    inputsContainer: {
-        height: units.vh * 45,
-        justifyContent: 'space-between',
-    },
-});
 
 export default EditUserInformation;

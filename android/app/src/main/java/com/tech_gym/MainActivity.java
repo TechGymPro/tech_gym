@@ -1,5 +1,6 @@
 package com.tech_gym;
 
+import com.zmxv.RNSound.RNSoundPackage;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;

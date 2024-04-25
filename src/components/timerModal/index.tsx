@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import colors from '../../global/colors';
 import { ResizableWhiteCard } from '../resizableWhiteCard';
 import Icon from 'react-native-vector-icons/Fontisto';
 import Sound from 'react-native-sound';
+import { style } from './style';
 
 interface Props {
     onclose: () => void;
@@ -14,7 +15,33 @@ interface Props {
 
 export const TimerModal: React.FC<Props> = ({ next, onclose, time }) => {
 
+    Sound.setCategory('Playback');
 
+    var ding = new Sound('alarm.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+            console.log('failed to load the sound', error);
+            return;
+        }
+    });
+
+    const play = () => {
+        ding.play(success => {
+            if (!success) {
+                console.log('playback failed due to audio decoding errors');
+            }
+        });
+    };
+
+    const stop = () => {
+        ding.stop();
+    };
+
+    useEffect(() => {
+        ding.setVolume(1);
+        return () => {
+            ding.release();
+        };
+    }, []);
 
     var [time, setTime] = useState(time);
 
@@ -34,8 +61,7 @@ export const TimerModal: React.FC<Props> = ({ next, onclose, time }) => {
             if (timeRemaining <= 0) {
                 clearInterval(timer);
                 console.log("Time's up!");
-                let sound = new Sound(require('../../assets/sound/alarm.mp3'));
-                sound.play(()=> sound.release());
+                play();
             }
         }, 1000);
     }
@@ -52,9 +78,10 @@ export const TimerModal: React.FC<Props> = ({ next, onclose, time }) => {
                         <Icon name="angle-left" size={23} color={colors.darkBackground} />
                     </TouchableOpacity>
                     <Text style={style.counterText}>{Math.floor((time / 60000) % 60) <= 9 ? `0${Math.floor((time / 60000) % 60)}` : Math.floor((time / 60000) % 60)}:{Math.floor((time / 1000) % 60) <= 9 ? `0${Math.floor((time / 1000) % 60)}` : Math.floor((time / 1000) % 60)}</Text>
-                    <TouchableOpacity style={style.button} onPress={()=>{
+                    <TouchableOpacity style={style.button} onPress={() => {
                         next();
                         onclose();
+                        stop();
                     }}>
                         <Text style={style.buttonText}>Finalizar</Text>
                     </TouchableOpacity>
@@ -64,42 +91,3 @@ export const TimerModal: React.FC<Props> = ({ next, onclose, time }) => {
     );
 };
 
-const style = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: colors.darkBackgroundOpacity,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    subContainer: {
-        flex: 1,
-        padding: '4%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    buttonClose: {
-        alignSelf: 'flex-start',
-    },
-    counterText: {
-        color: colors.mainTextColor,
-        fontFamily: 'Montserrat-Bold',
-        alignSelf: 'center',
-        fontSize: 75,
-    },
-    button: {
-        backgroundColor: colors.primary,
-        height: 50,
-        width: '60%',
-        borderRadius: 15,
-        marginBottom: '4%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingTop: '1%',
-    },
-    buttonText: {
-        color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium',
-        alignSelf: 'center',
-        fontSize: 20,
-    },
-});

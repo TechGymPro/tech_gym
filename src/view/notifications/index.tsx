@@ -1,57 +1,55 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { useState } from 'react';
-import { FlatList, Modal, SafeAreaView, StyleSheet } from 'react-native';
+import { FlatList, Modal, SafeAreaView, Text, View } from 'react-native';
 import { MainHeader } from '../../components/mainHeader';
-import colors from '../../global/colors';
 import { NotificationsCard } from '../../components/notificationsCard';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import { CardSeparator } from '../../components/separators/card';
 import { NotificationModal } from '../../components/notificationModal';
+import { style } from './style';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { getNotifications, isLoading, notification } from '../../redux/userSlice';
+import { notification as notificationType } from '../../@types/interfaces';
+import { userData } from '../../redux/authSlice';
+import colors from '../../global/colors';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Notifications = () => {
     const [modalIsVisible, setModalIsVisible] = useState(false);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [notifications, setNotifications] = useState([
-        {
-            id: 1,
-            tittle: 'Anúncio para todos os alunos',
-            message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
-            type: 1,
-        },
-        {
-            id: 2,
-            tittle: 'Promoção: indique e ganhe',
-            message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
-            type: 2,
-        },
-        {
-            id: 3,
-            tittle: 'Não abriremos nesse feriado',
-            message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur',
-            type: 3,
-        }]);
-    const [selected, setSelected] = useState({
-        type: 1,
-        tittle: '',
-        message: '',
-        id: 0,
+    const notifications = useAppSelector(notification);
+    const [selected, setSelected] = useState<notificationType>({
+        notifications_text: '',
+        notifications_title: '',
+        notifications_type: 1,
+        notifications_user_id: 1,
     });
+    const loading = useAppSelector(isLoading);
+    const dispatch = useAppDispatch();
+    const user = useAppSelector(userData);
 
-    const cardClick = (e: { type: number, tittle: string, message: string, id: number }) => {
+    const cardClick = (e: notificationType) => {
         setSelected(e);
         setModalIsVisible(true);
+    };
+
+    const onRefresh = () => {
+        if (user) {
+            dispatch(getNotifications({ gymId: user.gym_id }));
+        }
     };
 
     return (
         <SafeAreaView style={style.container}>
             <MainHeader disableNotification />
             <FlatList
+                onRefresh={onRefresh}
+                refreshing={loading}
                 data={notifications}
                 renderItem={({ item, index }: any) => (
                     <NotificationsCard key={index} onPress={() => cardClick(item)} item={item} />
                 )}
-                keyExtractor={item => String(item.id)}
+                keyExtractor={item => String(item.notifications_user_id)}
                 scrollEnabled
                 ItemSeparatorComponent={() => (
                     <CardSeparator customHeight={18} />
@@ -61,6 +59,12 @@ const Notifications = () => {
                 )}
                 ListFooterComponent={() => (
                     <BottomOrTopSeparator />
+                )}
+                ListEmptyComponent={() => (
+                    <View style={style.emptyContainer}>
+                        <Icon color={colors.placeholderTextColor} name="notifications-off-outline" size={40} />
+                        <Text style={style.emptyText}>Sem notificações</Text>
+                    </View>
                 )}
             />
             <Modal visible={modalIsVisible} transparent animationType="fade" >
@@ -73,9 +77,3 @@ const Notifications = () => {
 export default Notifications;
 
 
-const style = StyleSheet.create({
-    container: {
-        backgroundColor: colors.lightBackground,
-        flex: 1,
-    },
-});
