@@ -29,28 +29,29 @@ export interface initialStateAuthInterface {
 }
 
 export interface notification {
-  notifications_user_id: number
-  notifications_type: number
-  notifications_title: string
-  notifications_text: string
+  notifications_user_id: number;
+  notifications_type: number;
+  notifications_title: string;
+  notifications_text: string;
 }
 
 export interface exercise {
-  exercise_id: number
-  gym_id: number
-  exercise_name: string
-  exercise_url: string
-  exercise_qtd_serie: number
-  exercise_qtd_rep: number
-  exercise_obs: string
-  exercise_rest_time: number
+  exercise_id: number;
+  gym_id: number;
+  exercise_name: string;
+  exercise_url: string;
+  exercise_qtd_serie: number;
+  exercise_qtd_rep: number;
+  exercise_obs: string;
+  exercise_rest_time: number;
+  type: string;
 }
 
 export interface division {
-  training_division_id: number
-  training_serie_name: string
-  letter: string
-  exercises: exercise[]
+  training_division_id: number;
+  training_serie_name: string;
+  letter: string;
+  exercises: exercise[];
 }
 
 export interface initialStateUserInterface {
@@ -66,16 +67,16 @@ export interface LoginProps {
   navigation: any;
 }
 
-export interface getNotificationsProps{
+export interface getNotificationsProps {
   gymId: number;
 }
 
-export interface getTrainingsProps{
+export interface getTrainingsProps {
   gymId: number;
   userId: string;
 }
 
-export interface updateUserProps{
+export interface updateUserProps {
   userId: string;
   emailLocal: string;
   emailBase: string;
@@ -87,4 +88,3 @@ export interface updateUserProps{
   birthdayLocal: string;
   birthdayBase: string;
 }
-
