@@ -13,6 +13,17 @@ export const style = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
     },
+    shortButton: {
+        backgroundColor: colors.primary,
+        width: '88%',
+        height: 64,
+        borderRadius: 32,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
+    },
     disabledButton: {
         backgroundColor: colors.placeholderTextColor,
         width: '88%',
@@ -27,5 +38,10 @@ export const style = StyleSheet.create({
     buttonText: {
         color: colors.mainTextColor,
         fontFamily: 'Poppins-Medium',
+    },
+    shortButtonText: {
+        color: colors.mainTextColor,
+        fontFamily: 'Poppins-Medium',
+        fontSize: 25,
     },
 });

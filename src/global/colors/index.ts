@@ -11,9 +11,10 @@ const colors = {
     badGraph: '#E43B3B',
     goodGraph: '#00bf63',
     trainingBackground: '#121212',
-    mainTextColor: '#000000',
+    mainTextColor: '#101010',
     secondaryTextColor: '#8F8E8E',
     lightTextColor: '#ffffff',
+    greyTextColor: '#ccc7c7',
     inputTextColor: '#4D4C4C',
     showoffTextColor: '#5E17EB',
 };
