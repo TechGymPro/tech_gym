@@ -12,6 +12,7 @@ const colors = {
     goodGraph: '#00bf63',
     trainingBackground: '#121212',
     mainTextColor: '#101010',
+    titleTextColor: '#141c24',
     secondaryTextColor: '#8F8E8E',
     lightTextColor: '#ffffff',
     greyTextColor: '#ccc7c7',

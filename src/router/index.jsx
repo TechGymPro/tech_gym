@@ -10,6 +10,7 @@ import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
 import InitialScreen from '../view/initialScreen';
+import SignUp from '../view/signUp';
 
 
 
@@ -21,6 +22,13 @@ export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="InitialScreen"
           component={InitialScreen}

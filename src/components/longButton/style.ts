@@ -6,7 +6,7 @@ export const style = StyleSheet.create({
         backgroundColor: colors.primary,
         width: '88%',
         height: 40,
-        borderRadius: 14,
+        borderRadius: 32,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -37,11 +37,13 @@ export const style = StyleSheet.create({
     },
     buttonText: {
         color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'Inter',
+        fontWeight: '700',
     },
     shortButtonText: {
         color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'Poppins',
         fontSize: 25,
+        fontWeight: '500',
     },
 });
