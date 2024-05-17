@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View, ActivityIndicator, ImageBackground } from 'react-native';
 import { useAppDispatch, useAppSelector, useKeyboardVisible } from '../../hooks/hooks';
 import colors from '../../global/colors';
@@ -6,21 +6,29 @@ import { LongButton } from '../../components/longButton';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
-import { isLoading, login } from '../../redux/authSlice';
+import { isLoading } from '../../redux/authSlice';
 import { InputForm } from '../../components/inputFom';
 
 
 const SignUp = () => {
     const IsKeyboardOpen = useKeyboardVisible();
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [invalidPhone, setInvalidPhone] = useState(true);
+    const [phone, setPhone] = useState('');
     const loading = useAppSelector(isLoading);
     const dispatch = useAppDispatch();
 
-    const onLogin = async () => {
-        dispatch(login({ email: email, password: password, navigation }));
+    function alert(arg0: string) {
+        console.log('Entrar pressed');
+    }
+
+    const handlePhoneChange = (value: string) => {
+        setPhone(value);
+
+        const isValid = phone.length >= 11;
+        setInvalidPhone(!isValid);
     };
+
 
     return (
         <SafeAreaView style={IsKeyboardOpen ? style.containerK : style.containerWK}>
@@ -32,10 +40,16 @@ const SignUp = () => {
                             <Text style={style.bigWelcome}>Bem-vindo</Text>
                             <Text style={style.smallWellcome}>Coloque seu número de telefone</Text>
                         </View>
-                        <View style={style.inputsContainer}>
-                            <InputForm placeholder="Senha" label="Senha" key={2} secure value={password} onChange={(e: string) => setPassword(e)} />
+                        <View style={style.inputContainer}>
+                            <InputForm
+                                placeholder="+55"
+                                key={1}
+                                phone
+                                value={phone}
+                                onChange={handlePhoneChange} />
                         </View>
-                        <LongButton title={'Entrar'} onPress={() => onLogin()} />
+
+                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert('Pressed!')} />
                     </View>
                 </View>
 

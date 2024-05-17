@@ -5,19 +5,20 @@ import { style } from './style';
 import MaskInput, { Masks } from 'react-native-mask-input';
 
 interface Props {
-    label: string;
+    label?: string;
     placeholder: string;
     secure?: boolean;
-    onChange: (value: string) => void;
+    onChange: (mask: string) => void;
     value: string;
     time?: boolean;
     height?: boolean;
     weight?: boolean;
+    phone?: boolean;
 }
 
-export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChange, value, time, height, weight }) => {
+export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChange, value, time, height, weight, phone }) => {
     return (
-        <View style={style.container}>
+        <View style={phone ? style.containerPhone : style.container}>
             {time
                 ?
                 <>
@@ -30,7 +31,6 @@ export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChang
                         placeholderTextColor={colors.placeholderTextColor}
                         style={style.input}
                     />
-
                 </>
                 :
                 height
@@ -61,10 +61,25 @@ export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChang
                             />
                         </>
                         :
-                        <>
-                            <Text style={style.InputLabel}>{label}</Text>
-                            <TextInput secureTextEntry={secure} style={style.input} placeholder={placeholder} placeholderTextColor={colors.placeholderTextColor} value={value} onChangeText={(e) => onChange(e)} />
-                        </>
+                        phone
+                            ?
+                            <>
+                                <Text style={style.textDDI}>+55</Text>
+                                <MaskInput
+                                    keyboardType='numeric'
+                                    value={value}
+                                    onChangeText={(masked) => onChange(masked)}
+                                    mask={Masks.BRL_PHONE}
+                                    placeholderTextColor={colors.placeholderTextColor}
+                                    style={style.input}
+                                />
+
+                            </>
+                            :
+                            <>
+                                <Text style={style.InputLabel}>{label}</Text>
+                                <TextInput secureTextEntry={secure} style={style.input} placeholder={placeholder} placeholderTextColor={colors.placeholderTextColor} value={value} onChangeText={(e) => onChange(e)} />
+                            </>
             }
         </View>
     );

@@ -25,7 +25,7 @@ export const style = StyleSheet.create({
         bottom: 0,
     },
     disabledButton: {
-        backgroundColor: colors.placeholderTextColor,
+        backgroundColor: colors.disabledButton,
         width: '88%',
         height: 40,
         borderRadius: 14,
