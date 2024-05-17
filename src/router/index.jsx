@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import Login from '../view/login';
 import Dashboard from '../view/dashboard';
 import Notifications from '../view/notifications';
@@ -9,7 +9,12 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
-const {createNativeStackNavigator} = require('@react-navigation/native-stack');
+import InitialScreen from '../view/initialScreen';
+import SignUp from '../view/signUp';
+
+
+
+const { createNativeStackNavigator } = require('@react-navigation/native-stack');
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +22,20 @@ export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InitialScreen"
+          component={InitialScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="Login"
           component={Login}

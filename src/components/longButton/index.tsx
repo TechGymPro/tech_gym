@@ -12,8 +12,16 @@ interface Props {
 
 export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled }) => {
     return (
-        <TouchableOpacity disabled={disabled} style={[disabled ? style.disabledButton : style.button, customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]} onPress={()=>onPress()}>
+        <TouchableOpacity disabled={disabled} style={[disabled ? style.disabledButton : style.button, customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]} onPress={() => onPress()}>
             <Text style={style.buttonText}>{title}</Text>
+        </TouchableOpacity>
+    );
+};
+
+export const ShortButton: React.FC<Props> = ({ title, onPress }) => {
+    return (
+        <TouchableOpacity style={style.shortButton} onPress={() => onPress()}>
+            <Text style={style.shortButtonText}>{title}</Text>
         </TouchableOpacity>
     );
 };

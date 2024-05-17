@@ -6,7 +6,18 @@ export const style = StyleSheet.create({
         backgroundColor: colors.primary,
         width: '88%',
         height: 40,
-        borderRadius: 14,
+        borderRadius: 32,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
+    },
+    shortButton: {
+        backgroundColor: colors.primary,
+        width: '88%',
+        height: 64,
+        borderRadius: 32,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -14,7 +25,7 @@ export const style = StyleSheet.create({
         bottom: 0,
     },
     disabledButton: {
-        backgroundColor: colors.placeholderTextColor,
+        backgroundColor: colors.disabledButton,
         width: '88%',
         height: 40,
         borderRadius: 14,
@@ -26,6 +37,13 @@ export const style = StyleSheet.create({
     },
     buttonText: {
         color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'Inter',
+        fontWeight: '700',
+    },
+    shortButtonText: {
+        color: colors.mainTextColor,
+        fontFamily: 'Poppins',
+        fontSize: 25,
+        fontWeight: '500',
     },
 });
