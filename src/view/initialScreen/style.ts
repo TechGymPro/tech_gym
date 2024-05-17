@@ -3,53 +3,63 @@ import { units } from '../../hooks/hooks';
 import colors from '../../global/colors';
 
 export const style = StyleSheet.create({
-    imgBg: {
-        width: '100%',
-        height: '100%'
-
-    },
     containerWK: {
-        height: units.vh * 20,
-        backgroundColor: colors.darkBackground,
+        flex: 1,
     },
     containerK: {
+        flex: 1,
         height: units.vh * 100,
         backgroundColor: colors.secondary,
     },
-    upScreenWK: {
-        justifyContent: 'space-evenly',
+    linearGradient: {
+        flex: 1,
+        height: units.vh * 20,
+    },
+    container: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: units.vh * 50,
         alignItems: 'center',
-        height: '45%',
+        paddingTop: 50,
+        rowGap: 80
     },
-    downScreenWK: {
-        backgroundColor: colors.secondary,
-        height: '56%',
-        borderTopLeftRadius: 18,
-        borderTopRightRadius: 18,
-    },
-    upScreenK: {
-        justifyContent: 'space-evenly',
+    buttonContainer: {
         alignItems: 'center',
-        height: '0%',
+        paddingTop: 40
     },
-    downScreenK: {
-        backgroundColor: colors.secondary,
-        height: '52%',
-        borderTopLeftRadius: 18,
-        borderTopRightRadius: 18,
+    imgBg: {
+        flex: 1,
     },
     logo: {
         width: units.vw * 90,
         height: units.vw * 30,
     },
     bigText: {
+        alignSelf: 'center',
+        position: 'absolute',
+        top: 98,
         fontSize: 20,
         color: colors.lightTextColor,
         fontFamily: 'Poppins',
     },
+    signUpContainer: {
+        position: 'absolute',
+        top: 65,
+        flexDirection: 'row',
+        alignItems: 'center',
+        columnGap: 10
+    },
     smallText: {
         fontSize: 16,
         color: colors.greyTextColor,
+        fontFamily: 'Poppins',
+    },
+    signUpText: {
+        fontSize: 18,
+        fontWeight: '700',
+        lineHeight: 20,
+        color: colors.disabledButton,
         fontFamily: 'Poppins',
     },
     textContainer: {

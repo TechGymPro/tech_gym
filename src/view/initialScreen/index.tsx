@@ -1,39 +1,41 @@
-import React, { useState } from 'react';
-import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
-import { useAppDispatch, useAppSelector, useKeyboardVisible } from '../../hooks/hooks';
+import React from 'react';
+import { Image, SafeAreaView, StatusBar, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { useKeyboardVisible } from '../../hooks/hooks';
 import colors from '../../global/colors';
 import { ShortButton } from '../../components/longButton';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
-import { isLoading, login } from '../../redux/authSlice';
+import LinearGradient from 'react-native-linear-gradient';
 
 
 const InitialScreen = () => {
     const IsKeyboardOpen = useKeyboardVisible();
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const loading = useAppSelector(isLoading);
-    const dispatch = useAppDispatch();
-
-    const onLogin = async () => {
-        dispatch(login({ email: email, password: password, navigation }));
-    };
 
     return (
         <SafeAreaView style={IsKeyboardOpen ? style.containerK : style.containerWK}>
-            <View>
-                <View>
-                    <Image source={require('../../assets/img/logo.png')} style={style.logo} />
-                    <Text style={style.bigText}>Sua saúde na palma da mão</Text>
+            <ImageBackground source={require('../../assets/img/manTraining-splashbg.jpg')} style={style.imgBg}>
+                <LinearGradient
+                    colors={['transparent', 'rgba(0,0,0,1)']}
+                    style={style.linearGradient}
+                />
+                <View style={style.container}>
+                    <View>
+                        <Image source={require('../../assets/img/logo-transparentbg.png')} style={style.logo} />
+                        <Text style={style.bigText}>Sua saúde na palma da mão</Text>
+                    </View>
+                    <View style={style.buttonContainer}>
+                        <ShortButton title={'Começar'} onPress={() => navigation.navigate('SignUp')} />
+                        <View style={style.signUpContainer}>
+                            <Text style={style.smallText}>Ainda não é aluno?</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+                                <Text style={style.signUpText}>Sign Up</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </View>
-                <View>
-                    <ShortButton title={'Começar'} onPress={() => onLogin()} />
-                    <Text style={style.smallText}>Ainda não é aluno?</Text>
-                </View>
-            </View>
-            <Image source={require('../../assets/img/manTraining-splashbg.jpg')} style={style.imgBg} />
+            </ImageBackground>
             <StatusBar barStyle={'light-content'} backgroundColor={colors.darkBackground} />
         </SafeAreaView>
     );
