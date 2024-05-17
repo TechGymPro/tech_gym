@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import {Text, TextInput, View} from 'react-native';
+import MaskInput, {Masks} from 'react-native-mask-input';
+import {maskOnlyNumbers} from '../../../utils/masks';
 import colors from '../../global/colors';
-import { style } from './style';
-import MaskInput, { Masks } from 'react-native-mask-input';
+import {style} from './style';
 
 interface Props {
     label?: string;
@@ -84,5 +85,3 @@ export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChang
         </View>
     );
 };
-
-

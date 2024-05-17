@@ -1,8 +1,9 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {LoginProps, initialStateAuthInterface} from '../@types/interfaces';
-import {RootState} from './store';
-import {apiAuth} from '../api/base';
 import {Alert} from 'react-native';
+import {storeData} from '../../utils/storage';
+import {LoginProps, initialStateAuthInterface} from '../@types/interfaces';
+import {api, apiAuth} from '../api/base';
+import {RootState} from './store';
 
 const initialState: initialStateAuthInterface = {
   userInfo: null,
@@ -53,9 +54,15 @@ export const authSlice = createSlice({
     builder.addCase(login.pending, state => {
       state.loading = true;
     });
+    builder.addCase(getStudentData.fulfilled, (state, action) => {
+      if (action.payload && action.payload.created_date) {
+        state.userInfo = action.payload;
+      }
+    });
     builder.addCase(login.fulfilled, (state, action) => {
       console.log(action.payload);
       if (action.payload && action.payload.data && action.payload.data.login) {
+        storeData('id', action.payload.data.login.student_id);
         state.userInfo = action.payload.data.login;
       } else {
         state.userInfo = null;
@@ -77,6 +84,18 @@ export const {
   updateUserWeight,
   updateUserWishedWeight,
 } = authSlice.actions;
+
+export const getStudentData = createAsyncThunk(
+  'user/getStudentData',
+  async () => {
+    try {
+      const {data} = await api.get('getUserData');
+      return data;
+    } catch (error: any) {
+      console.log(error.response.data.message);
+    }
+  },
+);
 
 export const login = createAsyncThunk(
   'auth-user/login',
