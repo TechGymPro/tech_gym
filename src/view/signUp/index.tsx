@@ -18,7 +18,7 @@ const SignUp = () => {
     const loading = useAppSelector(isLoading);
     const dispatch = useAppDispatch();
 
-    function alert(arg0: string) {
+    function alert() {
         console.log('Entrar pressed');
     }
 
@@ -34,7 +34,7 @@ const SignUp = () => {
         <SafeAreaView style={IsKeyboardOpen ? style.containerK : style.containerWK}>
             <ImageBackground source={require('../../assets/img/manTraining-splashbg.jpg')} style={style.imgBg}>
                 <View style={style.overlay}>
-                    <Image source={require('../../assets/img/logo-transparentbg.png')} style={style.logo} />
+                    <Image source={require('../../assets/img/logo-transparentbg-big.png')} style={style.logo} />
                     <View style={style.downScreenK}>
                         <View style={style.welcomeContainer}>
                             <Text style={style.bigWelcome}>Bem-vindo</Text>
@@ -49,7 +49,7 @@ const SignUp = () => {
                                 onChange={handlePhoneChange} />
                         </View>
 
-                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert('Pressed!')} />
+                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert()} />
                     </View>
                 </View>
 

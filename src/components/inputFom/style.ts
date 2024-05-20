@@ -21,7 +21,7 @@ export const style = StyleSheet.create({
         height: 44,
         fontSize: 16,
         color: colors.inputTextColor,
-        fontFamily: 'Inter'
+        fontFamily: 'Inter',
     },
     InputLabel: {
         fontSize: 16,

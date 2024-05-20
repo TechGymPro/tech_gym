@@ -1,12 +1,12 @@
 const colors = {
     primary: '#FBBA00',
-    disabledButton: '#F5C754',
+    disabledButton: '#DEDEDE',
     secondary: '#ffffff',
     darkBackground: '#000000',
     darkBackgroundOpacity: 'rgba(0,0,0, 0.79)',
     lightBackground: '#F1F1F1',
     greyBorderColor: '#D4DBE8',
-    inputFormBackground: '#F7FAFA',
+    inputFormBackground: '#fbfbfb',
     subtextColor: '#8F8E8E',
     placeholderTextColor: '#939393',
     thirdColor: '#5E17EB',
@@ -18,7 +18,7 @@ const colors = {
     secondaryTextColor: '#8F8E8E',
     lightTextColor: '#ffffff',
     greyTextColor: '#CCC7C7',
-    inputTextColor: '#101010',
+    inputTextColor: '#fbfbfb',
     showoffTextColor: '#5E17EB',
 };
 

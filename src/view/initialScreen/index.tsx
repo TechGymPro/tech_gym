@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, SafeAreaView, StatusBar, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { useKeyboardVisible } from '../../hooks/hooks';
-import colors from '../../global/colors';
 import { ShortButton } from '../../components/longButton';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -21,8 +20,8 @@ const InitialScreen = () => {
                     style={style.linearGradient}
                 />
                 <View style={style.container}>
-                    <View>
-                        <Image source={require('../../assets/img/logo-transparentbg.png')} style={style.logo} />
+                    <View style={style.midContainer}>
+                        <Image source={require('../../assets/img/logo-transparentbg-big.png')} style={style.logo} />
                         <Text style={style.bigText}>Sua saúde na palma da mão</Text>
                     </View>
                     <View style={style.buttonContainer}>
@@ -36,7 +35,7 @@ const InitialScreen = () => {
                     </View>
                 </View>
             </ImageBackground>
-            <StatusBar barStyle={'light-content'} backgroundColor={colors.darkBackground} />
+            <StatusBar hidden />
         </SafeAreaView>
     );
 };

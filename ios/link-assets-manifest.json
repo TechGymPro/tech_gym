@@ -18,6 +18,30 @@
       "sha1": "e50a9e7df241a8d94f337ec969fc2afc4ed210c9"
     },
     {
+      "path": "src/assets/fonts/Inter-Bold.ttf",
+      "sha1": "47ff07c75746682133b81e7ac0537ce50a4c9916"
+    },
+    {
+      "path": "src/assets/fonts/Inter-ExtraBold.ttf",
+      "sha1": "c9b3d2f2449ab2c67ff075f806973fa3d7e104b3"
+    },
+    {
+      "path": "src/assets/fonts/Inter-Light.ttf",
+      "sha1": "cbb2506d8da21edbb2dc8cfa26e3b42a97d138f8"
+    },
+    {
+      "path": "src/assets/fonts/Inter-Regular.ttf",
+      "sha1": "cfa780d0b50b2bb7eacb82984f1b18a95aaa40c5"
+    },
+    {
+      "path": "src/assets/fonts/Inter.ttf",
+      "sha1": "e76f580811e031813e7150131a0724811cdd737a"
+    },
+    {
+      "path": "src/assets/fonts/Inter.zip",
+      "sha1": "5f5a837dc071f13c01db22c18049a4bd59c5411d"
+    },
+    {
       "path": "src/assets/fonts/Montserrat-Bold.ttf",
       "sha1": "98c66622226025f539568865af96df5175e2979c"
     },
@@ -54,8 +78,20 @@
       "sha1": "a4ef48c17479236fea2197b9a68bf7c6163e0388"
     },
     {
+      "path": "src/assets/fonts/Poppins-Bold.ttf",
+      "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
+    },
+    {
       "path": "src/assets/fonts/Poppins-Medium.ttf",
       "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-SemiBold.ttf",
+      "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
+    },
+    {
+      "path": "src/assets/fonts/Poppins.zip",
+      "sha1": "f90fe74d4df3803a2b8df1574b77a00162af8bd7"
     }
   ]
 }

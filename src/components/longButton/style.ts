@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
+import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
-        width: '88%',
-        height: 40,
-        borderRadius: 32,
+        width: units.vw * 88,
+        height: 48,
+        borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -26,9 +27,9 @@ export const style = StyleSheet.create({
     },
     disabledButton: {
         backgroundColor: colors.disabledButton,
-        width: '88%',
-        height: 40,
-        borderRadius: 14,
+        width: units.vw * 88,
+        height: 48,
+        borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -36,14 +37,14 @@ export const style = StyleSheet.create({
         bottom: 0,
     },
     buttonText: {
+        fontSize: 16,
         color: colors.mainTextColor,
-        fontFamily: 'Inter',
-        fontWeight: '700',
+        fontFamily: 'Inter-Bold',
     },
     shortButtonText: {
         color: colors.mainTextColor,
-        fontFamily: 'Poppins',
+        fontFamily: 'Poppins-Medium',
         fontSize: 25,
-        fontWeight: '500',
+        marginTop: 5,
     },
 });

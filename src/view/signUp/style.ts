@@ -41,17 +41,16 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         height: '22%',
         justifyContent: 'center',
-        marginBottom: 30
+        marginBottom: 30,
     },
     bigWelcome: {
         color: colors.titleTextColor,
         fontSize: 32,
-        fontFamily: 'Inter',
-        fontWeight: '700'
+        fontFamily: 'Inter-ExtraBold',
     },
     smallWellcome: {
         color: colors.mainTextColor,
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: 'Inter',
         marginTop: 5,
     },
