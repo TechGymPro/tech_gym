@@ -17,7 +17,7 @@ const colors = {
     titleTextColor: '#141c24',
     secondaryTextColor: '#8F8E8E',
     lightTextColor: '#ffffff',
-    greyTextColor: '#ccc7c7',
+    greyTextColor: '#CCC7C7',
     inputTextColor: '#101010',
     showoffTextColor: '#5E17EB',
 };

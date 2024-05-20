@@ -23,15 +23,15 @@ export const Router = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="SignUp"
-          component={SignUp}
+          name="InitialScreen"
+          component={InitialScreen}
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="InitialScreen"
-          component={InitialScreen}
+          name="SignUp"
+          component={SignUp}
           options={{
             headerShown: false,
           }}
