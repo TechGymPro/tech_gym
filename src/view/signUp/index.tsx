@@ -48,7 +48,6 @@ const SignUp = () => {
                                 value={phone}
                                 onChange={handlePhoneChange} />
                         </View>
-
                         < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert()} />
                     </View>
                 </View>

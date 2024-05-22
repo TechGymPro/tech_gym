@@ -13,8 +13,7 @@ const TrainingPlay = () => {
         return (
             <SafeAreaView style={style.container}>
                 <TrainingStepper trainingName={training.training_serie_name} trainings={training.exercises} />
-                <StatusBar backgroundColor={colors.trainingBackground
-                } />
+                <StatusBar backgroundColor={colors.trainingBackground} />
             </SafeAreaView>
         );
     }

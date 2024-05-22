@@ -6,13 +6,24 @@ export const style = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
         width: units.vw * 88,
-        height: 48,
+        height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
         bottom: 0,
+    },
+    buttonSecondary: {
+        backgroundColor: colors.primary,
+        width: units.vw * 92,
+        height: units.vh * 6,
+        borderRadius: units.vh * 50,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        top: units.vh * 38
     },
     shortButton: {
         backgroundColor: colors.primary,
@@ -28,7 +39,7 @@ export const style = StyleSheet.create({
     disabledButton: {
         backgroundColor: colors.disabledButton,
         width: units.vw * 88,
-        height: 48,
+        height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
@@ -36,15 +47,26 @@ export const style = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
     },
+    disabledButtonSecondary: {
+        backgroundColor: colors.disabledButtonSecondary,
+        width: units.vw * 92,
+        height: units.vh * 6,
+        borderRadius: units.vh * 50,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        top: units.vh * 38,
+    },
     buttonText: {
         fontSize: 16,
         color: colors.mainTextColor,
-        fontFamily: 'Inter-Bold',
+        fontFamily: 'Inter-ExtraBold',
+        fontSize: 16,
     },
     shortButtonText: {
         color: colors.mainTextColor,
         fontFamily: 'Poppins-Medium',
         fontSize: 25,
-        marginTop: 5,
     },
 });

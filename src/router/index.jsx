@@ -9,10 +9,10 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
+import VerifyPhone from '../view/verifyPhone';
+import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
 import SignUp from '../view/signUp';
-
-
 
 const { createNativeStackNavigator } = require('@react-navigation/native-stack');
 
@@ -20,11 +20,18 @@ const Stack = createNativeStackNavigator();
 
 export const Router = () => {
   return (
-    <NavigationContainer>
+<NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="InitialScreen"
-          component={InitialScreen}
+          name="VerifyMail"
+          component={VerifyMail}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="VerifyPhone"
+          component={VerifyPhone}
           options={{
             headerShown: false,
           }}
@@ -32,6 +39,13 @@ export const Router = () => {
         <Stack.Screen
           name="SignUp"
           component={SignUp}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InitialScreen"
+          component={InitialScreen}
           options={{
             headerShown: false,
           }}
