@@ -29,6 +29,7 @@ const GetEmail = () => {
             <TitleAndSubtitleCard
                 title={'Informações iniciais'}
                 subtitle={'Digite abaixo seu email'}
+                marginCustom
             />
             <View style={style.inputContainer}>
                 <InputForm

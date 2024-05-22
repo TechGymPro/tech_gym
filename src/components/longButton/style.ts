@@ -47,6 +47,17 @@ export const style = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
     },
+    disabledGreyButton: {
+        backgroundColor: colors.disabledButtonSecondary,
+        width: units.vw * 88,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
+    },
     disabledButtonSecondary: {
         backgroundColor: colors.disabledButtonSecondary,
         width: units.vw * 92,

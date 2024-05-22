@@ -6,6 +6,9 @@ export const style = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingBottom: 20
     },
+    marginCustom: {
+        marginTop: 20
+    },
     title: {
         color: colors.titleTextColor,
         fontFamily: 'Inter-Bold',

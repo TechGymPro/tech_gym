@@ -9,6 +9,11 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
+import VerifyAcademy from '../view/verifyAcademy';
+import InfosIV from '../view/infosI';
+import InfosIII from '../view/infosI';
+import InfosII from '../view/infosI';
+import InfosI from '../view/infosI';
 import GetEmail from '../view/getEmail';
 import PostVerifyPhone from '../view/postVerifyPhone';
 import VerifyPhone from '../view/verifyPhone';
@@ -24,6 +29,27 @@ export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="VerifyAcademy"
+          component={VerifyAcademy}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InfosI"
+          component={InfosI}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InfosII"
+          component={InfosII}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="GetEmail"
           component={GetEmail}

@@ -18,13 +18,11 @@ export const SelectForm: React.FC<Props> = ({ label, items, onChange, value }) =
             <View style={style.input}>
                 <RNPickerSelect
                     style={{
-                        viewContainer: {height: '100%', justifyContent:'center', width: '100%'},
-                        placeholder: { color: colors.placeholderTextColor },
-                        inputIOS: { color: colors.mainTextColor, marginLeft: -12 },
-                        inputAndroid: { color: colors.mainTextColor, marginLeft: -12  },
+                        viewContainer: { height: '100%', justifyContent: 'center', width: '100%' },
+                        placeholder: { color: colors.placeholderTextColor }
                     }}
                     placeholder={{
-                        label: 'Selectione uma opção',
+                        label: 'Select',
                         color: colors.thirdColor,
                         value: null,
                     }}

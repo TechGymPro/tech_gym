@@ -4,7 +4,6 @@ import colors from '../../global/colors';
 
 export const style = StyleSheet.create({
     container: {
-        paddingHorizontal: '15%',
         justifyContent: 'space-between',
     },
     input: {
@@ -15,14 +14,14 @@ export const style = StyleSheet.create({
         paddingHorizontal: 20,
         fontSize: 16,
         color: colors.inputTextColor,
-        fontFamily: 'DMSans',
+        fontFamily: 'Inter-Regular',
     },
     InputLabel: {
-        fontSize: 12,
-        color: colors.secondaryTextColor,
+        fontSize: 16,
+        color: colors.mainTextColor,
         paddingBottom: 6,
         marginLeft: 2,
-        fontFamily: 'DMSans',
+        fontFamily: 'Inter-Medium',
     },
     text: {
 

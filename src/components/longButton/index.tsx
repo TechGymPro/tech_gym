@@ -8,27 +8,43 @@ interface Props {
     customMarginBottom?: DimensionValue;
     onPress: Function;
     disabled?: boolean;
+    academy?: boolean
 }
 
-export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled }) => {
+export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy }) => {
     return (
         <>
-            {title === 'Verificar' ? (
+            {title === 'Verificar' && academy ? (
                 <TouchableOpacity
                     disabled={disabled}
-                    style={[disabled ? style.disabledButtonSecondary : style.buttonSecondary]}
+                    style={
+                        [disabled ? style.disabledGreyButton : style.button,
+                        customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]
+                    }
                     onPress={() => onPress()}>
-                    <Text style={style.buttonText}>{title}</Text>
-                </TouchableOpacity>
-            ) : (
-                <TouchableOpacity
-                    disabled={disabled}
-                    style={[disabled ? style.disabledButton : style.button,
-                    customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]}
-                    onPress={() => onPress()}>
-                    <Text style={style.buttonText}>{title}</Text>
-                </TouchableOpacity>
-            )}
+                    <Text style={style.buttonText}>{title}</Text >
+                </TouchableOpacity >
+            ) :
+                title === 'Verificar' ?
+                    (
+                        <TouchableOpacity
+                            disabled={disabled}
+                            style={[disabled ? style.disabledButtonSecondary : style.buttonSecondary]}
+                            onPress={() => onPress()}>
+                            <Text style={style.buttonText}>{title}</Text>
+                        </TouchableOpacity>
+                    )
+                    : (
+                        <TouchableOpacity
+                            disabled={disabled}
+                            style={
+                                [disabled ? style.disabledButton : style.button,
+                                customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]
+                            }
+                            onPress={() => onPress()}>
+                            <Text style={style.buttonText}>{title}</Text >
+                        </TouchableOpacity >
+                    )}
         </>
     );
 };

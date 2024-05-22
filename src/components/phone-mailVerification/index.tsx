@@ -9,9 +9,11 @@ import ConfirmationCodeInput from '../codeField';
 
 interface PhoneMailVerificationProps {
     title: string,
+    subtitle: string,
+    academy?: boolean
 }
 
-const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title }) => {
+const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, subtitle, academy }) => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [invalidToken, setInvalidToken] = useState(true);
 
@@ -24,14 +26,19 @@ const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title }) 
             <SimpleHeader customBackButton={() => navigation.navigate('Login')} />
             <TitleAndSubtitleCard
                 title={title}
-                subtitle={'Digite abaixo o código de 6 dígitos recebido'}
+                subtitle={subtitle}
             />
             <ConfirmationCodeInput onCodeFilled={() => setInvalidToken(false)} />
-            <LongButton title={'Verificar'} disabled={invalidToken} onPress={() => alert()} />
-            <SmallTitlesCard
-                title={'Reenviar código em 23 segundos'}
-                subtitle={'Reenviar código'}
-            />
+            {!academy && (
+                <>
+                    <LongButton title={'Verificar'} disabled={invalidToken} onPress={() => alert()} />
+                    <SmallTitlesCard
+                        title={'Reenviar código em 23 segundos'}
+                        subtitle={'Reenviar código'}
+                    />
+                </>
+            )}
+
         </>
     );
 };
