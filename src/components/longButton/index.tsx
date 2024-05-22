@@ -24,6 +24,12 @@ export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress
             )}
 
         </>
+        <TouchableOpacity disabled={disabled} style={[
+            disabled ? style.disabledButton : style.button,
+            customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 },
+        ]} onPress={() => onPress()}>
+            <Text style={style.buttonText}>{title}</Text>
+        </TouchableOpacity>
     );
 };
 

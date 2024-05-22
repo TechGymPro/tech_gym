@@ -72,6 +72,12 @@
     {
       "path": "src/assets/fonts/Inter-VariableFont_slnt,wght.ttf",
       "sha1": "26752c31bd3be24b0608ee27ac8c9a9a27245268"
+      "path": "src/assets/fonts/Inter.ttf",
+      "sha1": "e76f580811e031813e7150131a0724811cdd737a"
+    },
+    {
+      "path": "src/assets/fonts/Inter.zip",
+      "sha1": "5f5a837dc071f13c01db22c18049a4bd59c5411d"
     },
     {
       "path": "src/assets/fonts/Montserrat-Bold.ttf",
@@ -180,6 +186,8 @@
     {
       "path": "src/assets/fonts/Poppins-ThinItalic.ttf",
       "sha1": "fb8fccca21550e71135f92bbaf8a2e8a12c90465"
+      "path": "src/assets/fonts/Poppins.zip",
+      "sha1": "f90fe74d4df3803a2b8df1574b77a00162af8bd7"
     }
   ]
 }

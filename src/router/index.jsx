@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 
 export const Router = () => {
   return (
-    <NavigationContainer>
+<NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="VerifyMail"

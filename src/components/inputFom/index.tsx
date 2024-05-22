@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, TextInput, View} from 'react-native';
 import MaskInput, {Masks} from 'react-native-mask-input';
 import {maskOnlyNumbers} from '../../../utils/masks';
+
 import colors from '../../global/colors';
 import {style} from './style';
 

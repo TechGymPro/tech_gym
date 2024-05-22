@@ -2,13 +2,12 @@ import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
 
-
 export const style = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
-        width: '88%',
+        width: units.vw * 88,
         height: units.vh * 6,
-        borderRadius: units.vh * 50,
+        borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -39,9 +38,9 @@ export const style = StyleSheet.create({
     },
     disabledButton: {
         backgroundColor: colors.disabledButton,
-        width: '88%',
+        width: units.vw * 88,
         height: units.vh * 6,
-        borderRadius: 14,
+        borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -60,6 +59,7 @@ export const style = StyleSheet.create({
         top: units.vh * 38,
     },
     buttonText: {
+        fontSize: 16,
         color: colors.mainTextColor,
         fontFamily: 'Inter-ExtraBold',
         fontSize: 16,

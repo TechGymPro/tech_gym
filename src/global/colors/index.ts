@@ -20,8 +20,8 @@ const colors = {
     subtitleTextColor: '#6D6D6D',
     secondaryTextColor: '#8F8E8E',
     lightTextColor: '#ffffff',
-    greyTextColor: '#ccc7c7',
-    inputTextColor: '#101010',
+    greyTextColor: '#CCC7C7',
+    inputTextColor: '#fbfbfb',
     showoffTextColor: '#5E17EB',
 };
 
