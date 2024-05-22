@@ -49,7 +49,7 @@ const SignUp = () => {
                                 onChange={handlePhoneChange} />
                         </View>
 
-                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert('Pressed!')} />
+                        <LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert('Pressed!')} />
                     </View>
                 </View>
 
