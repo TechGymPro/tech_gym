@@ -14,7 +14,7 @@ export const style = StyleSheet.create({
     title: {
         color: colors.titleTextColor,
         fontSize: 15,
-        fontFamily: 'Inter-Regular',
+        fontFamily: 'Inter-Medium',
     },
     subtitle: {
         color: colors.primary,

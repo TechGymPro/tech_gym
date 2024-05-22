@@ -7,7 +7,7 @@ const colors = {
     darkBackgroundOpacity: 'rgba(0,0,0, 0.79)',
     lightBackground: '#F1F1F1',
     greyBorderColor: '#D4DBE8',
-    codeFieldBorderColor: '#9F9F9F',
+    codeFieldBorderColor: '#bababa',
     inputFormBackground: '#F7FAFA',
     subtextColor: '#8F8E8E',
     placeholderTextColor: '#939393',

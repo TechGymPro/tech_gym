@@ -9,15 +9,20 @@ export const style = StyleSheet.create({
         width: units.vw * 12,
         height: units.vw * 12,
         lineHeight: 38,
-        fontFamily: 'Inter-Regular',
-        fontSize: 20,
-        color: colors.mainTextColor,
         borderWidth: 0.65,
         borderRadius: 5,
         borderColor: colors.codeFieldBorderColor,
         textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     focusCell: {
         borderColor: colors.primary,
+        borderWidth: 1.75,
     },
+    text: {
+        fontFamily: 'Inter-Regular',
+        fontSize: 20,
+        color: colors.mainTextColor,
+      },
 });

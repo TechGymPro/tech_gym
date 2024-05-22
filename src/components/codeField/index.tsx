@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
 
 import {
     CodeField,
@@ -27,6 +27,7 @@ const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFil
         if (value.length === CELL_COUNT) {
             onCodeFilled();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
     return (
         <SafeAreaView style={style.container}>
@@ -39,15 +40,17 @@ const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFil
                 rootStyle={style.codeFieldRoot}
                 keyboardType="number-pad"
                 textContentType="oneTimeCode"
-                autoComplete={"one-time-code"}
+                autoComplete="one-time-code"
                 testID="my-code-input"
                 renderCell={({ index, symbol, isFocused }) => (
-                    <Text
-                        key={index}
-                        style={[style.cell, isFocused && style.focusCell]}
-                        onLayout={getCellOnLayoutHandler(index)}>
-                        {symbol || (isFocused ? <Cursor /> : null)}
-                    </Text>
+                    <View style={[style.cell, isFocused && style.focusCell]} key={index}>
+                        <Text
+                            key={index}
+                            style={style.text}
+                            onLayout={getCellOnLayoutHandler(index)}>
+                            {symbol || (isFocused ? <Cursor /> : null)}
+                        </Text>
+                    </View>
                 )}
             />
         </SafeAreaView>

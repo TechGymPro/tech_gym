@@ -7,7 +7,7 @@ export const style = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
         width: '88%',
-        height: 40,
+        height: units.vh * 6,
         borderRadius: units.vh * 50,
         alignSelf: 'center',
         justifyContent: 'center',
@@ -18,7 +18,7 @@ export const style = StyleSheet.create({
     buttonSecondary: {
         backgroundColor: colors.primary,
         width: units.vw * 92,
-        height: 40,
+        height: units.vh * 6,
         borderRadius: units.vh * 50,
         alignSelf: 'center',
         justifyContent: 'center',
@@ -40,7 +40,7 @@ export const style = StyleSheet.create({
     disabledButton: {
         backgroundColor: colors.disabledButton,
         width: '88%',
-        height: 40,
+        height: units.vh * 6,
         borderRadius: 14,
         alignSelf: 'center',
         justifyContent: 'center',
@@ -51,17 +51,18 @@ export const style = StyleSheet.create({
     disabledButtonSecondary: {
         backgroundColor: colors.disabledButtonSecondary,
         width: units.vw * 92,
-        height: 40,
+        height: units.vh * 6,
         borderRadius: units.vh * 50,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: units.vh * 38
+        top: units.vh * 38,
     },
     buttonText: {
         color: colors.mainTextColor,
-        fontFamily: 'Inter-Bold',
+        fontFamily: 'Inter-ExtraBold',
+        fontSize: 16,
     },
     shortButtonText: {
         color: colors.mainTextColor,
