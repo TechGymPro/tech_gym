@@ -23,6 +23,7 @@ const colors = {
     greyTextColor: '#CCC7C7',
     inputTextColor: '#fbfbfb',
     showoffTextColor: '#5E17EB',
+    errorColor: '#EC5454',
 };
 
 export default colors;

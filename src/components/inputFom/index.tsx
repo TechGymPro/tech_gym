@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, TextInput, View} from 'react-native';
-import MaskInput, {Masks} from 'react-native-mask-input';
-import {maskOnlyNumbers} from '../../../utils/masks';
+import { Text, TextInput, View } from 'react-native';
+import MaskInput, { Masks } from 'react-native-mask-input';
+import { maskOnlyNumbers } from '../../../utils/masks';
 
 import colors from '../../global/colors';
-import {style} from './style';
+import { style } from './style';
 
 interface Props {
     label?: string;
@@ -16,11 +16,12 @@ interface Props {
     height?: boolean;
     weight?: boolean;
     phone?: boolean;
+    email?: boolean;
 }
 
-export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChange, value, time, height, weight, phone }) => {
+export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChange, value, time, height, weight, phone, email }) => {
     return (
-        <View style={phone ? style.containerPhone : style.container}>
+        <View style={phone || email ? style.containerPhoneEmail : style.container}>
             {time
                 ?
                 <>
@@ -75,13 +76,24 @@ export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChang
                                     placeholderTextColor={colors.placeholderTextColor}
                                     style={style.input}
                                 />
-
                             </>
                             :
-                            <>
-                                <Text style={style.InputLabel}>{label}</Text>
-                                <TextInput secureTextEntry={secure} style={style.input} placeholder={placeholder} placeholderTextColor={colors.placeholderTextColor} value={value} onChangeText={(e) => onChange(e)} />
-                            </>
+                            email
+                                ?
+                                <>
+                                    <MaskInput
+                                        value={value}
+                                        onChangeText={(masked) => onChange(masked)}
+                                        placeholder={placeholder}
+                                        placeholderTextColor={colors.placeholderTextColor}
+                                        style={[style.input, style.textEmail]}
+                                    />
+                                </>
+                                :
+                                <>
+                                    <Text style={style.InputLabel}>{label}</Text>
+                                    <TextInput secureTextEntry={secure} style={style.input} placeholder={placeholder} placeholderTextColor={colors.placeholderTextColor} value={value} onChangeText={(e) => onChange(e)} />
+                                </>
             }
         </View>
     );
