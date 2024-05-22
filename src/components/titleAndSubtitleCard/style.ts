@@ -3,7 +3,6 @@ import colors from '../../global/colors';
 
 export const style = StyleSheet.create({
     container: {
-        backgroundColor: colors.secondary,
         paddingHorizontal: '5%',
         paddingBottom: 20
     },
