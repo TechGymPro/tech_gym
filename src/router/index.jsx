@@ -9,7 +9,7 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
-import PostVerifyPhone from '../view/postVerifyPhone';
+import RegisterWelcome from '../view/registerWelcome';
 import VerifyPhone from '../view/verifyPhone';
 import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
@@ -24,8 +24,8 @@ export const Router = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="PostVerifyPhone"
-          component={PostVerifyPhone}
+          name="RegisterWelcome"
+          component={RegisterWelcome}
           options={{
             headerShown: false,
           }}
