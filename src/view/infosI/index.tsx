@@ -12,8 +12,15 @@ import { SelectForm } from '../../components/selectForm';
 
 const InfosI = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-    const [nome, setNome] = useState('');
+    const [nome, setNome] = useState<string>('');
+    const [value, setValue] = useState<number>(0);
+    const [birthDate, setBirthDate] = useState<string>('');
+    const [cpf, setCpf] = useState<string>('');
 
+    const options = [
+        { label: 'Perda de peso', value: 'Perda de peso' },
+        { label: 'Ganho de peso', value: 'Ganho de peso' },
+    ];
 
     return (
         <SafeAreaView style={style.container}>
@@ -26,27 +33,27 @@ const InfosI = () => {
             <View style={style.inputContainer}>
                 <InputForm
                     label={'Nome'}
-                    placeholder={''}
+                    placeholder={'Insira seu nome'}
                     onChange={setNome}
                     value={nome}
                 />
                 <InputForm
                     label={'CPF'}
-                    placeholder={''}
-                    onChange={setNome}
-                    value={nome}
+                    placeholder={'Insira o cpf'}
+                    onChange={setCpf}
+                    value={cpf}
                 />
                 <InputForm
                     label={'Data de Nascimento'}
-                    placeholder={''}
-                    onChange={setNome}
-                    value={nome}
+                    placeholder={'Informe sua data de nascimento'}
+                    onChange={setBirthDate}
+                    value={birthDate}
                 />
                 <SelectForm
                     label={'Objetivo'}
-                    onChange={setNome}
-                    value={0}
-                    items={[]}
+                    onChange={setValue}
+                    value={value}
+                    items={options}
                 />
             </View>
 

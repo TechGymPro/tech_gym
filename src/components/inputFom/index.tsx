@@ -92,7 +92,14 @@ export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChang
                                 :
                                 <>
                                     <Text style={style.InputLabel}>{label}</Text>
-                                    <TextInput secureTextEntry={secure} style={[style.input, style.textInput]} placeholder={placeholder} placeholderTextColor={colors.placeholderTextColor} value={value} onChangeText={(e) => onChange(e)} />
+                                    <TextInput
+                                        secureTextEntry={secure}
+                                        placeholder={placeholder}
+                                        placeholderTextColor={colors.placeholderTextColor}
+                                        value={value}
+                                        style={[style.input, style.textInput]}
+                                        onChangeText={(e) => onChange(e)}
+                                    />
                                 </>
             }
         </View>

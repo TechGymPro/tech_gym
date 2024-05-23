@@ -9,8 +9,8 @@ export const style = StyleSheet.create({
     },
     inputContainer: {
         paddingHorizontal: '5%',
-        marginBottom: units.vh * 5,
         marginTop: units.vh * 4,
+        gap: units.vh * 2
     },
     errorMessage: {
         color: colors.errorColor

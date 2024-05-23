@@ -10,12 +10,12 @@ import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
 import VerifyAcademy from '../view/verifyAcademy';
-import InfosIV from '../view/infosI';
-import InfosIII from '../view/infosI';
-import InfosII from '../view/infosI';
+import InfosIV from '../view/infosIV';
+import InfosIII from '../view/infosIII';
+import InfosII from '../view/infosII';
 import InfosI from '../view/infosI';
 import GetEmail from '../view/getEmail';
-import PostVerifyPhone from '../view/postVerifyPhone';
+import RegisterWelcome from '../view/registerWelcome';
 import VerifyPhone from '../view/verifyPhone';
 import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
@@ -29,13 +29,6 @@ export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="VerifyAcademy"
-          component={VerifyAcademy}
-          options={{
-            headerShown: false,
-          }}
-        />
         <Stack.Screen
           name="InfosI"
           component={InfosI}
@@ -51,15 +44,16 @@ export const Router = () => {
           }}
         />
         <Stack.Screen
-          name="GetEmail"
-          component={GetEmail}
+          name="VerifyAcademy"
+          component={VerifyAcademy}
           options={{
             headerShown: false,
           }}
         />
+
         <Stack.Screen
-          name="PostVerifyPhone"
-          component={PostVerifyPhone}
+          name="VerifyPhone"
+          component={VerifyPhone}
           options={{
             headerShown: false,
           }}
@@ -71,13 +65,24 @@ export const Router = () => {
             headerShown: false,
           }}
         />
+
+
+
         <Stack.Screen
-          name="VerifyPhone"
-          component={VerifyPhone}
+          name="GetEmail"
+          component={GetEmail}
           options={{
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="RegisterWelcome"
+          component={RegisterWelcome}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="SignUp"
           component={SignUp}

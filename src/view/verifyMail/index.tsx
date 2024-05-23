@@ -11,6 +11,7 @@ const VerifyMail = () => {
             <PhoneMailVerification
                 title={'Confirmar email'}
                 subtitle={'Digite abaixo o código de 6 dígitos recebido'}
+                marginCustom
             />
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
+import { units } from '../../hooks/hooks';
 
 
 export const style = StyleSheet.create({
@@ -7,11 +8,12 @@ export const style = StyleSheet.create({
         justifyContent: 'space-between',
     },
     input: {
-        width: '100%',
         backgroundColor: colors.inputFormBackground,
-        height: 44,
-        borderRadius: 16,
-        paddingHorizontal: 20,
+        height: units.vh * 7,
+        paddingHorizontal: units.vh * 0.3,
+        borderRadius: units.vh * 2,
+        borderWidth: 1,
+        borderColor: colors.greyBorderColor,
         fontSize: 16,
         color: colors.inputTextColor,
         fontFamily: 'Inter-Regular',

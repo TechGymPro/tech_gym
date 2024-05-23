@@ -6,18 +6,17 @@ import colors from '../../global/colors';
 import { LongButton } from '../../components/longButton';
 import { SimpleHeader } from '../../components/simpleHeader';
 import { InputForm } from '../../components/inputFom';
-import validator from 'validator';
 
 const GetEmail = () => {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState<string>('');
 
-    const validateEmail = (email: string) => {
+    const validateEmail = () => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     };
 
     const handleSubmit = () => {
-        if (!validateEmail(email)) {
+        if (!validateEmail()) {
             Alert.alert("Erro", "Por favor, insira um endereço de email válido.");
             return;
         }
@@ -34,7 +33,7 @@ const GetEmail = () => {
             <View style={style.inputContainer}>
                 <InputForm
                     email
-                    placeholder={''}
+                    placeholder={'Insira seu email'}
                     onChange={setEmail}
                     value={email}
                 />

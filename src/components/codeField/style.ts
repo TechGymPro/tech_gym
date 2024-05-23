@@ -24,5 +24,5 @@ export const style = StyleSheet.create({
         fontFamily: 'Inter-Regular',
         fontSize: 20,
         color: colors.mainTextColor,
-      },
+    },
 });

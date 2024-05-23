@@ -7,7 +7,7 @@ import colors from '../../global/colors';
 import { LongButton } from '../../components/longButton';
 import { SimpleHeader } from '../../components/simpleHeader';
 
-const PostVerifyPhone = () => {
+const RegisterWelcome = () => {
 
     function alert() {
         console.log('Continuar pressed');
@@ -28,4 +28,4 @@ const PostVerifyPhone = () => {
     );
 };
 
-export default PostVerifyPhone;
+export default RegisterWelcome;

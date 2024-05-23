@@ -20,6 +20,7 @@ const InfosIII = () => {
             <TitleAndSubtitleCard
                 title={'Informações iniciais'}
                 subtitle={'Qual seu peso atual'}
+                marginCustom
             />
 
             <LongButton

@@ -6,14 +6,17 @@ import { TitleAndSubtitleCard } from '../titleAndSubtitleCard';
 import { LongButton } from '../longButton';
 import { SmallTitlesCard } from '../smallTitlesCard';
 import ConfirmationCodeInput from '../codeField';
+import { View } from 'react-native';
+import { style } from './style';
 
 interface PhoneMailVerificationProps {
     title: string,
     subtitle: string,
     academy?: boolean
+    marginCustom?: boolean
 }
 
-const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, subtitle, academy }) => {
+const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, subtitle, academy, marginCustom }) => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [invalidToken, setInvalidToken] = useState(true);
 
@@ -24,10 +27,18 @@ const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, su
     return (
         <>
             <SimpleHeader customBackButton={() => navigation.navigate('Login')} />
-            <TitleAndSubtitleCard
-                title={title}
-                subtitle={subtitle}
-            />
+            {marginCustom ? (
+                <TitleAndSubtitleCard
+                    title={title}
+                    subtitle={subtitle}
+                    marginCustom
+                />
+            ) :
+                <TitleAndSubtitleCard
+                    title={title}
+                    subtitle={subtitle}
+                />}
+
             <ConfirmationCodeInput onCodeFilled={() => setInvalidToken(false)} />
             {!academy && (
                 <>

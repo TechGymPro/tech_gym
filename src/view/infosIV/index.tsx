@@ -19,6 +19,7 @@ const InfosIV = () => {
             <TitleAndSubtitleCard
                 title={'Informações iniciais'}
                 subtitle={'Qual seu objetivo de peso'}
+                marginCustom
             />
 
             <LongButton

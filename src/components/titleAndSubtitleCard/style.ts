@@ -7,7 +7,8 @@ export const style = StyleSheet.create({
         paddingBottom: 20
     },
     marginCustom: {
-        marginTop: 20
+        position: 'relative',
+        top: 20
     },
     title: {
         color: colors.titleTextColor,

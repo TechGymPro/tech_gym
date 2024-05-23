@@ -11,7 +11,7 @@ const colors = {
     inputFormBackground: '#FCFCFC',
     subtextColor: '#8F8E8E',
     placeholderTextColor: '#939393',
-    thirdColor: '#4057473',
+    thirdColor: '#405473',
     badGraph: '#E43B3B',
     goodGraph: '#00bf63',
     trainingBackground: '#121212',

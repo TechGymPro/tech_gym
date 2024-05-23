@@ -14,7 +14,7 @@ const VerifyAcademy = () => {
     return (
         <SafeAreaView style={style.container}>
             <PhoneMailVerification
-                title={'Códico da academia'}
+                title={'Código da academia'}
                 subtitle={'Você pode conseguir esse código com qualquer representante da academia'}
                 academy
             />

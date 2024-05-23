@@ -20,6 +20,7 @@ const InfosII = () => {
             <TitleAndSubtitleCard
                 title={'Informações iniciais'}
                 subtitle={'Qual sua altura'}
+                marginCustom
             />
 
             <LongButton

@@ -14,11 +14,11 @@ export const style = StyleSheet.create({
         paddingHorizontal: 15,
         borderWidth: 1,
         borderColor: colors.greyBorderColor,
-        borderRadius: 12,
+        borderRadius: units.vh * 6,
         backgroundColor: colors.inputFormBackground,
     },
     input: {
-        height: 44,
+        height: units.vh * 7,
         fontSize: 16,
         color: colors.titleTextColor,
         fontFamily: 'Inter-Regular',
@@ -39,6 +39,7 @@ export const style = StyleSheet.create({
         fontSize: 16,
     },
     textInput: {
-        color: colors.mainTextColor
+        color: colors.mainTextColor,
+        paddingLeft: 10
     }
 });
