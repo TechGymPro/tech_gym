@@ -9,6 +9,8 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 
+import GetEmail from '../view/getEmail';
+import PostVerifyPhone from '../view/postVerifyPhone';
 import VerifyPhone from '../view/verifyPhone';
 import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
@@ -20,8 +22,22 @@ const Stack = createNativeStackNavigator();
 
 export const Router = () => {
   return (
-<NavigationContainer>
+    <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="GetEmail"
+          component={GetEmail}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="PostVerifyPhone"
+          component={PostVerifyPhone}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="VerifyMail"
           component={VerifyMail}

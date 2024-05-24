@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
+import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     container: {
         justifyContent: 'space-between',
     },
-    containerPhone: {
+    containerPhoneEmail: {
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
@@ -20,18 +21,21 @@ export const style = StyleSheet.create({
         width: '100%',
         height: 44,
         fontSize: 16,
-        color: colors.inputTextColor,
-        fontFamily: 'Inter',
+        color: colors.titleTextColor,
+        fontFamily: 'Inter-Regular',
     },
     InputLabel: {
         fontSize: 16,
         color: colors.secondaryTextColor,
         paddingBottom: 6,
         marginLeft: 2,
-        fontFamily: 'Inter',
+        fontFamily: 'Inter-Regular',
     },
     textDDI: {
         color: colors.placeholderTextColor,
         fontSize: 16,
     },
+    textEmail: {
+        color: colors.mainTextColor
+    }
 });

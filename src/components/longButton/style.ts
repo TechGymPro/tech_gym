@@ -62,11 +62,10 @@ export const style = StyleSheet.create({
         fontSize: 16,
         color: colors.mainTextColor,
         fontFamily: 'Inter-ExtraBold',
-        fontSize: 16,
     },
     shortButtonText: {
+        fontSize: 25,
         color: colors.mainTextColor,
         fontFamily: 'Poppins-Medium',
-        fontSize: 25,
     },
 });
