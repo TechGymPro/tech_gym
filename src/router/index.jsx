@@ -8,7 +8,6 @@ import Measurements from '../view/measurements/dashboard';
 import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
-
 import VerifyAcademy from '../view/verifyAcademy';
 import InfosIV from '../view/infosIV';
 import InfosIII from '../view/infosIII';
