@@ -8,8 +8,13 @@ import Measurements from '../view/measurements/dashboard';
 import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
-import RegisterWelcome from '../view/registerWelcome';
+import VerifyAcademy from '../view/verifyAcademy';
+import InfosIV from '../view/infosIV';
+import InfosIII from '../view/infosIII';
+import InfosII from '../view/infosII';
+import InfosI from '../view/infosI';
 import GetEmail from '../view/getEmail';
+import RegisterWelcome from '../view/registerWelcome';
 import VerifyPhone from '../view/verifyPhone';
 import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
@@ -24,6 +29,45 @@ export const Router = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="InfosI"
+          component={InfosI}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InfosII"
+          component={InfosII}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="VerifyAcademy"
+          component={VerifyAcademy}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="VerifyPhone"
+          component={VerifyPhone}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="VerifyMail"
+          component={VerifyMail}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+
+
+        <Stack.Screen
           name="GetEmail"
           component={GetEmail}
           options={{
@@ -37,20 +81,7 @@ export const Router = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen
-          name="VerifyMail"
-          component={VerifyMail}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="VerifyPhone"
-          component={VerifyPhone}
-          options={{
-            headerShown: false,
-          }}
-        />
+
         <Stack.Screen
           name="SignUp"
           component={SignUp}

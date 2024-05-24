@@ -27,7 +27,6 @@ const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFil
         if (value.length === CELL_COUNT) {
             onCodeFilled();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
     return (
         <SafeAreaView style={style.container}>

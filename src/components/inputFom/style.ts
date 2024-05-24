@@ -14,28 +14,32 @@ export const style = StyleSheet.create({
         paddingHorizontal: 15,
         borderWidth: 1,
         borderColor: colors.greyBorderColor,
-        borderRadius: 12,
+        borderRadius: units.vh * 6,
         backgroundColor: colors.inputFormBackground,
     },
     input: {
-        width: '100%',
-        height: 44,
+        height: units.vh * 7,
         fontSize: 16,
         color: colors.titleTextColor,
         fontFamily: 'Inter-Regular',
+        borderWidth: 1,
+        borderColor: colors.greyBorderColor,
+        borderRadius: 12,
+        backgroundColor: colors.inputFormBackground,
     },
     InputLabel: {
+        paddingLeft: '1%',
+        paddingBottom: 8,
         fontSize: 16,
-        color: colors.secondaryTextColor,
-        paddingBottom: 6,
-        marginLeft: 2,
-        fontFamily: 'Inter-Regular',
+        color: colors.mainTextColor,
+        fontFamily: 'Inter-Medium',
     },
     textDDI: {
         color: colors.placeholderTextColor,
         fontSize: 16,
     },
-    textEmail: {
-        color: colors.mainTextColor
+    textInput: {
+        color: colors.mainTextColor,
+        paddingLeft: 10
     }
 });

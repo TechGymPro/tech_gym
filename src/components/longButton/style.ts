@@ -23,7 +23,7 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: units.vh * 38
+        top: units.vh * 40
     },
     shortButton: {
         backgroundColor: colors.primary,
@@ -34,7 +34,7 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        bottom: 0,
+        bottom: 0
     },
     disabledButton: {
         backgroundColor: colors.disabledButton,
@@ -45,7 +45,18 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        bottom: 0,
+        bottom: 0
+    },
+    disabledGreyButton: {
+        backgroundColor: colors.disabledButtonSecondary,
+        width: units.vw * 88,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 0
     },
     disabledButtonSecondary: {
         backgroundColor: colors.disabledButtonSecondary,
@@ -56,16 +67,16 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: units.vh * 38,
+        top: units.vh * 40
     },
     buttonText: {
         fontSize: 16,
         color: colors.mainTextColor,
-        fontFamily: 'Inter-ExtraBold',
+        fontFamily: 'Inter-ExtraBold'
     },
     shortButtonText: {
         fontSize: 25,
         color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium',
+        fontFamily: 'Poppins-Medium'
     },
 });

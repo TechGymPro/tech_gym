@@ -6,44 +6,29 @@ import colors from '../../global/colors';
 import { LongButton } from '../../components/longButton';
 import { SimpleHeader } from '../../components/simpleHeader';
 import { InputForm } from '../../components/inputFom';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-const GetEmail = () => {
-    const [email, setEmail] = useState<string>('');
+const InfosII = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+    const [nome, setNome] = useState('');
 
-    const validateEmail = () => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    };
 
-    const handleSubmit = () => {
-        if (!validateEmail()) {
-            Alert.alert("Erro", "Por favor, insira um endereço de email válido.");
-            return;
-        }
-        Alert.alert("Sucesso", "Email enviado!");
-    };
     return (
         <SafeAreaView style={style.container}>
             <SimpleHeader />
             <TitleAndSubtitleCard
                 title={'Informações iniciais'}
-                subtitle={'Digite abaixo seu email'}
+                subtitle={'Qual sua altura'}
                 marginCustom
             />
-            <View style={style.inputContainer}>
-                <InputForm
-                    email
-                    placeholder={'Insira seu email'}
-                    onChange={setEmail}
-                    value={email}
-                />
-            </View>
+
             <LongButton
                 title={'Próximo'}
-                onPress={handleSubmit} />
+                onPress={() => navigation.navigate('InfoIII')} />
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>
     );
 };
 
-export default GetEmail;
+export default InfosII;
