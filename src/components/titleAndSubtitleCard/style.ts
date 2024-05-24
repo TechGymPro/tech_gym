@@ -6,6 +6,9 @@ export const style = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingBottom: 20
     },
+    containerCenter: {
+        alignItems: 'center',
+    },
     marginCustom: {
         position: 'relative',
         top: 20
