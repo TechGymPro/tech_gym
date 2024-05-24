@@ -8,9 +8,8 @@ import Measurements from '../view/measurements/dashboard';
 import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
-
+import RegisterWelcome from '../view/registerWelcome';
 import GetEmail from '../view/getEmail';
-import PostVerifyPhone from '../view/postVerifyPhone';
 import VerifyPhone from '../view/verifyPhone';
 import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
@@ -32,8 +31,8 @@ export const Router = () => {
           }}
         />
         <Stack.Screen
-          name="PostVerifyPhone"
-          component={PostVerifyPhone}
+          name="RegisterWelcome"
+          component={RegisterWelcome}
           options={{
             headerShown: false,
           }}
