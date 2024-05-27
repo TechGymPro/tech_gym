@@ -4,6 +4,7 @@ const colors = {
     disabledButtonSecondary: '#DEDEDE',
     secondary: '#ffffff',
     darkBackground: '#000000',
+    pickerBackground: '#FDFEFF',
     darkBackgroundOpacity: 'rgba(0,0,0, 0.79)',
     lightBackground: '#F1F1F1',
     greyBorderColor: '#D4DBE8',
