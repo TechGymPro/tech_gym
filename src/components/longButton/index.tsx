@@ -4,6 +4,7 @@ import { units } from '../../hooks/hooks';
 import { style } from './style';
 
 interface Props {
+    type?: 'grey' | 'yellow';
     title: string;
     customMarginBottom?: DimensionValue;
     onPress: Function;
@@ -57,3 +58,16 @@ export const ShortButton: React.FC<Props> = ({ title, onPress }) => {
     );
 };
 
+
+export const SmallButton: React.FC<Props> = ({ type, title, onPress }) => {
+    return (
+        <>
+            <TouchableOpacity
+                style={style.smallButton}
+                onPress={() => onPress()}
+            >
+                <Text style={style.buttonText}>{title}</Text >
+            </TouchableOpacity>
+        </>
+    )
+}

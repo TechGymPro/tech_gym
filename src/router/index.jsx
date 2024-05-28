@@ -9,6 +9,7 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 import VerifyAcademy from '../view/verifyAcademy';
+import Agreement from '../view/agreement';
 import InfosIV from '../view/infosIV';
 import InfosIII from '../view/infosIII';
 import InfosII from '../view/infosII';
@@ -28,6 +29,13 @@ export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Agreement"
+          component={Agreement}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="InfosI"
           component={InfosI}
