@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691445171460",
+    "project_id": "tech-gym-server",
+    "storage_bucket": "tech-gym-server.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691445171460:android:9dd77affa9ed4060a17c51",
+        "android_client_info": {
+          "package_name": "com.tech_gym"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSsb1MDFjljhNW-qYZrx5pyVmMuD9Nt7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
