@@ -10,6 +10,7 @@ import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 import VerifyAcademy from '../view/verifyAcademy';
 import InfosII from '../view/infosII';
+import Agreement from '../view/agreement';
 import RegisterConcluded from '../view/registerConcluded';
 import InfosIV from '../view/infosIV';
 import InfosIII from '../view/infosIII';
@@ -32,6 +33,20 @@ export const Router = () => {
         <Stack.Screen
           name="InfosIII"
           component={InfosIII}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Agreement"
+          component={Agreement}
+          options={{
+            headerShown: false,
+          }}
+        />
+      <Stack.Screen
+          name="RegisterConcluded"
+          component={RegisterConcluded}
           options={{
             headerShown: false,
           }}

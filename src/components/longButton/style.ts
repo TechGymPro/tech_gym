@@ -11,8 +11,14 @@ export const style = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        bottom: 0,
+
+    },
+    smallButton: {
+        width: units.vh * 40,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     buttonSecondary: {
         backgroundColor: colors.primary,
@@ -44,8 +50,6 @@ export const style = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        bottom: 0
     },
     disabledGreyButton: {
         backgroundColor: colors.disabledButtonSecondary,
