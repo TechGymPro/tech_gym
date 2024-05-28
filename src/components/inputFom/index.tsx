@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
 import MaskInput, { Masks } from 'react-native-mask-input';
+import { maskOnlyNumbers } from '../../../utils/masks';
 
 import colors from '../../global/colors';
 import { style } from './style';
@@ -68,9 +69,8 @@ export const InputForm: React.FC<Props> = ({ label, placeholder, secure, onChang
                             <>
                                 <Text style={style.textDDI}>+55</Text>
                                 <MaskInput
-                                    keyboardType="numeric"
+                                    keyboardType='numeric'
                                     value={value}
-                                    maxLength={15}
                                     onChangeText={(masked) => onChange(masked)}
                                     mask={Masks.BRL_PHONE}
                                     placeholderTextColor={colors.placeholderTextColor}

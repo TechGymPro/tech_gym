@@ -28,7 +28,7 @@ const InitialScreen = () => {
                         <ShortButton title={'Começar'} onPress={() => navigation.navigate('SignUp')} />
                         <View style={style.signUpContainer}>
                             <Text style={style.smallText}>Ainda não é aluno?</Text>
-                            <TouchableOpacity onPress={() => console.log('SignUp')}>
+                            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
                                 <Text style={style.signUpText}>Sign Up</Text>
                             </TouchableOpacity>
                         </View>

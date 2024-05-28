@@ -14,15 +14,17 @@ export const style = StyleSheet.create({
         paddingHorizontal: 15,
         borderWidth: 1,
         borderColor: colors.greyBorderColor,
-        borderRadius: units.vw * 2,
+        borderRadius: units.vh * 6,
         backgroundColor: colors.inputFormBackground,
     },
     input: {
-        flex: 1,
         height: units.vh * 7,
-        fontSize: 18,
+        fontSize: 16,
         color: colors.titleTextColor,
         fontFamily: 'Inter-Regular',
+        borderWidth: 1,
+        borderColor: colors.greyBorderColor,
+        borderRadius: 12,
         backgroundColor: colors.inputFormBackground,
     },
     InputLabel: {
@@ -34,10 +36,10 @@ export const style = StyleSheet.create({
     },
     textDDI: {
         color: colors.placeholderTextColor,
-        fontSize: 18,
+        fontSize: 16,
     },
     textInput: {
         color: colors.mainTextColor,
-        paddingLeft: 10,
-    },
+        paddingLeft: 10
+    }
 });

@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
+import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     container: {
+        position: 'absolute',
+        top: units.vh * 50,
         alignSelf: 'center',
         paddingBottom: 20,
         alignItems: 'center',

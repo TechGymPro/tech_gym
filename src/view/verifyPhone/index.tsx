@@ -12,7 +12,7 @@ import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import ConfirmationCodeInput from '../../components/codeField';
 import { LongButton } from '../../components/longButton';
 import { SmallTitlesCard } from '../../components/smallTitlesCard';
-import { convertPhoneNumber } from '../../../utils';
+import { convertPhoneNumber } from '../../../utils/indext';
 
 const VerifyPhone = () => {
     const { student_phone } = useAppSelector(userData);

@@ -6,7 +6,7 @@ import { LongButton } from '../../components/longButton';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
-import { isLoading, updateUserPhone, userData } from '../../redux/authSlice';
+import { isLoading } from '../../redux/authSlice';
 import { InputForm } from '../../components/inputFom';
 
 
@@ -14,18 +14,20 @@ const SignUp = () => {
     const IsKeyboardOpen = useKeyboardVisible();
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [invalidPhone, setInvalidPhone] = useState(true);
-    const { student_phone } = useAppSelector(userData);
+    const [phone, setPhone] = useState('');
     const loading = useAppSelector(isLoading);
     const dispatch = useAppDispatch();
 
-
+    function alert() {
+        console.log('Entrar pressed');
+    }
 
     const handlePhoneChange = (value: string) => {
-        dispatch(updateUserPhone(value));
-        const isValid = student_phone.length >= 11;
+        setPhone(value);
+
+        const isValid = phone.length >= 11;
         setInvalidPhone(!isValid);
     };
-
 
 
     return (
@@ -43,10 +45,10 @@ const SignUp = () => {
                                 placeholder="+55"
                                 key={1}
                                 phone
-                                value={student_phone}
+                                value={phone}
                                 onChange={handlePhoneChange} />
                         </View>
-                        < LongButton title={'Entrar'} disabled={invalidPhone || !student_phone} onPress={() => navigation.navigate('VerifyPhone')} />
+                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert()} />
                     </View>
                 </View>
 

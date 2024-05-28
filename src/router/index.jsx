@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import Login from '../view/login';
 import Dashboard from '../view/dashboard';
 import Notifications from '../view/notifications';
@@ -9,9 +9,11 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 import VerifyAcademy from '../view/verifyAcademy';
-import InfosIV from '../view/infosIV';
-import InfosIII from '../view/infosIII';
 import InfosII from '../view/infosII';
+import Agreement from '../view/agreement';
+import RegisterConcluded from '../view/registerConcluded';
+// import InfosIV from '../view/infosIV';
+import InfosIII from '../view/infosIII';
 import InfosI from '../view/infosI';
 import GetEmail from '../view/getEmail';
 import RegisterWelcome from '../view/registerWelcome';
@@ -20,7 +22,7 @@ import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
 import SignUp from '../view/signUp';
 
-const {createNativeStackNavigator} = require('@react-navigation/native-stack');
+const { createNativeStackNavigator } = require('@react-navigation/native-stack');
 
 const Stack = createNativeStackNavigator();
 
@@ -29,22 +31,22 @@ export const Router = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="InitialScreen"
-          component={InitialScreen}
+          name="InfosIII"
+          component={InfosIII}
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="GetEmail"
-          component={GetEmail}
+          name="Agreement"
+          component={Agreement}
           options={{
             headerShown: false,
           }}
         />
-        <Stack.Screen
-          name="InfosI"
-          component={InfosI}
+      <Stack.Screen
+          name="RegisterConcluded"
+          component={RegisterConcluded}
           options={{
             headerShown: false,
           }}
@@ -56,6 +58,14 @@ export const Router = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="InfosI"
+          component={InfosI}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="VerifyAcademy"
           component={VerifyAcademy}
@@ -78,6 +88,16 @@ export const Router = () => {
             headerShown: false,
           }}
         />
+
+
+
+        <Stack.Screen
+          name="GetEmail"
+          component={GetEmail}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="RegisterWelcome"
           component={RegisterWelcome}
@@ -89,6 +109,13 @@ export const Router = () => {
         <Stack.Screen
           name="SignUp"
           component={SignUp}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InitialScreen"
+          component={InitialScreen}
           options={{
             headerShown: false,
           }}
