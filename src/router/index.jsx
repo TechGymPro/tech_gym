@@ -9,11 +9,11 @@ import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
 import VerifyAcademy from '../view/verifyAcademy';
+import InfosII from '../view/infosII';
 import Agreement from '../view/agreement';
 import RegisterConcluded from '../view/registerConcluded';
 import InfosIV from '../view/infosIV';
 import InfosIII from '../view/infosIII';
-import InfosII from '../view/infosII';
 import InfosI from '../view/infosI';
 import GetEmail from '../view/getEmail';
 import RegisterWelcome from '../view/registerWelcome';
@@ -31,6 +31,13 @@ export const Router = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="InfosIII"
+          component={InfosIII}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
           name="Agreement"
           component={Agreement}
           options={{
@@ -40,14 +47,6 @@ export const Router = () => {
       <Stack.Screen
           name="RegisterConcluded"
           component={RegisterConcluded}
-
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="InfosI"
-          component={InfosI}
           options={{
             headerShown: false,
           }}
@@ -59,6 +58,22 @@ export const Router = () => {
             headerShown: false,
           }}
         />
+
+        <Stack.Screen
+          name="RegisterConcluded"
+          component={RegisterConcluded}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="InfosI"
+          component={InfosI}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="VerifyAcademy"
           component={VerifyAcademy}
