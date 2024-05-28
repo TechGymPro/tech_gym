@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { Alert, SafeAreaView, StatusBar, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
 import { LongButton } from '../../components/longButton';
 import { SimpleHeader } from '../../components/simpleHeader';
-import { InputForm } from '../../components/inputFom';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { WeightHeightPicker } from '../../components/weightHeightPicker';
 
 const InfosIV = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-
+    const weights = Array.from({ length: 141 }, (_, i) => i + 40);
+    const [selectedWeight, setSelectedWeight] = useState(weights.indexOf(70));
 
     return (
         <SafeAreaView style={style.container}>
@@ -22,6 +23,12 @@ const InfosIV = () => {
                 marginCustom
             />
 
+            <WeightHeightPicker
+                dataSource={weights}
+                value={selectedWeight}
+                onChange={(index) => setSelectedWeight(index)}
+                dimension='Kg'
+            />
             <LongButton
                 title={'Próximo'}
                 onPress={() => navigation.navigate('VerifyAcademy')} />

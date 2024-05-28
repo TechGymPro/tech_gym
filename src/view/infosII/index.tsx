@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Alert, SafeAreaView, StatusBar, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
@@ -23,15 +23,12 @@ const InfosII = () => {
                 subtitle={'Qual sua altura?'}
                 marginCustom
             />
-
-
             <WeightHeightPicker
                 dataSource={heights}
                 value={selectedHeight}
                 onChange={(index) => setSelectedHeight(index)}
                 dimension={'cm'}
             />
-
             <LongButton
                 title={'Próximo'}
                 onPress={() => navigation.navigate('InfoIII')} />
