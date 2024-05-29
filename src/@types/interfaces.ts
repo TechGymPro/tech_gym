@@ -6,13 +6,13 @@ export enum NotificationTypes {
 
 export interface User {
   student_id: string;
-  gym_id: number;
+  gym_id: number | null;
   student_name: string;
   student_email: string;
   student_cpf: string;
   student_birth: string;
   student_phone: string;
-  objective_id: number;
+  objective_id: number | null;
   student_height: number | null;
   student_initial_weight: number | null;
   student_actual_weight: number | null;
@@ -24,7 +24,7 @@ export interface User {
 }
 
 export interface initialStateAuthInterface {
-  userInfo: User | null;
+  userInfo: User;
   loading: boolean;
 }
 

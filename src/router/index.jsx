@@ -12,7 +12,7 @@ import VerifyAcademy from '../view/verifyAcademy';
 import InfosII from '../view/infosII';
 import Agreement from '../view/agreement';
 import RegisterConcluded from '../view/registerConcluded';
-import InfosIV from '../view/infosIV';
+// import InfosIV from '../view/infosIV';
 import InfosIII from '../view/infosIII';
 import InfosI from '../view/infosI';
 import GetEmail from '../view/getEmail';
@@ -54,14 +54,6 @@ export const Router = () => {
         <Stack.Screen
           name="InfosII"
           component={InfosII}
-          options={{
-            headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="RegisterConcluded"
-          component={RegisterConcluded}
           options={{
             headerShown: false,
           }}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 
 import {
@@ -13,10 +13,11 @@ const CELL_COUNT = 6;
 
 interface ConfirmationCodeInputProps {
     onCodeFilled: () => void;
+    value: string;
+    setValue: (e: string) => void;
 }
 
-const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFilled }) => {
-    const [value, setValue] = useState('');
+const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFilled, setValue, value }) => {
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value,
@@ -27,6 +28,7 @@ const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFil
         if (value.length === CELL_COUNT) {
             onCodeFilled();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
     return (
         <SafeAreaView style={style.container}>
