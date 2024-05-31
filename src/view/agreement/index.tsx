@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SafeAreaView, StatusBar, ScrollView, Text } from 'react-native';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
-import { LongButton } from '../../components/longButton';
 import { SimpleHeader } from '../../components/simpleHeader';
+import { useDisclose } from 'native-base';
+import SheetModal from '../../components/agreementModal';
 
 const Agreement = () => {
-    const [show, setShow] = useState<boolean>(false);
+    const {
+        isOpen,
+        onOpen,
+        onClose
+    } = useDisclose();
 
     return (
         <SafeAreaView style={style.container}>
@@ -77,9 +82,12 @@ const Agreement = () => {
                 </Text>
             </ScrollView>
 
-            <LongButton
-                title={'Assinar'}
-                onPress={() => setShow(true)} />
+
+            <SheetModal
+                isOpen={isOpen}
+                onOpen={onOpen}
+                onClose={onClose}
+                type={'Assinar'} />
 
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>

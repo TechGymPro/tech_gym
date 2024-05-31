@@ -9,7 +9,7 @@ interface Props {
     customMarginBottom?: DimensionValue;
     onPress: Function;
     disabled?: boolean;
-    academy?: boolean
+    academy?: boolean;
 }
 
 export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy }) => {
