@@ -27,6 +27,7 @@ const colors = {
     inputTextColor: '#fbfbfb',
     showoffTextColor: '#5E17EB',
     errorColor: '#EC5454',
+    green: '#00AD5E',
 };
 
 export default colors;

@@ -2,7 +2,7 @@
 import React from 'react';
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
 import { MainHeader } from '../../components/mainHeader';
-import { LargeCard } from '../../components/largeCard';
+import { LargeCard } from '../../components/Card';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import { CardSeparator } from '../../components/separators/card';
 import { useNavigation, ParamListBase } from '@react-navigation/native';
