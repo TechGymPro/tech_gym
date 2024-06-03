@@ -4,6 +4,7 @@ const colors = {
     disabledButtonSecondary: '#DEDEDE',
     secondary: '#ffffff',
     darkBackground: '#000000',
+    pickerBackground: '#FDFEFF',
     darkBackgroundOpacity: 'rgba(0,0,0, 0.79)',
     modalgroundOpacity: 'rgba(14,14,14, 0.40)',
     lightBackground: '#F1F1F1',
@@ -26,6 +27,7 @@ const colors = {
     inputTextColor: '#fbfbfb',
     showoffTextColor: '#5E17EB',
     errorColor: '#EC5454',
+    green: '#00AD5E',
 };
 
 export default colors;

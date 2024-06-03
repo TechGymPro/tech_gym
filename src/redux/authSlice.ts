@@ -6,7 +6,24 @@ import {api, apiAuth} from '../api/base';
 import {RootState} from './store';
 
 const initialState: initialStateAuthInterface = {
-  userInfo: null,
+  userInfo: {
+    created_date: '',
+    deleted_date: '',
+    gym_id: null,
+    objective_id: null,
+    student_actual_weight: null,
+    student_birth: '',
+    student_cpf: '',
+    student_email: '',
+    student_height: null,
+    student_id: '',
+    student_initial_weight: null,
+    student_name: '',
+    student_phone: '',
+    student_wished_weight: null,
+    training_id: null,
+    updated_date: '',
+  },
   loading: false,
 };
 
@@ -14,6 +31,9 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    updateUserPhone: (state, action) => {
+      state.userInfo.student_phone = action.payload;
+    },
     updateUserEmail: (state, action) => {
       if (state.userInfo && state.userInfo.student_email) {
         state.userInfo.student_email = action.payload;
@@ -65,7 +85,24 @@ export const authSlice = createSlice({
         storeData('id', action.payload.data.login.student_id);
         state.userInfo = action.payload.data.login;
       } else {
-        state.userInfo = null;
+        state.userInfo = {
+          created_date: '',
+          deleted_date: '',
+          gym_id: null,
+          objective_id: null,
+          student_actual_weight: null,
+          student_birth: '',
+          student_cpf: '',
+          student_email: '',
+          student_height: null,
+          student_id: '',
+          student_initial_weight: null,
+          student_name: '',
+          student_phone: '',
+          student_wished_weight: null,
+          training_id: null,
+          updated_date: '',
+        };
       }
       state.loading = false;
     });
@@ -83,6 +120,7 @@ export const {
   updateUserHeight,
   updateUserWeight,
   updateUserWishedWeight,
+  updateUserPhone,
 } = authSlice.actions;
 
 export const getStudentData = createAsyncThunk(
