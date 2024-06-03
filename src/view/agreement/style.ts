@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
         paddingHorizontal: '5%',
         marginVertical: '5%',
         marginTop: units.vh * 6,
-        marginBottom: units.vh * 18,
+        marginBottom: units.vh * 8,
     },
     contract: {
         fontFamily: 'Inter-Regular',
@@ -24,6 +24,11 @@ export const style = StyleSheet.create({
         fontFamily: 'Inter-Regular',
         fontSize: 16,
         textAlign: 'left'
+    },
+    sheetTextTitle: {
+        color: colors.subtitleTextColor,
+        fontFamily: 'Inter-Bold',
+        fontSize: 20,
     },
     errorMessage: {
         color: colors.errorColor
