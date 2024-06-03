@@ -22,6 +22,7 @@ import VerifyMail from '../view/verifyMail';
 import InitialScreen from '../view/initialScreen';
 import SignUp from '../view/signUp';
 import PropositionOptions from '../view/propositionOptions';
+import Payment from '../view/payment';
 
 const { createNativeStackNavigator } = require('@react-navigation/native-stack');
 
@@ -30,10 +31,17 @@ const Stack = createNativeStackNavigator();
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PropositionOptions">
+      <Stack.Navigator initialRouteName="Payment">
         <Stack.Screen
           name="PropositionOptions"
           component={PropositionOptions}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={Payment}
           options={{
             headerShown: false,
           }}
