@@ -38,9 +38,9 @@ export const Card: React.FC<Props> = ({ subtitle, title, onPress, options, disab
             </View>
 
 
-            {options.map(option =>
+            {options.map((option, index) =>
             (
-                <View style={style.optionsContainer}>
+                <View style={style.optionsContainer} key={index}>
                     <Icon name="check" size={20} color={colors.darkBackground} />
                     <Text style={style.optionsText}>{option}</Text>
                 </View>

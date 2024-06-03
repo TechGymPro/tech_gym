@@ -30,7 +30,7 @@ const Stack = createNativeStackNavigator();
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PropositionOptions">
+      <Stack.Navigator initialRouteName="InfosIII">
         <Stack.Screen
           name="PropositionOptions"
           component={PropositionOptions}

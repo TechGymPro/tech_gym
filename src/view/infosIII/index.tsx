@@ -31,7 +31,7 @@ const InfosIII = () => {
             />
             <LongButton
                 title={'Próximo'}
-                onPress={() => navigation.navigate('InfoIII')} />
+                onPress={() => navigation.navigate('PropositionOptions')} />
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView >
     );
