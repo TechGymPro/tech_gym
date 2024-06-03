@@ -1,35 +1,52 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
+import { SmallButton } from '../longButton';
 
 export const style = StyleSheet.create({
-    modalContainer: {
-        flex: 1,
-        backgroundColor: colors.modalgroundOpacity,
+    button: {
+        width: units.vw * 88,
+        height: units.vh * 6,
+        marginBottom: units.vh * 2,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: colors.primary,
     },
-    cardContainer: {
-        height: units.vh * 12,
-        backgroundColor: colors.secondary,
+    buttonText: {
+        fontSize: 16,
+        fontFamily: 'Inter-ExtraBold',
+        color: colors.mainTextColor
+    },
+    sheetTextTitle: {
+        marginTop: units.vh * 2,
+        fontSize: 20,
+        fontFamily: 'Inter-ExtraBold',
+        color: colors.mainTextColor
+    },
+    sheetTextsubtitle: {
+        textAlign: 'center',
+        paddingHorizontal: '2%',
+        marginTop: units.vh * 2,
+        fontSize: 16,
+        fontFamily: 'Inter-Regular',
+        color: colors.mainTextColor
     },
     buttonContainer: {
         flexDirection: 'row',
-        paddingHorizontal: '5%',
+        gap: 10
     },
-    contract: {
-        fontFamily: 'Inter-Regular',
-        fontSize: 16,
-        color: colors.mainTextColor
+    smallButton: {
+        width: units.vw * 45,
+        height: units.vh * 6,
+        marginTop: units.vh * 3,
+        marginBottom: units.vh * 2,
+        borderRadius: (units.vw * 88) / 2,
+        backgroundColor: colors.primary,
     },
-    text: {
-        color: colors.subtitleTextColor,
-        fontFamily: 'Inter-Regular',
-        fontSize: 16,
-        textAlign: 'left'
-    },
-    errorMessage: {
-        color: colors.errorColor
+    smallGreyButton: {
+        backgroundColor: colors.greyBgColor,
     }
 });
 
