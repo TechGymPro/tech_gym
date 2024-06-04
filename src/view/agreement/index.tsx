@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, StatusBar, ScrollView, Text } from 'react-native';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
 import { SimpleHeader } from '../../components/simpleHeader';
-import { useDisclose } from 'native-base';
 import SheetModal from '../../components/agreementModal';
 
 const Agreement = () => {
-    const {
-        isOpen,
-        onOpen,
-        onClose
-    } = useDisclose();
+    const [showActionsheet, setShowActionsheet] = useState(false);
+    const handleClose = () => setShowActionsheet(false);
+    const handleOpen = () => setShowActionsheet(true);
 
     return (
         <SafeAreaView style={style.container}>
@@ -84,9 +81,9 @@ const Agreement = () => {
 
 
             <SheetModal
-                isOpen={isOpen}
-                onOpen={onOpen}
-                onClose={onClose}
+                isOpen={showActionsheet}
+                onOpen={handleOpen}
+                onClose={handleClose}
                 type={'Assinar'} />
 
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
