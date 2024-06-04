@@ -31,7 +31,7 @@ const Stack = createNativeStackNavigator();
 export const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Payment">
+      <Stack.Navigator initialRouteName="Agreement">
         <Stack.Screen
           name="PropositionOptions"
           component={PropositionOptions}
