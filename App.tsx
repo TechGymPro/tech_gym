@@ -1,17 +1,18 @@
 import React from 'react';
-import { NativeBaseProvider } from "native-base";
 import { Router } from './src/router';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
+import { config } from '@gluestack-ui/config';
 
 function App(): JSX.Element {
 
   return (
-    <NativeBaseProvider>
+    <GluestackUIProvider config={config}>
       <Provider store={store}>
         <Router />
       </Provider>
-    </NativeBaseProvider>
+    </GluestackUIProvider>
   );
 }
 

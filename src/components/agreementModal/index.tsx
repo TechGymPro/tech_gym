@@ -1,6 +1,7 @@
-import { Actionsheet, Button } from "native-base";
-import { Text, View } from "react-native";
-import { style } from "./style";
+import React from 'react';
+import { Text, View } from 'react-native';
+import { style } from './style';
+import { Actionsheet, Button, ActionsheetContent } from '@gluestack-ui/themed';
 
 interface SheetModalProps {
     isOpen: any;
@@ -18,7 +19,7 @@ const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type }
                 </Text>
             </Button>
             <Actionsheet isOpen={isOpen} onClose={onClose}>
-                <Actionsheet.Content>
+                <ActionsheetContent>
                     <Text style={style.sheetTextTitle}>Assinar contrato?</Text>
                     <Text style={style.sheetTextsubtitle}>Ao assinar você concorda com os termos de uso apresentados no contrato.</Text>
                     <View style={style.buttonContainer}>
@@ -29,7 +30,7 @@ const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type }
                             <Text style={style.buttonText}>Assinar</Text>
                         </Button>
                     </View>
-                </Actionsheet.Content>
+                </ActionsheetContent>
             </Actionsheet>
         </>
     );

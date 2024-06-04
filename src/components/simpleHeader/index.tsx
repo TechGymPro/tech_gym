@@ -14,6 +14,7 @@ import { notification } from '../../redux/userSlice';
 interface Props {
     customBackButton?: Function;
     text?: string;
+    hasNotificationIcon?: boolean;
 }
 
 export const SimpleHeader: React.FC<Props> = ({ text }) => {

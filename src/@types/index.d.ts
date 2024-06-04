@@ -9,8 +9,5 @@ declare module 'react-native-vector-icons/FontAwesome5';
 declare module 'react-native-vector-icons/FontAwesome6';
 declare module 'react-native-vector-icons/MaterialIcons';
 declare module 'react-native-vector-icons/Fontisto';
-declare module 'react-native-credit-card-input';
-declare module 'deprecated-react-native-prop-types';
-declare module 'native-base';
 declare module '@env';
 

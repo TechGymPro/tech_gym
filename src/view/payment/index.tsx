@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
-import { Radio } from 'native-base'
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
@@ -10,13 +9,12 @@ import { InputForm } from '../../components/inputFom';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import CreditCard from '../../components/creditCard';
-import { background, color } from 'native-base/lib/typescript/theme/styled-system';
+import { CircleIcon, Radio, RadioIcon, RadioIndicator } from '@gluestack-ui/themed';
 
 const Payment = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [value, setValue] = useState<string>('');
-    const [checked, setChecked] = useState<boolean>(false);
-    const [nome, setNome] = useState<string>('');
+    const [name, setName] = useState<string>('');
     const [cardNumber, setCardNumber] = useState<string>('');
     const [dueDate, setDueDate] = useState<string>('');
     const [cep, setCep] = useState<string>('');
@@ -37,67 +35,110 @@ const Payment = () => {
                 />
                 <Radio.Group
                     style={style.radioContainer}
-                    name="paymentMode"
                     accessibilityLabel="payment modes"
                     value={value}
                     onChange={
                         (newValue: any) => setValue(newValue)
                     }>
                     <Radio
-                        _checked={{
+                        mb={'$2'}
+                        sx={{
                             borderColor: colors.greyBorderColor,
-                            bg: colors.primary,
+                            backgroundColor: colors.secondary,
                             _icon: {
-                                color: colors.primary
-                            }
+                                ':checked': {
+                                    color: colors.primary,
+                                    borderColor: colors.goodGraph
+                                },
+                                color: colors.secondary,
+                            },
+                            _indicator: {
+                                ':checked': {
+                                    backgroundColor: colors.primary,
+                                    borderColor: colors.greyBorderColor,
+                                },
+                            },
                         }}
-                        value="Boleto"
-                        my={1}>
+                        value="Boleto">
+                        <RadioIndicator mr="$2">
+                            <RadioIcon as={CircleIcon} />
+                        </RadioIndicator>
                         <Image
                             style={style.radioImg}
                             source={require('../../assets/img/boleto.png')}
                         />
-                        Boleto
+                        <Text>
+                            Boleto
+                        </Text>
                     </Radio>
                     <Radio
-                        _checked={{
+                        mb={'$2'}
+                        sx={{
                             borderColor: colors.greyBorderColor,
-                            bg: colors.primary,
+                            backgroundColor: colors.secondary,
                             _icon: {
-                                color: colors.primary
-                            }
+                                ':checked': {
+                                    color: colors.primary,
+                                    borderColor: colors.goodGraph
+                                },
+                                color: colors.secondary,
+                            },
+                            _indicator: {
+                                ':checked': {
+                                    backgroundColor: colors.primary,
+                                    borderColor: colors.greyBorderColor,
+                                },
+                            },
                         }}
-                        value="Pix"
-                        my={2}>
+                        value="Pix">
+                        <RadioIndicator mr="$2">
+                            <RadioIcon as={CircleIcon} />
+                        </RadioIndicator>
                         <Image
                             style={style.radioImg}
                             source={require('../../assets/img/pix.png')}
                         />
-                        Pix
+                        <Text>
+                            Pix
+                        </Text>
                     </Radio>
                     <Radio
-                        _checked={{
+                        mb={'$2'}
+                        sx={{
                             borderColor: colors.greyBorderColor,
-                            bg: colors.primary,
+                            backgroundColor: colors.secondary,
                             _icon: {
-                                color: colors.primary
-                            }
+                                ':checked': {
+                                    color: colors.primary,
+                                    borderColor: colors.goodGraph
+                                },
+                                color: colors.secondary,
+                            },
+                            _indicator: {
+                                ':checked': {
+                                    backgroundColor: colors.primary,
+                                    borderColor: colors.greyBorderColor,
+                                },
+                            },
                         }}
-                        value="Cartão de crédito"
-                        my={1}>
+                        value="Cartão de crédito">
+                        <RadioIndicator mr="$2">
+                            <RadioIcon as={CircleIcon} />
+                        </RadioIndicator>
                         <Image
                             style={style.radioImg}
                             source={require('../../assets/img/card.png')}
                         />
-                        Cartão de crédito
+                        <Text>
+                            Cartão de crédito
+                        </Text>
                     </Radio>
                 </Radio.Group>
-
-                <CreditCard />
-
+                <CreditCard cardName={name} cardCvv={cvv} cardDueDate={dueDate} cardNumber={cardNumber} />
                 <View style={style.inputContainer}>
                     <InputForm
                         label={'Número do cartão'}
+                        creditCard
                         placeholder={'0000 0000 0000 0000'}
                         onChange={setCardNumber}
                         value={cardNumber}
@@ -105,8 +146,9 @@ const Payment = () => {
                     <InputForm
                         label={'Nome no cartão'}
                         placeholder={'Insira o nome'}
-                        onChange={setNome}
-                        value={nome}
+                        onChange={setName}
+                        value={name}
+                        upperCase
                     />
                     <View style={style.smallInputContainer}>
                         <View style={style.smallInput}>
@@ -115,14 +157,18 @@ const Payment = () => {
                                 placeholder={'00/00'}
                                 onChange={setDueDate}
                                 value={dueDate}
+                                expireDate
+                                maxLength={5}
                             />
                         </View>
                         <View style={style.smallInput}>
                             <InputForm
+                                maxLength={3}
                                 label={'CVV'}
                                 placeholder={'000'}
                                 onChange={setCvv}
                                 value={cvv}
+                                isNumber
                             />
                         </View>
                     </View>
@@ -131,6 +177,7 @@ const Payment = () => {
                         placeholder={'Seu CEP'}
                         onChange={setCep}
                         value={cep}
+                        zipCode
                     />
                 </View>
 
