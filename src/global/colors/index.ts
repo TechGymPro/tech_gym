@@ -3,6 +3,7 @@ const colors = {
     disabledButton: '#F5C754',
     disabledButtonSecondary: '#DEDEDE',
     secondary: '#ffffff',
+    secondaryWhite: '#EEEEEE',
     darkBackground: '#000000',
     pickerBackground: '#FDFEFF',
     darkBackgroundOpacity: 'rgba(0,0,0, 0.79)',

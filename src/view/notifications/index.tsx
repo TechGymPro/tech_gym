@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { FlatList, Modal, SafeAreaView, Text, View } from 'react-native';
-import { MainHeader } from '../../components/mainHeader';
+import { Header } from '../../components/header';
 import { NotificationsCard } from '../../components/notificationsCard';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import { CardSeparator } from '../../components/separators/card';
@@ -41,7 +41,7 @@ const Notifications = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <MainHeader disableNotification />
+            <Header />
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}

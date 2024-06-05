@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 import { style } from './style';
 
 interface Props {
-    title: string;
-    subtitle: string;
+    title?: string;
+    subtitle?: string;
     marginCustom?: boolean;
 }
 

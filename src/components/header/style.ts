@@ -4,21 +4,31 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     container: {
-        height: 50,
-        backgroundColor: colors.secondary,
+        height: units.vh * 8,
         flexDirection: 'row',
         alignItems: 'center',
         gap: 20,
         paddingHorizontal: '5%',
+        backgroundColor: colors.secondary,
+    },
+    containerJustifyContent: {
+        justifyContent: 'space-between'
     },
     hello: {
         color: colors.titleTextColor,
         fontSize: 18,
         fontFamily: 'Inter',
-        fontWeight: '700'
+        fontWeight: '700',
     },
     ico: {
         width: 24,
         height: 24,
+        flexDirection: 'row',
+        alignSelf: 'flex-end',
+    },
+    containerIco: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
     },
 });

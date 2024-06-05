@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
-import { MainHeader } from '../../components/mainHeader';
-import { LargeCard } from '../../components/Card';
+import { Header } from '../../components/header';
+import { Card } from '../../components/card';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import { CardSeparator } from '../../components/separators/card';
 import { useNavigation, ParamListBase } from '@react-navigation/native';
@@ -34,14 +34,14 @@ const Training = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <MainHeader />
+            <Header />
             <Image style={style.image} source={require('../../assets/img/gymGround.jpg')} />
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
                 data={exercises}
                 renderItem={({ item }) => (
-                    <LargeCard letter={item.letter} title={item.training_serie_name} onPress={() => cardPress(item)} />
+                    <Card letter={item.letter} title={item.training_serie_name} onPress={() => cardPress(item)} />
                 )}
                 keyExtractor={item => item.training_serie_name}
                 scrollEnabled
