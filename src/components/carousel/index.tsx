@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ImageBackground, ListRenderItem, Text, TouchableOpacity, View } from "react-native"
 // import Carousel from 'react-native-reanimated-carousel'
-import Carousel from 'react-native-snap-carousel'
+import Carousel, { Pagination } from 'react-native-snap-carousel'
 import { style } from './style'
 import { listCarouselBottom, listCarouselTop } from './carouselData'
 import { units } from '../../hooks/hooks'
 import LinearGradient from 'react-native-linear-gradient'
+import colors from '../../global/colors'
 
-const CardItemBottom: ListRenderItem<any> = ({ item, index }) => {
+
+interface Props {
+    item: any;
+    index: number;
+}
+
+const CardItemBottom: React.FC<Props> = ({ item, index }) => {
     return (
         <View style={style.containerImage} key={index}>
             <ImageBackground
@@ -27,6 +34,7 @@ export function CarouselBottom() {
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             <Carousel
+                vertical={false}
                 layoutCardOffset={9}
                 ref={isCarousel}
                 data={listCarouselBottom}
@@ -42,7 +50,7 @@ export function CarouselBottom() {
 
 
 
-const CardItemTop: ListRenderItem<any> = ({ item, index }) => {
+const CardItemTop: React.FC<Props> = ({ item, index }) => {
     return (
 
         <View style={style.containerImageTop} key={index}>
@@ -70,11 +78,13 @@ const CardItemTop: ListRenderItem<any> = ({ item, index }) => {
     )
 }
 export function CarouselTop() {
-    const isCarousel = React.useRef(null)
+    const isCarousel = React.useRef(null);
+    const [index, setIndex] = useState(0);
 
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             <Carousel
+                vertical={false}
                 layoutCardOffset={9}
                 ref={isCarousel}
                 data={listCarouselTop}
@@ -82,7 +92,24 @@ export function CarouselTop() {
                 sliderWidth={units.vw * 100}
                 itemWidth={units.vw * 92}
                 inactiveSlideShift={0}
+                onSnapToItem={(index) => setIndex(index)}
                 useScrollView={true}
+            />
+            <Pagination
+                dotsLength={listCarouselTop.length}
+                activeDotIndex={index}
+                carouselRef={isCarousel}
+                dotStyle={{
+                    width: 25,
+                    height: 8,
+                    borderRadius: 5,
+                    marginHorizontal: 0,
+                    backgroundColor: colors.greyDotColor,
+                    bottom: units.vh * 3,
+                }}
+                inactiveDotOpacity={0.8}
+                inactiveDotScale={0.6}
+                tappableDots={true}
             />
         </View>
     )

@@ -32,7 +32,6 @@ export const style = StyleSheet.create({
     containerImageTop: {
         width: '100%',
         height: 171,
-        marginBottom: units.vh * 10,
         borderRadius: 20,
         overflow: 'hidden',
     },

@@ -10,6 +10,7 @@ const colors = {
     modalgroundOpacity: 'rgba(14,14,14, 0.40)',
     lightBackground: '#F1F1F1',
     greyBorderColor: '#D4DBE8',
+    greyDotColor: '#DADDE2',
     greyBgColor: '#E3E8F2',
     codeFieldBorderColor: '#bababa',
     inputFormBackground: '#FCFCFC',
