@@ -6,7 +6,7 @@ import { LongButton } from '../../components/longButton';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
-import { isLoading } from '../../redux/authSlice';
+import { isLoading, sendPhoneToken } from '../../redux/authSlice';
 import { InputForm } from '../../components/inputFom';
 
 
@@ -18,8 +18,11 @@ const SignUp = () => {
     const loading = useAppSelector(isLoading);
     const dispatch = useAppDispatch();
 
-    function alert() {
-        console.log('Entrar pressed');
+    function sendPhone() {
+        dispatch(sendPhoneToken({ phone }))
+        .then(()=>(
+            navigation.navigate('VerifyPhone')
+        ))
     }
 
     const handlePhoneChange = (value: string) => {

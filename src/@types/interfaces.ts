@@ -5,7 +5,7 @@ export enum NotificationTypes {
 }
 
 export interface User {
-  student_id: string;
+  student_id: number | null;
   gym_id: number | null;
   student_name: string;
   student_email: string;
@@ -13,14 +13,14 @@ export interface User {
   student_birth: string;
   student_phone: string;
   objective_id: number | null;
-  student_height: number | null;
-  student_initial_weight: number | null;
-  student_actual_weight: number | null;
-  deleted_date: string | null;
-  updated_date: string;
-  created_date: string;
+  student_height: string;
+  student_initial_weight: string;
+  student_actual_weight: string;
   student_wished_weight: number | null;
   training_id: number | null;
+  contract_signed: 0 | 1;
+  payment_type_id: number | null;
+  gateway_id: string
 }
 
 export interface initialStateAuthInterface {
@@ -61,10 +61,15 @@ export interface initialStateUserInterface {
   selectedTraining: division | null;
 }
 
-export interface LoginProps {
-  email: string;
-  password: string;
-  navigation: any;
+export interface LoginPhoneProps {
+  phone: string;
+  code?: string;
+}
+
+export interface LoginEmailProps {
+  email?: string;
+  code?: string;
+  token?: string;
 }
 
 export interface getNotificationsProps {

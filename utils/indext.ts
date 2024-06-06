@@ -23,3 +23,4 @@ export function creditCardType(cc: string): 'MASTERCARD' | 'VISA' | false {
   }
   return false;
 }
+

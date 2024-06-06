@@ -20,7 +20,7 @@ const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type }
             </Button>
             <Actionsheet isOpen={isOpen} onClose={onClose}>
                 <ActionsheetBackdrop />
-                <ActionsheetContent>
+                <ActionsheetContent >
                     <ActionsheetDragIndicatorWrapper>
                         <ActionsheetDragIndicator />
                     </ActionsheetDragIndicatorWrapper>

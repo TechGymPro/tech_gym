@@ -1,28 +1,30 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Alert} from 'react-native';
-import {storeData} from '../../utils/storage';
-import {LoginProps, initialStateAuthInterface} from '../@types/interfaces';
+import {
+  LoginEmailProps,
+  LoginPhoneProps,
+  initialStateAuthInterface,
+} from '../@types/interfaces';
 import {api, apiAuth} from '../api/base';
 import {RootState} from './store';
 
 const initialState: initialStateAuthInterface = {
   userInfo: {
-    created_date: '',
-    deleted_date: '',
     gym_id: null,
     objective_id: null,
-    student_actual_weight: null,
+    student_actual_weight: '',
     student_birth: '',
     student_cpf: '',
     student_email: '',
-    student_height: null,
-    student_id: '',
-    student_initial_weight: null,
+    student_height: '',
+    student_id: null,
+    student_initial_weight: '',
     student_name: '',
     student_phone: '',
     student_wished_weight: null,
     training_id: null,
-    updated_date: '',
+    contract_signed: 0,
+    gateway_id: '',
+    payment_type_id: null,
   },
   loading: false,
 };
@@ -71,39 +73,16 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(login.pending, state => {
+    builder.addCase(confirmPhoneToken.pending, state => {
       state.loading = true;
     });
-    builder.addCase(getStudentData.fulfilled, (state, action) => {
-      if (action.payload && action.payload.created_date) {
-        state.userInfo = action.payload;
-      }
+    builder.addCase(confirmPhoneToken.fulfilled, state => {
+      state.loading = false;
     });
-    builder.addCase(login.fulfilled, (state, action) => {
-      console.log(action.payload);
-      if (action.payload && action.payload.data && action.payload.data.login) {
-        storeData('id', action.payload.data.login.student_id);
-        state.userInfo = action.payload.data.login;
-      } else {
-        state.userInfo = {
-          created_date: '',
-          deleted_date: '',
-          gym_id: null,
-          objective_id: null,
-          student_actual_weight: null,
-          student_birth: '',
-          student_cpf: '',
-          student_email: '',
-          student_height: null,
-          student_id: '',
-          student_initial_weight: null,
-          student_name: '',
-          student_phone: '',
-          student_wished_weight: null,
-          training_id: null,
-          updated_date: '',
-        };
-      }
+    builder.addCase(verifyGymToken.pending, state => {
+      state.loading = true;
+    });
+    builder.addCase(verifyGymToken.fulfilled, state => {
       state.loading = false;
     });
   },
@@ -135,37 +114,80 @@ export const getStudentData = createAsyncThunk(
   },
 );
 
-export const login = createAsyncThunk(
-  'auth-user/login',
-  async ({email, password, navigation}: LoginProps) => {
+export const sendPhoneToken = createAsyncThunk(
+  'auth-user/sendPhoneToken',
+  async ({phone}: LoginPhoneProps) => {
     try {
-      let loginResponse = await apiAuth.post('login', {
-        email,
-        password,
+      await apiAuth.post('check-phone', {
+        phone,
       });
 
-      navigation.navigate('Dashboard');
-
-      return loginResponse;
+      return;
     } catch (error: any) {
       console.log({error});
-      switch (error.response.data.message) {
-        case 'Error: FirebaseError: Firebase: Error (auth/invalid-email).':
-          Alert.alert('Erro de login', 'Email inválido');
-          break;
-        case 'Error: FirebaseError: Firebase: Error (auth/invalid-login-credentials).':
-          Alert.alert('Erro de login', 'Senha ou e-mail inválido(s)');
-          break;
-        case 'Error: FirebaseError: Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).':
-          Alert.alert(
-            'Erro de login',
-            'Tentativas de login atingida, por favor aguarde alguns minutos e tente novamente.',
-          );
-          break;
-        default:
-          Alert.alert('Erro de login');
-          break;
-      }
+    }
+  },
+);
+
+export const confirmPhoneToken = createAsyncThunk(
+  'auth-user/confirmPhoneToken',
+  async ({phone, code}: LoginPhoneProps) => {
+    try {
+      let result = await apiAuth.post('check-phone-token', {
+        phone,
+        code,
+      });
+
+      return result;
+    } catch (error: any) {
+      console.log({error});
+    }
+  },
+);
+
+export const sendEmailToken = createAsyncThunk(
+  'auth-user/sendPhoneToken',
+  async ({email}: LoginEmailProps) => {
+    try {
+      let token = await apiAuth.post(`check-email/${email}`);
+
+      return token;
+    } catch (error: any) {
+      console.log({error});
+    }
+  },
+);
+
+export const confirmEmailToken = createAsyncThunk(
+  'auth-user/confirmPhoneToken',
+  async ({code, token}: LoginEmailProps) => {
+    try {
+      let result = await apiAuth.post(
+        `check-email-token/${code}`,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        },
+      );
+
+      return result;
+    } catch (error: any) {
+      console.log({error});
+    }
+  },
+);
+
+export const verifyGymToken = createAsyncThunk(
+  'auth-user/verifyGymToken',
+  async ({code}: LoginEmailProps) => {
+    try {
+      let result = await apiAuth.post(`check-gym-token/${code}`);
+
+      return result;
+    } catch (error: any) {
+      console.log({error});
     }
   },
 );

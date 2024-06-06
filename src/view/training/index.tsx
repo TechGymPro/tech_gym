@@ -2,7 +2,6 @@
 import React from 'react';
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
 import { MainHeader } from '../../components/mainHeader';
-import { LargeCard } from '../../components/Card';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import { CardSeparator } from '../../components/separators/card';
 import { useNavigation, ParamListBase } from '@react-navigation/native';
@@ -14,6 +13,7 @@ import { userData } from '../../redux/authSlice';
 import { division } from '../../@types/interfaces';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../../global/colors';
+import { Card } from '@gluestack-ui/themed';
 
 const Training = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -41,7 +41,7 @@ const Training = () => {
                 refreshing={loading}
                 data={exercises}
                 renderItem={({ item }) => (
-                    <LargeCard letter={item.letter} title={item.training_serie_name} onPress={() => cardPress(item)} />
+                    <Card  />
                 )}
                 keyExtractor={item => item.training_serie_name}
                 scrollEnabled
