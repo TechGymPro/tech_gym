@@ -3,31 +3,24 @@ import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
-    // container: {
-    //     height: units.vh * 8,
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     gap: 20,
-    //     paddingHorizontal: '5%',
-    //     backgroundColor: colors.secondary,
-    // },
     containerImage: {
-        width: 276,
+        width: '100%',
         height: 138,
         borderRadius: 20,
         overflow: 'hidden'
     },
     image: {
-        width: 276,
+        width: '100%',
         height: 138,
         borderRadius: units.vh * 2,
         resizeMode: 'cover',
     },
     body: {
-        color: colors.secondary,
+        fontFamily: 'Almarai-Bold',
         fontSize: 14,
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
+        color: colors.secondary,
     },
     containerImageTop: {
         width: '100%',
@@ -44,22 +37,22 @@ export const style = StyleSheet.create({
         paddingLeft: 20,
     },
     imageTop: {
-        width: 350,
+        width: '100%',
         height: 171,
         borderRadius: units.vh * 6,
         resizeMode: 'cover',
     },
     header: {
         color: colors.primary,
+        fontFamily: 'Almarai-Bold',
         fontSize: 27,
-        fontWeight: "bold",
         paddingLeft: 20,
         paddingTop: 20
     },
     headerTop: {
-        color: colors.secondaryWhite,
+        fontFamily: 'Almarai-Bold',
         fontSize: 20,
-        fontWeight: "bold",
+        color: colors.secondaryWhite,
     },
 
     cardTopBtn: {
@@ -71,8 +64,8 @@ export const style = StyleSheet.create({
         backgroundColor: colors.primary,
     },
     cardTopBtnText: {
+        fontFamily: 'Almarai-Bold',
         fontSize: 14,
-        fontWeight: "bold",
         color: colors.darkBackground,
     },
     linearGradient: {

@@ -108,6 +108,10 @@
 		<string>PlusJakartaSans-SemiBold.ttf</string>
 		<string>PlusJakartaSans-SemiBoldItalic.ttf</string>
 		<string>PlusJakartaSans-VariableFont_wght.ttf</string>
+		<string>Almarai-Bold.ttf</string>
+		<string>Almarai-ExtraBold.ttf</string>
+		<string>Almarai-Light.ttf</string>
+		<string>Almarai-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

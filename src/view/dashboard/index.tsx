@@ -10,8 +10,8 @@ import { isLoading as loadingFromAuth, userData } from '../../redux/authSlice';
 import { LoadingScreen } from '../../components/loadingScreen';
 import { Header } from '../../components/header';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
-import Measurements from '../measurements/measurementsGraph';
 import { CarouselBottom, CarouselTop } from '../../components/carousel';
+import DashBoardGraph from '../../components/dashBoardGraph';
 
 
 const Dashboard = () => {
@@ -38,20 +38,15 @@ const Dashboard = () => {
                 :
                 <SafeAreaView style={style.container}>
                     <ScrollView style={{ height: '100%' }}>
-
-
                         <Header
                             hasNotificationIcon
                         />
                         <TitleAndSubtitleCard
                             title={'Olá, User'}
                         />
-
                         <CarouselTop />
-                        {/* carrossel top */}
                         <CarouselBottom />
-
-                        <Measurements />
+                        <DashBoardGraph />
                         <StatusBar barStyle={'light-content'} backgroundColor={colors.primary} />
                     </ScrollView>
                 </SafeAreaView>

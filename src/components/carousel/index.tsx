@@ -17,14 +17,16 @@ interface Props {
 const CardItemBottom: React.FC<Props> = ({ item, index }) => {
     return (
         <View style={style.containerImage} key={index}>
-            <ImageBackground
-                source={item.imgURL}
-                style={style.image}
-            >
-                <Text style={style.header}>{item.title}</Text>
-                <Text style={style.body}>{item.body}</Text>
-            </ImageBackground>
-        </View>
+            <TouchableOpacity>
+                <ImageBackground
+                    source={item.imgURL}
+                    style={style.image}
+                >
+                    <Text style={style.header}>{item.title}</Text>
+                    <Text style={style.body}>{item.body}</Text>
+                </ImageBackground>
+            </TouchableOpacity>
+        </View >
     )
 }
 
