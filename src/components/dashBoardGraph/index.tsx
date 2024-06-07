@@ -76,24 +76,24 @@ const DashBoardGraph = () => {
         }
       />
       <ResizableWhiteCard
-        width="100%"
+        width={units.vw * 90}
         height={250}
         children={
           <LineChart
             data={{
-              labels: ['Inicial', 'Agora', 'Desejo'],
+              labels: ['', '', ''],
               datasets: [
                 {
                   data: [
-                    user?.student_initial_weight || 80,
-                    user?.student_actual_weight || 70,
-                    user?.student_wished_weight || 60,
+                    user?.student_initial_weight || 65,
+                    user?.student_actual_weight || 80,
+                    user?.student_wished_weight || 75,
                   ],
                 },
               ],
             }}
-            width={86 * units.vw} // from react-native
-            height={250}
+            width={120 * units.vw} // from react-native
+            height={units.vh * 25}
             // yAxisLabel={''}
             yAxisSuffix="kg"
             yAxisInterval={1} // optional, defaults to 1

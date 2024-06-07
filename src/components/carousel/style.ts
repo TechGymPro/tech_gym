@@ -4,14 +4,15 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     containerImage: {
-        width: '100%',
-        height: 138,
+        width: units.vw * 72,
+        height: units.vh * 20,
         borderRadius: 20,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        alignSelf: 'center'
     },
     image: {
         width: '100%',
-        height: 138,
+        height: '100%',
         borderRadius: units.vh * 2,
         resizeMode: 'cover',
     },
@@ -23,10 +24,11 @@ export const style = StyleSheet.create({
         color: colors.secondary,
     },
     containerImageTop: {
-        width: '100%',
-        height: 171,
+        width: units.vw * 85,
+        height: units.vh * 24,
         borderRadius: 20,
         overflow: 'hidden',
+        alignSelf: 'center',
     },
     containerTextTop: {
         width: '60%',
@@ -38,7 +40,7 @@ export const style = StyleSheet.create({
     },
     imageTop: {
         width: '100%',
-        height: 171,
+        height: '100%',
         borderRadius: units.vh * 6,
         resizeMode: 'cover',
     },
