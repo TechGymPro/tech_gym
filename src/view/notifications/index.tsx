@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { useState } from 'react';
 import { FlatList, Modal, SafeAreaView, Text, View } from 'react-native';
@@ -14,6 +13,7 @@ import { notification as notificationType } from '../../@types/interfaces';
 import { userData } from '../../redux/authSlice';
 import colors from '../../global/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SheetModal from '../../components/agreementModal';
 
 const Notifications = () => {
     const [modalIsVisible, setModalIsVisible] = useState(false);
@@ -24,6 +24,32 @@ const Notifications = () => {
         notifications_type: 1,
         notifications_user_id: 1,
     });
+
+    const notificacoes = [{
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Anúncio para todos os alunos',
+        notifications_type: 2,
+        notifications_user_id: 1,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Promoção: indique e ganhe',
+        notifications_type: 1,
+        notifications_user_id: 2,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Não abriremos nesse feriado',
+        notifications_type: 3,
+        notifications_user_id: 3,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Não abriremos nesse feriado',
+        notifications_type: 4,
+        notifications_user_id: 4,
+    }
+    ]
     const loading = useAppSelector(isLoading);
     const dispatch = useAppDispatch();
     const user = useAppSelector(userData);
@@ -45,21 +71,21 @@ const Notifications = () => {
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
-                data={notifications}
+                data={notificacoes}
                 renderItem={({ item, index }: any) => (
                     <NotificationsCard key={index} onPress={() => cardClick(item)} item={item} />
                 )}
                 keyExtractor={item => String(item.notifications_user_id)}
                 scrollEnabled
-                ItemSeparatorComponent={() => (
-                    <CardSeparator customHeight={18} />
-                )}
-                ListHeaderComponent={() => (
-                    <BottomOrTopSeparator />
-                )}
-                ListFooterComponent={() => (
-                    <BottomOrTopSeparator />
-                )}
+                // ItemSeparatorComponent={() => (
+                //     <CardSeparator customHeight={18} />
+                // )}
+                // ListHeaderComponent={() => (
+                //     <BottomOrTopSeparator />
+                // )}
+                // ListFooterComponent={() => (
+                //     <BottomOrTopSeparator />
+                // )}
                 ListEmptyComponent={() => (
                     <View style={style.emptyContainer}>
                         <Icon color={colors.placeholderTextColor} name="notifications-off-outline" size={40} />
@@ -70,6 +96,14 @@ const Notifications = () => {
             <Modal visible={modalIsVisible} transparent animationType="fade" >
                 <NotificationModal close={() => setModalIsVisible(false)} item={selected} />
             </Modal>
+            {/* <SheetModal
+                isOpen={showActionsheet}
+                onOpen={handleOpen}
+                onClose={handleClose}
+                type={'Notificação'}
+                title='Assinar contrato?'
+                text='Ao assinar você concorda com os termos de uso apresentados no contrato.'
+            /> */}
         </SafeAreaView>
     );
 };
