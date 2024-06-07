@@ -12,6 +12,7 @@ const colors = {
     greyBorderColor: '#D4DBE8',
     greyDotColor: '#DADDE2',
     greyBgColor: '#E3E8F2',
+    lightgreyBgColor: '#F7FAFA',
     codeFieldBorderColor: '#bababa',
     inputFormBackground: '#FCFCFC',
     subtextColor: '#8F8E8E',
