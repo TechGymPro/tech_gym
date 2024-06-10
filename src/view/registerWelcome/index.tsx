@@ -4,8 +4,8 @@ import { style } from './style';
 import PhoneMailVerification from '../../components/phone-mailVerification';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
-import { LongButton } from '../../components/longButton';
-import { SimpleHeader } from '../../components/simpleHeader';
+import { LongButton } from '../../components/button';
+import { Header } from '../../components/header';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -18,7 +18,9 @@ const RegisterWelcome = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <SimpleHeader />
+            <Header
+                backButton
+            />
             <TitleAndSubtitleCard
                 title={'Você é novo por aqui'}
                 subtitle={

@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar, ScrollView, Text } from 'react-native';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
-import { SimpleHeader } from '../../components/simpleHeader';
+import { Header } from '../../components/header';
 import SheetModal from '../../components/agreementModal';
 
 const Agreement = () => {
@@ -13,7 +13,9 @@ const Agreement = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <SimpleHeader />
+            <Header
+                backButton
+            />
             <TitleAndSubtitleCard
                 title={'Assinar contrato'}
                 subtitle={'Esse é o contrato da DWA academia musculação e fitness LTDA.'}

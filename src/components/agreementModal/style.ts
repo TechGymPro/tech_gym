@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
-import { SmallButton } from '../longButton';
+import { SmallButton } from '../button';
 
 export const style = StyleSheet.create({
     button: {

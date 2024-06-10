@@ -3,8 +3,8 @@ import { Alert, SafeAreaView, StatusBar, Text, View } from 'react-native';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
-import { LongButton } from '../../components/longButton';
-import { SimpleHeader } from '../../components/simpleHeader';
+import { LongButton } from '../../components/button';
+import { Header } from '../../components/header';
 import { InputForm } from '../../components/inputFom';
 
 const GetEmail = () => {
@@ -24,7 +24,9 @@ const GetEmail = () => {
     };
     return (
         <SafeAreaView style={style.container}>
-            <SimpleHeader />
+            <Header
+                backButton
+            />
             <TitleAndSubtitleCard
                 title={'Informações iniciais'}
                 subtitle={'Digite abaixo seu email'}

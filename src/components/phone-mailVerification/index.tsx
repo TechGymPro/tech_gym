@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { SimpleHeader } from '../simpleHeader';
+import { Header } from '../header';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { TitleAndSubtitleCard } from '../titleAndSubtitleCard';
-import { LongButton } from '../longButton';
+import { LongButton } from '../button';
 import { SmallTitlesCard } from '../smallTitlesCard';
 import ConfirmationCodeInput from '../codeField';
-import { View } from 'react-native';
-import { style } from './style';
 
 interface PhoneMailVerificationProps {
     title: string,
@@ -26,7 +24,10 @@ const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, su
 
     return (
         <>
-            <SimpleHeader customBackButton={() => navigation.navigate('Login')} />
+            <Header
+                customBackButton={() => navigation.navigate('Login')}
+                backButton
+            />
             {marginCustom ? (
                 <TitleAndSubtitleCard
                     title={title}
@@ -39,7 +40,13 @@ const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, su
                     subtitle={subtitle}
                 />}
 
-            <ConfirmationCodeInput onCodeFilled={() => setInvalidToken(false)} />
+            <ConfirmationCodeInput
+                onCodeFilled={() => setInvalidToken(false)}
+                value={''}
+                setValue={function (e: string): void {
+                    throw new Error('Function not implemented.');
+                }}
+            />
             {!academy && (
                 <>
                     <LongButton title={'Verificar'} disabled={invalidToken} onPress={() => alert()} />

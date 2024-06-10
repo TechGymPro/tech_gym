@@ -2,6 +2,26 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/Almarai-Bold.ttf",
+      "sha1": "29da0cb13a3569e44d983a5497f05d637f700a52"
+    },
+    {
+      "path": "src/assets/fonts/Almarai-ExtraBold.ttf",
+      "sha1": "1027eff77cef57a47cbb4842a64b47fbc4c30ba4"
+    },
+    {
+      "path": "src/assets/fonts/Almarai-Light.ttf",
+      "sha1": "8b2bfee8a592c8afd1616ffd7f552fe7050117dd"
+    },
+    {
+      "path": "src/assets/fonts/Almarai-Regular.ttf",
+      "sha1": "70717b2433c393140de1608f1b1dc50773342d9e"
+    },
+    {
+      "path": "src/assets/fonts/Almarai.zip",
+      "sha1": "d036f7a7f1f06d07e65ea38084a0e8a436f06cc0"
+    },
+    {
       "path": "src/assets/fonts/DMSans-Medium.ttf",
       "sha1": "00ea5b83c109e751b844413d32e21b7689bf786d"
     },
@@ -115,7 +135,7 @@
     },
     {
       "path": "src/assets/fonts/OFL.txt",
-      "sha1": "1c56c026429ca724fe63e93424ad1837075a1008"
+      "sha1": "481d8f9a319ede1821b00d222e36b933b72322b3"
     },
     {
       "path": "src/assets/fonts/PlusJakartaSans-Bold.ttf",
@@ -267,11 +287,11 @@
     },
     {
       "path": "src/assets/fonts/README.txt",
-      "sha1": "b869b56f95dff57687e66842c609399c0ebf8b9f"
+      "sha1": "30601811b21925cbc342d8d1c36ab50c6f99c705"
     },
     {
       "path": "src/assets/fonts/style.ts",
-      "sha1": "42dd393ad2951677568d9750a8ac8f6d78c6ca97"
+      "sha1": "f9a0cee51210e1d89d8209694431e0bdc5c79642"
     }
   ]
 }

@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
-import {Alert, SafeAreaView, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { Alert, SafeAreaView, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {unMaskNumbersToString} from '../../../../utils/masks';
-import {api} from '../../../api/base';
-import {InputForm} from '../../../components/inputFom';
-import {LoadingScreen} from '../../../components/loadingScreen';
-import {LongButton} from '../../../components/longButton';
-import {MainHeader} from '../../../components/mainHeader';
-import {SelectForm} from '../../../components/selectForm';
+import { unMaskNumbersToString } from '../../../../utils/masks';
+import { api } from '../../../api/base';
+import { InputForm } from '../../../components/inputFom';
+import { LoadingScreen } from '../../../components/loadingScreen';
+import { LongButton } from '../../../components/button';
+import { Header } from '../../../components/header';
+import { SelectForm } from '../../../components/selectForm';
 import colors from '../../../global/colors';
-import {units, useAppDispatch, useAppSelector} from '../../../hooks/hooks';
+import { units, useAppDispatch, useAppSelector } from '../../../hooks/hooks';
 import {
   getStudentData,
   updateUserObjective,
   userData,
 } from '../../../redux/authSlice';
-import {style} from './style';
+import { style } from './style';
 
 const MeasurementsEdit = () => {
   const user = useAppSelector(userData);
@@ -59,29 +59,17 @@ const MeasurementsEdit = () => {
               : null,
           actualWeight:
             Number(peso) !== user.student_actual_weight ||
-            Number(pesoDesejado) !== user.student_wished_weight
+              Number(pesoDesejado) !== user.student_wished_weight
               ? Number(peso)
               : null,
           wishedWeight:
             Number(peso) !== user.student_actual_weight ||
-            Number(pesoDesejado) !== user.student_wished_weight
+              Number(pesoDesejado) !== user.student_wished_weight
               ? Number(pesoDesejado)
               : null,
           objective: objective !== user.objective_id ? objective : null,
         });
 
-        // if (Number(altura) !== user.student_height) {
-        //   dispatch(updateUserHeight(Number(altura)));
-        // }
-        // if (
-        //   Number(peso) !== user.student_actual_weight ||
-        //   Number(pesoDesejado) !== user.student_wished_weight
-        // ) {
-        //   dispatch(updateUserWeight(Number(peso)));
-        // }
-        // if (Number(pesoDesejado) !== user.student_wished_weight) {
-        //   dispatch(updateUserWishedWeight(Number(pesoDesejado)));
-        // }
         if (objective !== user.objective_id) {
           dispatch(updateUserObjective(objective));
         }
@@ -102,7 +90,7 @@ const MeasurementsEdit = () => {
         <LoadingScreen />
       ) : (
         <SafeAreaView style={style.container}>
-          <MainHeader />
+          <Header />
           <View style={style.titleContainer}>
             <View style={style.iconContainer}>
               <Icon
@@ -146,8 +134,8 @@ const MeasurementsEdit = () => {
             <SelectForm
               label="Objetivo"
               items={[
-                {label: 'Perda de peso', value: 1},
-                {label: 'Ganho de massa', value: 2},
+                { label: 'Perda de peso', value: 1 },
+                { label: 'Ganho de massa', value: 2 },
               ]}
               value={objective}
               onChange={e => setObjective(e)}
