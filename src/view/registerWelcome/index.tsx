@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { style } from './style';
-import PhoneMailVerification from '../../components/phone-mailVerification';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
 import { LongButton } from '../../components/button';

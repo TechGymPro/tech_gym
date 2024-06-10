@@ -23,11 +23,12 @@ const Dashboard = () => {
     useEffect(() => {
         if (!loadingAuth) {
             if (userInfos) {
-                dispatch(getAll({ gymId: userInfos.gym_id, userId: userInfos.student_id }));
+                // dispatch(getAll({ gymId: userInfos.gym_id, userId: userInfos.student_id }));
             } else {
                 navigation.goBack();
             }
         }
+                // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loadingAuth]);
 
     return (

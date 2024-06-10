@@ -12,7 +12,7 @@ const DashBoardGraph = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getStudentData());
+    // dispatch(getStudentData());
   }, [dispatch]);
   const user = useAppSelector(userData);
   const colorGraph =
