@@ -15,9 +15,11 @@ interface ConfirmationCodeInputProps {
     onCodeFilled: () => void;
     value: string;
     setValue: (e: string) => void;
+    error?: boolean;
+    correct?: boolean;
 }
 
-const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFilled, setValue, value }) => {
+const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFilled, setValue, value, correct, error }) => {
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value,
@@ -28,7 +30,7 @@ const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFil
         if (value.length === CELL_COUNT) {
             onCodeFilled();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
     return (
         <SafeAreaView style={style.container}>
@@ -41,10 +43,11 @@ const ConfirmationCodeInput: React.FC<ConfirmationCodeInputProps> = ({ onCodeFil
                 rootStyle={style.codeFieldRoot}
                 keyboardType="number-pad"
                 textContentType="oneTimeCode"
+                editable={!correct}
                 autoComplete="one-time-code"
                 testID="my-code-input"
                 renderCell={({ index, symbol, isFocused }) => (
-                    <View style={[style.cell, isFocused && style.focusCell]} key={index}>
+                    <View style={[correct ? style.cellCorrect : error ? style.cellError : style.cell, isFocused && style.focusCell]} key={index}>
                         <Text
                             key={index}
                             style={style.text}

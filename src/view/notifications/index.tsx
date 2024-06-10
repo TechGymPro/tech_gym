@@ -39,6 +39,22 @@ const Notifications = () => {
         }
     };
 
+    let array = [
+        {
+            notifications_text: 'a',
+            notifications_title: 'a',
+            notifications_type: 1,
+            notifications_user_id: 1,
+
+        },
+        {
+            notifications_text: 'b',
+            notifications_title: 'b',
+            notifications_type: 1,
+            notifications_user_id: 1,
+        },
+    ]
+
     return (
         <SafeAreaView style={style.container}>
             <MainHeader disableNotification />

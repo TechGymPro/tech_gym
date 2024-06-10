@@ -6,6 +6,7 @@ import {
 } from '../@types/interfaces';
 import {api, apiAuth} from '../api/base';
 import {RootState} from './store';
+import { convertPhoneNumber } from '../../utils/indext';
 
 const initialState: initialStateAuthInterface = {
   userInfo: {
@@ -73,6 +74,12 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: builder => {
+    builder.addCase(sendPhoneToken.pending, state => {
+      state.loading = true;
+    });
+    builder.addCase(sendPhoneToken.fulfilled, state => {
+      state.loading = false;
+    });
     builder.addCase(confirmPhoneToken.pending, state => {
       state.loading = true;
     });
@@ -118,13 +125,14 @@ export const sendPhoneToken = createAsyncThunk(
   'auth-user/sendPhoneToken',
   async ({phone}: LoginPhoneProps) => {
     try {
-      await apiAuth.post('check-phone', {
-        phone,
+      let response = await apiAuth.post('check-phone', {
+        phone: convertPhoneNumber(phone),
       });
 
-      return;
+      return response;
     } catch (error: any) {
-      console.log({error});
+      console.log(error);
+      return error;
     }
   },
 );
@@ -133,14 +141,14 @@ export const confirmPhoneToken = createAsyncThunk(
   'auth-user/confirmPhoneToken',
   async ({phone, code}: LoginPhoneProps) => {
     try {
+      console.log({phone: convertPhoneNumber(phone), code});
       let result = await apiAuth.post('check-phone-token', {
-        phone,
+        phone: convertPhoneNumber(phone),
         code,
       });
-
       return result;
     } catch (error: any) {
-      console.log({error});
+      return error;
     }
   },
 );
@@ -153,7 +161,7 @@ export const sendEmailToken = createAsyncThunk(
 
       return token;
     } catch (error: any) {
-      console.log({error});
+      return error;
     }
   },
 );
@@ -174,7 +182,7 @@ export const confirmEmailToken = createAsyncThunk(
 
       return result;
     } catch (error: any) {
-      console.log({error});
+      return error;
     }
   },
 );
@@ -187,7 +195,7 @@ export const verifyGymToken = createAsyncThunk(
 
       return result;
     } catch (error: any) {
-      console.log({error});
+      return error;
     }
   },
 );

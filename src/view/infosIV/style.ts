@@ -14,7 +14,7 @@ export const style = StyleSheet.create({
         marginTop: units.vh * 4,
     },
     errorMessage: {
-        color: colors.errorColor
+        color: colors.errorColor,
     }
 });
 

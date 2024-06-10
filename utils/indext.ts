@@ -1,11 +1,11 @@
 export function convertPhoneNumber(phoneNumber: string): string {
-  const numericOnly = phoneNumber.replace(/\D/g, '');
-  const formattedNumber = `+55 ${numericOnly.slice(0, 2)} ${numericOnly.slice(
-    2,
-    7,
-  )}-${numericOnly.slice(7)}`;
+  const cleaned = phoneNumber.replace(/\D/g, '');
+  let areaCode = cleaned.substring(0, 2);
+  if (areaCode.length < 2) {
+      areaCode = '0' + areaCode;
+  }
 
-  return formattedNumber;
+  return '55' + areaCode + cleaned.substring(2);
 }
 
 export function creditCardType(cc: string): 'MASTERCARD' | 'VISA' | false {

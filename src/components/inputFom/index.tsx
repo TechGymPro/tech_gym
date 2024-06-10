@@ -101,7 +101,7 @@ export const InputForm: React.FC<Props> = ({
                                     onChangeText={(masked) => onChange(masked)}
                                     mask={Masks.BRL_PHONE}
                                     placeholderTextColor={colors.placeholderTextColor}
-                                    style={style.input}
+                                    style={style.phoneInput}
                                 />
                             </>
                             :

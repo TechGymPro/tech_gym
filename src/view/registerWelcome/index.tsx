@@ -6,8 +6,11 @@ import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
 import { LongButton } from '../../components/longButton';
 import { SimpleHeader } from '../../components/simpleHeader';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const RegisterWelcome = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
     function alert() {
         console.log('Continuar pressed');
