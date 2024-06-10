@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Image, SafeAreaView, StatusBar, Text, TouchableOpacity, View, ActivityIndicator, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import { Image, SafeAreaView, StatusBar, Text, View, ImageBackground } from 'react-native';
 import { useAppDispatch, useAppSelector, useKeyboardVisible } from '../../hooks/hooks';
 import colors from '../../global/colors';
 import { LongButton } from '../../components/longButton';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
-import { isLoading } from '../../redux/authSlice';
+import { isLoading, sendPhoneToken, updateUserPhone, userData } from '../../redux/authSlice';
 import { InputForm } from '../../components/inputFom';
 
 
@@ -14,18 +14,23 @@ const SignUp = () => {
     const IsKeyboardOpen = useKeyboardVisible();
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [invalidPhone, setInvalidPhone] = useState(true);
-    const [phone, setPhone] = useState('');
     const loading = useAppSelector(isLoading);
+    const { student_phone } = useAppSelector(userData);
     const dispatch = useAppDispatch();
 
-    function alert() {
-        console.log('Entrar pressed');
+    function sendPhone() {
+        dispatch(sendPhoneToken({ phone: student_phone }))
+            .then((response: any) => {
+                if (response.payload.data.response === 200) {
+                    navigation.navigate('VerifyPhone');
+                }
+            });
     }
 
     const handlePhoneChange = (value: string) => {
-        setPhone(value);
+        dispatch(updateUserPhone(value));
 
-        const isValid = phone.length >= 11;
+        const isValid = value.length === 15;
         setInvalidPhone(!isValid);
     };
 
@@ -43,12 +48,13 @@ const SignUp = () => {
                         <View style={style.inputContainer}>
                             <InputForm
                                 placeholder="+55"
+                                maxLength={15}
                                 key={1}
                                 phone
-                                value={phone}
+                                value={student_phone}
                                 onChange={handlePhoneChange} />
                         </View>
-                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => alert()} />
+                        < LongButton title={'Entrar'} disabled={invalidPhone} onPress={() => sendPhone()} loading={loading} />
                     </View>
                 </View>
 

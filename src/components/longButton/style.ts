@@ -60,7 +60,7 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        bottom: 0
+        bottom: 0,
     },
     disabledButtonSecondary: {
         backgroundColor: colors.disabledButtonSecondary,

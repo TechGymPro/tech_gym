@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { SafeAreaView, View, Text, ScrollView } from 'react-native'
-import { SimpleHeader } from '../../components/simpleHeader'
-import { style } from './style'
-import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard'
-import { LongButton } from '../../components/longButton'
-import { Card } from '../../components/Card'
+import React, { useState } from 'react';
+import { SafeAreaView, View, Text, ScrollView } from 'react-native';
+import { SimpleHeader } from '../../components/simpleHeader';
+import { style } from './style';
+import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
+import { LongButton } from '../../components/longButton';
+import { Card } from '../../components/card';
 
 const cardsContent = [{
     index: 1,
@@ -12,7 +12,7 @@ const cardsContent = [{
     title: 70,
     options: ['Feature 1', 'Feature 2', 'Feature 3'],
     onPress: { undefined },
-    discount: false
+    discount: false,
 },
 {
     index: 2,
@@ -20,7 +20,7 @@ const cardsContent = [{
     title: 370,
     options: ['Feature 1', 'Feature 2', 'Feature 3'],
     onPress: { undefined },
-    discount: true
+    discount: true,
 },
 {
     index: 3,
@@ -28,7 +28,7 @@ const cardsContent = [{
     title: 714,
     options: ['Feature 1', 'Feature 2', 'Feature 3'],
     onPress: { undefined },
-    discount: false
+    discount: false,
 }]
 
 const PropositionOptions = () => {
