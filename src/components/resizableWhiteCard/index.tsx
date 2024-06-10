@@ -15,9 +15,23 @@ interface Props {
 }
 
 
-export const ResizableWhiteCard: React.FC<Props> = ({ height, width, children, marginBottom, marginLeft, marginRight, marginTop, borderRadius }) => {
+export const ResizableWhiteCard: React.FC<Props> = ({
+    height, width, children,
+    marginBottom, marginLeft,
+    marginRight, marginTop,
+    borderRadius
+}) => {
     return (
-        <View style={[style.container, { width: width, height: height, marginBottom: marginBottom ? marginBottom : 0, marginTop: marginTop ? marginTop : 0, marginLeft: marginLeft ? marginLeft : 0, marginRight: marginRight ? marginRight : 0, borderRadius: borderRadius ? borderRadius : 14 }]}>
+        <View style={
+            [style.container,
+            {
+                width: width, height: height,
+                marginBottom: marginBottom ? marginBottom : 0,
+                marginTop: marginTop ? marginTop : 0,
+                marginLeft: marginLeft ? marginLeft : 0,
+                marginRight: marginRight ? marginRight : 0,
+                borderRadius: borderRadius ? borderRadius : 14
+            }]}>
             {children}
         </View>
     );

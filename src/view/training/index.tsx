@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
-import { MainHeader } from '../../components/mainHeader';
+import { Header } from '../../components/header';
+import { Card } from '../../components/card';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import { CardSeparator } from '../../components/separators/card';
 import { useNavigation, ParamListBase } from '@react-navigation/native';
@@ -13,7 +14,6 @@ import { userData } from '../../redux/authSlice';
 import { division } from '../../@types/interfaces';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../../global/colors';
-import { Card } from '@gluestack-ui/themed';
 
 const Training = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -24,7 +24,7 @@ const Training = () => {
 
     const onRefresh = () => {
         if (user) {
-            dispatch(getExercises({ gymId: user.gym_id, userId: user.student_id }));
+            dispatch(getExercises({ gymId: user.gym_id as number, userId: String(user.student_id) }));
         }
     };
 
@@ -34,14 +34,14 @@ const Training = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <MainHeader />
+            <Header />
             <Image style={style.image} source={require('../../assets/img/gymGround.jpg')} />
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
                 data={exercises}
                 renderItem={({ item }) => (
-                    <Card  />
+                    <Card disable={false} discount={false} isActive={false} options={[]} subtitle=""  title={Number(item.training_serie_name)} onPress={() => cardPress(item)} />
                 )}
                 keyExtractor={item => item.training_serie_name}
                 scrollEnabled

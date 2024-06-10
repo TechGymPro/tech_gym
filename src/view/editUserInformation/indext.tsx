@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
-import {Alert, SafeAreaView, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { Alert, SafeAreaView, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {api} from '../../api/base';
-import {InputForm} from '../../components/inputFom';
-import {LoadingScreen} from '../../components/loadingScreen';
-import {LongButton} from '../../components/longButton';
-import {MainHeader} from '../../components/mainHeader';
-import {SelectForm} from '../../components/selectForm';
+import { api } from '../../api/base';
+import { InputForm } from '../../components/inputFom';
+import { LoadingScreen } from '../../components/loadingScreen';
+import { LongButton } from '../../components/button';
+import { Header } from '../../components/header';
+import { SelectForm } from '../../components/selectForm';
 import colors from '../../global/colors';
-import {units, useAppDispatch, useAppSelector} from '../../hooks/hooks';
+import { units, useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
   updateUserBirthday,
   updateUserEmail,
@@ -16,7 +16,7 @@ import {
   updateUserObjective,
   userData,
 } from '../../redux/authSlice';
-import {style} from './style';
+import { style } from './style';
 
 const EditUserInformation = () => {
   const user = useAppSelector(userData);
@@ -86,7 +86,7 @@ const EditUserInformation = () => {
         <LoadingScreen />
       ) : (
         <SafeAreaView style={style.container}>
-          <MainHeader />
+          <Header />
           <View style={style.titleContainer}>
             <View style={style.iconContainer}>
               <Icon
@@ -128,8 +128,8 @@ const EditUserInformation = () => {
               value={objective}
               label="Objetivo"
               items={[
-                {label: 'Perda de peso', value: 1},
-                {label: 'Ganho de massa', value: 2},
+                { label: 'Perda de peso', value: 1 },
+                { label: 'Ganho de massa', value: 2 },
               ]}
             />
           </View>

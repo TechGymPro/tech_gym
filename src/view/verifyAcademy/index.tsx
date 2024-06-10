@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import { style } from './style';
 import PhoneMailVerification from '../../components/phone-mailVerification';
 import colors from '../../global/colors';
-import { LongButton } from '../../components/longButton';
+import { LongButton } from '../../components/button';
 
 const VerifyAcademy = () => {
 

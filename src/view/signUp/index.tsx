@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, SafeAreaView, StatusBar, Text, View, ImageBackground } from 'react-native';
 import { useAppDispatch, useAppSelector, useKeyboardVisible } from '../../hooks/hooks';
 import colors from '../../global/colors';
-import { LongButton } from '../../components/longButton';
+import { LongButton } from '../../components/button';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';

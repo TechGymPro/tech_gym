@@ -4,12 +4,12 @@ import { style } from './style';
 import colors from '../../global/colors';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { confirmPhoneToken, sendPhoneToken, userData } from '../../redux/authSlice';
-import { SimpleHeader } from '../../components/simpleHeader';
+import { Header } from '../../components/header';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import ConfirmationCodeInput from '../../components/codeField';
-import { LongButton } from '../../components/longButton';
+import { LongButton } from '../../components/button';
 import { SmallTitlesCard } from '../../components/smallTitlesCard';
 
 const VerifyPhone = () => {
@@ -69,7 +69,10 @@ const VerifyPhone = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <SimpleHeader customBackButton={() => navigation.navigate('Login')} />
+            <Header
+                customBackButton={() => navigation.navigate('Login')}
+                backButton
+            />
             <TitleAndSubtitleCard
                 title={'Confirmar celular'}
                 subtitle={'Digite abaixo o código de 6 dígitos recebido'}

@@ -4,7 +4,7 @@ import colors from '../../global/colors';
 export const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.lightBackground,
+        backgroundColor: colors.secondary,
     },
     image: {
         height: '27%',

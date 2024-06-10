@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Dashboard from '../view/dashboard';
 import Notifications from '../view/notifications';
 import EditUserInformation from '../view/editUserInformation/indext';
-import Measurements from '../view/measurements/dashboard';
+import Measurements from '../view/measurements/measurementsGraph';
 import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
 import TrainingPlay from '../view/trainingPlay';
@@ -38,7 +38,7 @@ export const Router = () => {
 
   return (
     <NavigationContainer>
-      {!userToken ? (
+      {userToken ? (
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="SignUp"
@@ -148,12 +148,41 @@ export const Router = () => {
               headerShown: false,
             }}
           />
+          <Stack.Screen
+            name="Notifications"
+            component={Notifications}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="EditUserInformation"
+            component={EditUserInformation}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="MeasurementsEdit"
+            component={MeasurementsEdit}
+            options={{
+              headerShown: false,
+            }}
+          />
+
+          <Stack.Screen
+            name="TrainingPlay"
+            component={TrainingPlay}
+            options={{
+              headerShown: false,
+            }}
+          />
         </Stack.Navigator>
       ) : (
         <>
-          <Stack.Navigator initialRouteName="Dashboard">
+          <Stack.Navigator initialRouteName="AuthenticatedDashboard">
             <Stack.Screen
-              name="Dashboard"
+              name="AuthenticatedDashboard"
               component={AuthenticatedDashboard}
               options={{headerShown: false}}
             />
@@ -174,22 +203,6 @@ const AuthenticatedDashboard = () => {
           headerShown: false,
         }}
       />
-      <Tab.Screen name="Training" component={Training} />
-      <Tab.Screen name="Measurements" component={Measurements} />
-      <Tab.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="EditUserInformation"
-        component={EditUserInformation}
-        options={{
-          headerShown: false,
-        }}
-      />
       <Tab.Screen
         name="Measurements"
         component={Measurements}
@@ -198,22 +211,8 @@ const AuthenticatedDashboard = () => {
         }}
       />
       <Tab.Screen
-        name="MeasurementsEdit"
-        component={MeasurementsEdit}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
         name="Training"
         component={Training}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="TrainingPlay"
-        component={TrainingPlay}
         options={{
           headerShown: false,
         }}

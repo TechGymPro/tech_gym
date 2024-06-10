@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, ScrollView } from 'react-native';
-import { SimpleHeader } from '../../components/simpleHeader';
+import { SafeAreaView, View, ScrollView } from 'react-native';
+import { Header } from '../../components/header';
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
-import { LongButton } from '../../components/longButton';
+import { LongButton } from '../../components/button';
 import { Card } from '../../components/card';
 
 const cardsContent = [{
@@ -45,7 +45,9 @@ const PropositionOptions = () => {
     return (
         <SafeAreaView style={style.container}>
             <ScrollView style={{ height: '40%' }}>
-                <SimpleHeader />
+                <Header
+                    backButton
+                />
                 <TitleAndSubtitleCard
                     title={'Escolha seu plano'}
                     subtitle={'Esses são as opções de planos, escolha o que melhor se encaixar com você'}
@@ -78,4 +80,5 @@ const PropositionOptions = () => {
     )
 }
 
-export default PropositionOptions
+export default PropositionOptions;
+

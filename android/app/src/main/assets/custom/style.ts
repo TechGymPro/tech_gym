@@ -22,7 +22,7 @@ export const style = StyleSheet.create({
         paddingHorizontal: '5%',
         paddingVertical: '2%',
         fontSize: 12,
-        fontFamily: 'PlusJakartaSans',
+        fontFamily: 'PlusJakartaSans-Medium',
         borderRadius: units.vh * 10,
         color: colors.titleTextColor
     },
@@ -41,12 +41,12 @@ export const style = StyleSheet.create({
         color: colors.titleTextColor,//800
     },
     subtitle: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'PlusJakartaSans-Bold',
         fontSize: 16,
         color: colors.titleTextColor,//700
     },
     optionsText: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'PlusJakartaSans-Regular',
         fontSize: 13,
         color: colors.titleTextColor,
     },

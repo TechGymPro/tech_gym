@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, SafeAreaView, StatusBar, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { useKeyboardVisible } from '../../hooks/hooks';
-import { ShortButton } from '../../components/longButton';
+import { ShortButton } from '../../components/button';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';

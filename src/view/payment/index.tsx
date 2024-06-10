@@ -3,8 +3,8 @@ import { Image, SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-na
 import { style } from './style';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import colors from '../../global/colors';
-import { LongButton } from '../../components/longButton';
-import { SimpleHeader } from '../../components/simpleHeader';
+import { LongButton } from '../../components/button';
+import { Header } from '../../components/header';
 import { InputForm } from '../../components/inputFom';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -27,7 +27,9 @@ const Payment = () => {
     return (
         <SafeAreaView style={style.container}>
             <ScrollView style={{ height: '100%' }}>
-                <SimpleHeader />
+                <Header
+                    backButton
+                />
                 <TitleAndSubtitleCard
                     title={'Pagar plano'}
                     subtitle={'Escolha a forma de pagamento'}
