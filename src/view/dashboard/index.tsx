@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { Image, StatusBar, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { StatusBar, SafeAreaView, ScrollView } from 'react-native';
 import colors from '../../global/colors';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { getAll } from '../../redux/userSlice';
 import { isLoading as loadingFromAuth, userData } from '../../redux/authSlice';
 import { LoadingScreen } from '../../components/loadingScreen';
 import { Header } from '../../components/header';

@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { ImageBackground, ListRenderItem, Text, TouchableOpacity, View } from "react-native"
+import React, { useState } from 'react';
+import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 // import Carousel from 'react-native-reanimated-carousel'
-import Carousel, { Pagination } from 'react-native-snap-carousel'
-import { style } from './style'
-import { listCarouselBottom, listCarouselTop } from './carouselData'
-import { units } from '../../hooks/hooks'
-import LinearGradient from 'react-native-linear-gradient'
-import colors from '../../global/colors'
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { style } from './style';
+import { listCarouselBottom, listCarouselTop } from './carouselData';
+import { units } from '../../hooks/hooks';
+import LinearGradient from 'react-native-linear-gradient';
+import colors from '../../global/colors';
 
 
 interface Props {
@@ -45,6 +45,7 @@ export function CarouselBottom() {
                 itemWidth={units.vw * 77}
                 inactiveSlideShift={0}
                 useScrollView={true}
+                loop
             />
         </View>
     )
@@ -77,8 +78,9 @@ const CardItemTop: React.FC<Props> = ({ item, index }) => {
                 </LinearGradient>
             </ImageBackground>
         </View>
-    )
-}
+    );
+};
+
 export function CarouselTop() {
     const isCarousel = React.useRef(null);
     const [index, setIndex] = useState(0);
@@ -114,7 +116,7 @@ export function CarouselTop() {
                 tappableDots={true}
             />
         </View>
-    )
+    );
 }
 
 
