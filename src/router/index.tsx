@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import Dashboard from '../view/dashboard';
 import Notifications from '../view/notifications';
 import EditUserInformation from '../view/editUserInformation/indext';
@@ -22,15 +23,18 @@ import InitialScreen from '../view/initialScreen';
 import SignUp from '../view/signUp';
 import PropositionOptions from '../view/propositionOptions';
 import Payment from '../view/payment';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useAuth} from '../global/auth';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useAuth } from '../global/auth';
+import colors from '../global/colors';
+import { units } from '../hooks/hooks';
+import { TabBarIconComponent } from './component/tabBarIconComponent';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const Router = () => {
-  const {userToken, loading} = useAuth();
+  const { userToken, loading } = useAuth();
 
   if (loading) {
     return <></>;
@@ -184,7 +188,7 @@ export const Router = () => {
             <Stack.Screen
               name="AuthenticatedDashboard"
               component={AuthenticatedDashboard}
-              options={{headerShown: false}}
+              options={{ headerShown: false }}
             />
           </Stack.Navigator>
         </>
@@ -195,26 +199,43 @@ export const Router = () => {
 
 const AuthenticatedDashboard = () => {
   return (
-    <Tab.Navigator initialRouteName="Dashboard">
+    <Tab.Navigator
+      initialRouteName="Dashboard"
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: 'absolute',
+          backgroundColor: colors.tabBarNavColor,
+          bottom: 14,
+          left: 14,
+          right: 14,
+          elevation: 0,
+          borderRadius: (units.vh * 7.8) / 2,
+          height: units.vh * 7.8,
+        },
+      }}>
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
         options={{
           headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Home" iconName="home" size={size} />),
         }}
       />
+        <Tab.Screen
+          name="Training"
+          component={Training}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
+          }}
+        />
       <Tab.Screen
         name="Measurements"
         component={Measurements}
         options={{
           headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="Training"
-        component={Training}
-        options={{
-          headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Peso" iconName="data" size={size} />),
         }}
       />
     </Tab.Navigator>

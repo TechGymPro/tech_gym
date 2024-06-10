@@ -30,6 +30,7 @@ const colors = {
     showoffTextColor: '#5E17EB',
     errorColor: '#EC5454',
     green: '#00AD5E',
+    tabBarNavColor: '#101010',
 };
 
 export default colors;
