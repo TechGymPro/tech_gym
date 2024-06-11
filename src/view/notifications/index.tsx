@@ -14,6 +14,7 @@ import { userData } from '../../redux/authSlice';
 import colors from '../../global/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SheetModal from '../../components/agreementModal';
+import SheetModal from '../../components/agreementModal';
 
 const Notifications = () => {
     const [showActionsheet, setShowActionsheet] = useState(false);
@@ -24,6 +25,32 @@ const Notifications = () => {
         notifications_type: 1,
         notifications_user_id: 1,
     });
+
+    const notificacoes = [{
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Anúncio para todos os alunos',
+        notifications_type: 2,
+        notifications_user_id: 1,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Promoção: indique e ganhe',
+        notifications_type: 1,
+        notifications_user_id: 2,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Não abriremos nesse feriado',
+        notifications_type: 3,
+        notifications_user_id: 3,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Não abriremos nesse feriado',
+        notifications_type: 4,
+        notifications_user_id: 4,
+    }
+    ]
 
     const notificacoes = [{
         notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
@@ -90,6 +117,7 @@ const Notifications = () => {
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
+                data={notificacoes}
                 data={notificacoes}
                 renderItem={({ item, index }: any) => (
                     <NotificationsCard key={index} onPress={() => cardClick(item)} item={item} />
