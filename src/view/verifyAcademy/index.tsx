@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, View } from 'react-native';
 import { style } from './style';
 import PhoneMailVerification from '../../components/phone-mailVerification';
 import colors from '../../global/colors';
@@ -14,11 +14,19 @@ const VerifyAcademy = () => {
     return (
         <SafeAreaView style={style.container}>
             <PhoneMailVerification
+                marginCustom
+                academy
                 title={'Código da academia'}
                 subtitle={'Você pode conseguir esse código com qualquer representante da academia'}
-                academy
             />
-            <LongButton title={'Verificar'} disabled academy onPress={() => alert()} />
+            <View style={style.containerButton}>
+                <LongButton
+                    type='grey'
+                    disabled
+                    title={'Verificar'}
+                    onPress={() => alert()} />
+
+            </View>
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>
     );

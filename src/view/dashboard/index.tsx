@@ -11,6 +11,7 @@ import { Header } from '../../components/header';
 import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import { CarouselBottom, CarouselTop } from '../../components/carousel';
 import DashBoardGraph from '../../components/dashBoardGraph';
+import { TabBarIconComponent } from '../../router/component/tabBarIconComponent';
 
 
 const Dashboard = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
                 navigation.goBack();
             }
         }
-                // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loadingAuth]);
 
     return (

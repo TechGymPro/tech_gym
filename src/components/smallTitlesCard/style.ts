@@ -4,10 +4,8 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     container: {
-        position: 'absolute',
-        top: units.vh * 50,
         alignSelf: 'center',
-        paddingBottom: 20,
+        marginTop: units.vh * 4,
         alignItems: 'center',
         gap: 5,
     },

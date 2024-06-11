@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { style } from './style';
 import { Actionsheet, Button, ActionsheetContent, ActionsheetBackdrop, ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator } from '@gluestack-ui/themed';
-import { ShortButton } from '../longButton';
+import { LongButton, ShortButton } from '../button';
 
 interface SheetModalProps {
     isOpen: any;
@@ -48,9 +48,9 @@ const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type, 
 
                     {type === 'Notificação' &&
                         (
-                            <>
-
-                            </>
+                            <View style={{ marginTop: 22 }}>
+                                <LongButton title={'Lida'} onPress={isOpen} />
+                            </View>
                         )
                     }
                 </ActionsheetContent>

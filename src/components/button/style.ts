@@ -4,7 +4,7 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     button: {
-        width: units.vw * 88,
+        width: units.vw * 92,
         height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
@@ -20,16 +20,14 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    buttonSecondary: {
-        backgroundColor: colors.primary,
+    disabledGreyButton: {
         width: units.vw * 92,
         height: units.vh * 6,
-        borderRadius: units.vh * 50,
+        borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        top: units.vh * 40
+        backgroundColor: colors.disabledButtonSecondary,
     },
     shortButton: {
         width: units.vw * 90,
@@ -49,28 +47,7 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.disabledButton,
     },
-    disabledGreyButton: {
-        backgroundColor: colors.disabledButtonSecondary,
-        width: units.vw * 88,
-        height: units.vh * 6,
-        borderRadius: (units.vw * 88) / 2,
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0,
-    },
-    disabledButtonSecondary: {
-        backgroundColor: colors.disabledButtonSecondary,
-        width: units.vw * 92,
-        height: units.vh * 6,
-        borderRadius: units.vh * 50,
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        top: units.vh * 40
-    },
+
     buttonText: {
         fontSize: 16,
         color: colors.mainTextColor,

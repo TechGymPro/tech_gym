@@ -11,6 +11,7 @@ import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
 import ConfirmationCodeInput from '../../components/codeField';
 import { LongButton } from '../../components/button';
 import { SmallTitlesCard } from '../../components/smallTitlesCard';
+import { View } from '@gluestack-ui/themed';
 
 const VerifyPhone = () => {
     const { student_phone } = useAppSelector(userData);
@@ -75,15 +76,22 @@ const VerifyPhone = () => {
                 title={'Confirmar celular'}
                 subtitle={'Digite abaixo o código de 6 dígitos recebido'}
             />
-            <ConfirmationCodeInput correct={correctCode} error={codeError} value={code} setValue={setCode} onCodeFilled={() => {}} />
-            <LongButton title={'Verificar'} disabled={code.length < 6 || codeError} onPress={confirmCode} loading={loading} />
-            <SmallTitlesCard
-                title={`Reenviar código em ${timeLeft} segundos`}
-                subtitle={'Reenviar código'}
-                button
-                onPress={reSendPhone}
-                onPressDisabled={timeLeft !== 0}
-            />
+            <View>
+                <ConfirmationCodeInput correct={correctCode} error={codeError} value={code} setValue={setCode} onCodeFilled={() => { }} />
+                <LongButton
+                    type='grey'
+                    title={'Verificar'}
+                    disabled={code.length < 6 || codeError}
+                    onPress={confirmCode} loading={loading}
+                />
+                <SmallTitlesCard
+                    title={`Reenviar código em ${timeLeft} segundos`}
+                    subtitle={'Reenviar código'}
+                    button
+                    onPress={reSendPhone}
+                    onPressDisabled={timeLeft !== 0}
+                />
+            </View>
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>
     );
