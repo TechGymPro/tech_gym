@@ -4,13 +4,13 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     button: {
-        backgroundColor: colors.primary,
         width: units.vw * 88,
         height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: colors.primary,
 
     },
     smallButton: {
@@ -32,24 +32,22 @@ export const style = StyleSheet.create({
         top: units.vh * 40
     },
     shortButton: {
-        backgroundColor: colors.primary,
-        width: '88%',
-        height: 64,
-        borderRadius: 32,
+        width: units.vw * 90,
+        height: units.vh * 8,
+        borderRadius: units.vh * 3,
+        marginBottom: units.vh * 4,
         alignSelf: 'center',
         justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0
+        backgroundColor: colors.primary,
     },
     disabledButton: {
-        backgroundColor: colors.disabledButton,
         width: units.vw * 88,
         height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: colors.disabledButton,
     },
     disabledGreyButton: {
         backgroundColor: colors.disabledButtonSecondary,
@@ -79,8 +77,9 @@ export const style = StyleSheet.create({
         fontFamily: 'Inter-ExtraBold'
     },
     shortButtonText: {
+        alignSelf: 'center',
         fontSize: 25,
+        fontFamily: 'Poppins-Medium',
         color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium'
     },
 });

@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SheetModal from '../../components/agreementModal';
 
 const Notifications = () => {
-    const [modalIsVisible, setModalIsVisible] = useState(false);
+    const [showActionsheet, setShowActionsheet] = useState(false);
     const notifications = useAppSelector(notification);
     const [selected, setSelected] = useState<notificationType>({
         notifications_text: '',
@@ -54,9 +54,12 @@ const Notifications = () => {
     const dispatch = useAppDispatch();
     const user = useAppSelector(userData);
 
+    const handleClose = () => setShowActionsheet(false);
+    const handleOpen = () => setShowActionsheet(true);
+
     const cardClick = (e: notificationType) => {
         setSelected(e);
-        setModalIsVisible(true);
+        handleOpen();
     };
 
     const onRefresh = () => {
@@ -93,15 +96,7 @@ const Notifications = () => {
                 )}
                 keyExtractor={item => String(item.notifications_user_id)}
                 scrollEnabled
-                // ItemSeparatorComponent={() => (
-                //     <CardSeparator customHeight={18} />
-                // )}
-                // ListHeaderComponent={() => (
-                //     <BottomOrTopSeparator />
-                // )}
-                // ListFooterComponent={() => (
-                //     <BottomOrTopSeparator />
-                // )}
+
                 ListEmptyComponent={() => (
                     <View style={style.emptyContainer}>
                         <Icon color={colors.placeholderTextColor} name="notifications-off-outline" size={40} />
@@ -109,17 +104,13 @@ const Notifications = () => {
                     </View>
                 )}
             />
-            <Modal visible={modalIsVisible} transparent animationType="fade" >
-                <NotificationModal close={() => setModalIsVisible(false)} item={selected} />
-            </Modal>
-            {/* <SheetModal
+            <SheetModal
                 isOpen={showActionsheet}
-                onOpen={handleOpen}
+                onOpen={cardClick}
                 onClose={handleClose}
-                type={'Notificação'}
-                title='Assinar contrato?'
-                text='Ao assinar você concorda com os termos de uso apresentados no contrato.'
-            /> */}
+                title={selected.notifications_title}
+                text={selected.notifications_text}
+            />
         </SafeAreaView>
     );
 };

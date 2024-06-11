@@ -69,8 +69,8 @@ export const style = StyleSheet.create({
     },
 
     inputContainer: {
-        width: '88%',
-        height: 145,
+        width: units.vw * 88,
+        height: units.vh * 8,
         justifyContent: 'space-between',
         marginBottom: units.vh * 5,
         marginTop: units.vh * 1,
