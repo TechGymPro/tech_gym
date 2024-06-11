@@ -68,7 +68,10 @@ const Notifications = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <Header />
+            <Header
+                text='Notificações'
+                backButton
+            />
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
