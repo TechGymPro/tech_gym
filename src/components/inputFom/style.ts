@@ -46,6 +46,6 @@ export const style = StyleSheet.create({
   },
   textInput: {
     color: colors.mainTextColor,
-    paddingLeft: 10,
+    paddingLeft: 15,
   },
 });

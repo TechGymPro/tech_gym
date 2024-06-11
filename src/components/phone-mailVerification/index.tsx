@@ -25,7 +25,7 @@ const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, su
     return (
         <>
             <Header
-                customBackButton={() => navigation.navigate('Login')}
+                customBackButton={() => navigation.navigate('SignUp')}
                 backButton
             />
             {marginCustom ? (
