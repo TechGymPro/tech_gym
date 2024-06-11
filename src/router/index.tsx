@@ -42,7 +42,7 @@ export const Router = () => {
 
   return (
     <NavigationContainer>
-      {userToken ? (
+      {!userToken ? (
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="SignUp"

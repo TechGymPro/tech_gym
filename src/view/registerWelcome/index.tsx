@@ -11,10 +11,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 const RegisterWelcome = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
-    function alert() {
-        console.log('Continuar pressed');
-    }
-
     return (
         <SafeAreaView style={style.container}>
             <Header
@@ -26,7 +22,7 @@ const RegisterWelcome = () => {
                     `Bem-vindo, vamos fazer algumas perguntas para criarmos seu cadastro, não se preocupe, isso só será no primeiro acesso`
                 }
             />
-            <LongButton title={'Continuar'} onPress={() => alert()} />
+            <LongButton title={'Continuar'} onPress={() => navigation.navigate('GetEmail')} />
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>
     );

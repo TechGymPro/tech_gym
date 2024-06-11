@@ -6,7 +6,7 @@ import {
 } from '../@types/interfaces';
 import {api, apiAuth} from '../api/base';
 import {RootState} from './store';
-import { convertPhoneNumber } from '../../utils/indext';
+import {convertPhoneNumber} from '../../utils/indext';
 
 const initialState: initialStateAuthInterface = {
   userInfo: {
@@ -38,7 +38,7 @@ export const authSlice = createSlice({
       state.userInfo.student_phone = action.payload;
     },
     updateUserEmail: (state, action) => {
-      if (state.userInfo && state.userInfo.student_email) {
+      if (state.userInfo) {
         state.userInfo.student_email = action.payload;
       }
     },
@@ -157,7 +157,7 @@ export const sendEmailToken = createAsyncThunk(
   'auth-user/sendPhoneToken',
   async ({email}: LoginEmailProps) => {
     try {
-      let token = await apiAuth.post(`check-email/${email}`);
+      let token = await apiAuth.get(`check-email/${email}`);
 
       return token;
     } catch (error: any) {
@@ -170,15 +170,11 @@ export const confirmEmailToken = createAsyncThunk(
   'auth-user/confirmPhoneToken',
   async ({code, token}: LoginEmailProps) => {
     try {
-      let result = await apiAuth.post(
-        `check-email-token/${code}`,
-        {},
-        {
-          headers: {
-            Authorization: 'Bearer ' + token,
-          },
+      let result = await apiAuth.get(`check-email-token/${code}`, {
+        headers: {
+          Authorization: 'Bearer ' + token,
         },
-      );
+      });
 
       return result;
     } catch (error: any) {

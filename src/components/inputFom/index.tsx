@@ -44,7 +44,7 @@ export const InputForm: React.FC<Props> = ({
     upperCase,
 }) => {
     return (
-        <View style={phone || email ? style.containerPhoneEmail : style.container}>
+        <View style={phone ? style.containerPhoneEmail : style.container}>
             {time
                 ?
                 <>
@@ -107,10 +107,10 @@ export const InputForm: React.FC<Props> = ({
                             :
                             email
                                 ?
-                                <MaskInput
+                                <TextInput
                                     maxLength={maxLength}
                                     value={value}
-                                    onChangeText={(masked) => onChange(masked)}
+                                    onChangeText={(e) => onChange(e)}
                                     placeholder={placeholder}
                                     placeholderTextColor={colors.placeholderTextColor}
                                     style={[style.input, style.textInput]}

@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import { style } from './style';
 import colors from '../../global/colors';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { confirmPhoneToken, sendPhoneToken, userData } from '../../redux/authSlice';
+import { confirmPhoneToken, isLoading, sendPhoneToken, userData } from '../../redux/authSlice';
 import { Header } from '../../components/header';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -14,10 +14,9 @@ import { SmallTitlesCard } from '../../components/smallTitlesCard';
 
 const VerifyPhone = () => {
     const { student_phone } = useAppSelector(userData);
+    const loading = useAppSelector(isLoading);
     const [code, setCode] = useState('');
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [invalidToken, setInvalidToken] = useState(true);
     const dispatch = useAppDispatch();
     const [codeError, setCodeError] = useState(false);
     const [correctCode, setCorrectCode] = useState(false);
@@ -43,14 +42,13 @@ const VerifyPhone = () => {
     async function confirmCode() {
         dispatch(confirmPhoneToken({ phone: student_phone, code }))
             .then((response) => {
-                console.log(response, 50);
                 if (response.payload && response.payload.response && response.payload.response.status === 401) {
                     setCodeError(true);
                 } else if (response.payload && response.payload.status === 200) {
                     setCorrectCode(true);
-                    if(response.payload.data.length > 0) {
+                    if (response.payload.data.length > 0) {
                         navigation.navigate('Dashboard');
-                    }else{
+                    } else {
                         navigation.navigate('RegisterWelcome');
                     }
                 }
@@ -70,15 +68,15 @@ const VerifyPhone = () => {
     return (
         <SafeAreaView style={style.container}>
             <Header
-                customBackButton={() => navigation.navigate('Login')}
+                customBackButton={() => navigation.navigate('SignUp')}
                 backButton
             />
             <TitleAndSubtitleCard
                 title={'Confirmar celular'}
                 subtitle={'Digite abaixo o código de 6 dígitos recebido'}
             />
-            <ConfirmationCodeInput correct={correctCode} error={codeError} value={code} setValue={setCode} onCodeFilled={() => setInvalidToken(false)} />
-            <LongButton title={'Verificar'} disabled={code.length < 6 || codeError} onPress={confirmCode} />
+            <ConfirmationCodeInput correct={correctCode} error={codeError} value={code} setValue={setCode} onCodeFilled={() => {}} />
+            <LongButton title={'Verificar'} disabled={code.length < 6 || codeError} onPress={confirmCode} loading={loading} />
             <SmallTitlesCard
                 title={`Reenviar código em ${timeLeft} segundos`}
                 subtitle={'Reenviar código'}
