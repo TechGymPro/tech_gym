@@ -30,6 +30,7 @@ const UserGoal = () => {
                         hasNotificationIcon
                     />
                     <DataCard
+                        type='data'
                         title={'Objetivo de peso'}
                         data={'68 kg'}
                     />

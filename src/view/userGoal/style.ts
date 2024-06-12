@@ -7,6 +7,7 @@ export const style = StyleSheet.create({
         flex: 1,
         paddingHorizontal: '5%',
         backgroundColor: colors.secondary,
+        marginBottom: units.vh * 10
     },
     measurementsContainer: {
         flexDirection: 'row',
