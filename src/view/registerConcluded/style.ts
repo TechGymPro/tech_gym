@@ -3,10 +3,6 @@ import { units } from '../../hooks/hooks';
 import colors from '../../global/colors';
 
 export const style = StyleSheet.create({
-  containerWK: {
-    flex: 1,
-    backgroundColor: colors.secondary,
-  },
   containerK: {
     flex: 1,
     height: units.vh * 100,
@@ -17,15 +13,16 @@ export const style = StyleSheet.create({
     height: units.vh * 65,
   },
   containerGradient:
-    { position: 'relative', top: units.vh * 40, height: '30%' },
+  {
+    height: units.vh * 50,
+
+  },
 
   linearGradient: {
     flex: 1,
-    height: units.vh * 80,
   },
   signUpContainer: {
-    position: 'relative',
-    bottom: units.vh * 20,
+    marginBottom: units.vh * 12,
     alignItems: 'center',
     gap: 6,
   },

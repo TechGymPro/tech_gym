@@ -7,6 +7,8 @@ export const style = StyleSheet.create({
     container: {
         height: units.vh * 45,
         marginTop: units.vh * 12,
+        marginBottom: units.vh * 8,
+        paddingHorizontal: '20%'
     },
     text: {
         fontFamily: 'Inter-Regular',

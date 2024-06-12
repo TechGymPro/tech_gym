@@ -56,7 +56,6 @@ const PhoneMailVerification: React.FC<PhoneMailVerificationProps> = ({ title, su
                     />
                 </>
             )}
-
         </>
     );
 };

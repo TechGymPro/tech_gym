@@ -76,12 +76,13 @@ const DashBoardGraph = () => {
         }
       />
       <ResizableWhiteCard
-        width={units.vw * 90}
+        width={units.vw * 140}
         height={250}
         children={
           <LineChart
+            withVerticalLabels={false}
+            withHorizontalLabels={false}
             data={{
-              labels: ['', '', ''],
               datasets: [
                 {
                   data: [
@@ -92,21 +93,14 @@ const DashBoardGraph = () => {
                 },
               ],
             }}
-            width={120 * units.vw} // from react-native
+            width={170 * units.vw} // from react-native
             height={units.vh * 25}
-            // yAxisLabel={''}
-            yAxisSuffix="kg"
-            yAxisInterval={1} // optional, defaults to 1
             chartConfig={{
               backgroundColor: '#fefefe',
-              //   backgroundGradientFrom: '#f3f2f0',
               backgroundGradientFrom: '#fefefe',
               backgroundGradientTo: '#fefefe',
 
-              //   decimalPlaces: 2, // optional, defaults to 2dp
               color: (opacity = 1) => colorGraph,
-              //   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
 
               style: {
                 borderRadius: 16,

@@ -3,7 +3,11 @@ import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
-    container: { flex: 1, padding: 20 },
+    container: {
+        flex: 1,
+        marginBottom: units.vh * 16,
+        paddingHorizontal: '5%'
+    },
     codeFieldRoot: { marginTop: 20 },
     cell: {
         width: units.vw * 12,

@@ -5,64 +5,46 @@ import { style } from './style';
 import colors from '../../global/colors';
 
 interface Props {
-    type?: 'grey' | 'yellow';
+    type?: 'grey';
     title: string;
     customMarginBottom?: DimensionValue;
     onPress: Function;
     disabled?: boolean;
     academy?: boolean;
     loading?: boolean;
+    isBottom?: boolean;
 }
 
-export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy, loading }) => {
+export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy, loading, type, isBottom }) => {
     return (
         <>
-            {title === 'Verificar' && academy ? (
-                <TouchableOpacity
-                    disabled={disabled || loading}
-                    style={
-                        [disabled ? style.disabledGreyButton : style.button,
-                        customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]
-                    }
-                    onPress={() => onPress()}>
-                    {!loading
-                        ?
-                        <Text style={style.buttonText}>{title}</Text >
-                        :
-                        <ActivityIndicator color={colors.secondary} size={'large'} />
-                    }
-                </TouchableOpacity >
-            ) :
-                title === 'Verificar' ?
-                    (
-                        <TouchableOpacity
-                            disabled={disabled || loading}
-                            style={[disabled ? style.disabledButtonSecondary : style.buttonSecondary]}
-                            onPress={() => onPress()}>
-                            {!loading
-                                ?
-                                <Text style={style.buttonText}>{title}</Text >
-                                :
-                                <ActivityIndicator color={colors.secondary} size={'large'} />
-                            }
-                        </TouchableOpacity>
-                    )
-                    : (
-                        <TouchableOpacity
-                            disabled={disabled || loading}
-                            style={
-                                [disabled ? style.disabledButton : style.button,
-                                customMarginBottom ? { marginBottom: customMarginBottom } : { marginBottom: units.vh * 5 }]
-                            }
-                            onPress={() => onPress()}>
-                            {!loading
-                                ?
-                                <Text style={style.buttonText}>{title}</Text >
-                                :
-                                <ActivityIndicator color={colors.secondary} size={'large'} />
-                            }
-                        </TouchableOpacity >
-                    )}
+            {
+                type === 'grey' ? (
+                    <TouchableOpacity
+                        disabled={disabled || loading}
+                        style={[disabled ? style.disabledGreyButton : isBottom ? style.buttonBottom : style.button]}
+                        onPress={() => onPress()}>
+                        {!loading
+                            ?
+                            <Text style={style.buttonText}>{title}</Text >
+                            :
+                            <ActivityIndicator color={colors.secondary} size={'large'} />
+                        }
+                    </TouchableOpacity>
+                ) : (
+                    <TouchableOpacity
+                        disabled={disabled || loading}
+                        style={[disabled ? style.disabledButton : isBottom ? style.buttonBottom : style.button]}
+                        onPress={() => onPress()}>
+                        {!loading
+                            ?
+                            <Text style={style.buttonText}>{title}</Text >
+                            :
+                            <ActivityIndicator color={colors.secondary} size={'large'} />
+                        }
+                    </TouchableOpacity>
+                )
+            }
         </>
     );
 };

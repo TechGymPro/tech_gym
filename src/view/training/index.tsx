@@ -36,7 +36,7 @@ const Training = () => {
         <SafeAreaView style={style.container}>
             <Header />
             <Image style={style.image} source={require('../../assets/img/gymGround.jpg')} />
-            <FlatList
+            {/* <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
                 data={exercises}
@@ -59,8 +59,8 @@ const Training = () => {
                         <Icon color={colors.placeholderTextColor} name="user-slash" size={40} />
                         <Text style={style.textEmpty}>Sem exercícios registrados, por favor entre em contato com o professor mais próximo.</Text>
                     </View>
-                )}
-            />
+                )} */}
+            {/* /> */}
         </SafeAreaView>
     );
 };

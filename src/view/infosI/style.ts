@@ -10,6 +10,7 @@ export const style = StyleSheet.create({
     inputContainer: {
         paddingHorizontal: '5%',
         marginTop: units.vh * 4,
+        marginBottom: units.vh * 10,
         gap: units.vh * 2
     },
     errorMessage: {

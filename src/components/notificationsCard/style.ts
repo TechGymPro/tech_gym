@@ -1,47 +1,52 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
+import { units } from '../../hooks/hooks';
+import { Center } from '@gluestack-ui/themed';
 
 export const style = StyleSheet.create({
     container: {
-        backgroundColor: colors.secondary,
-        maxHeight: 100,
-        width: '90%',
+        backgroundColor: colors.lightgreyBgColor,
+        maxHeight: 80,
+        width: '100%',
         alignSelf: 'center',
-        borderRadius: 15,
         flexDirection: 'row',
     },
-    tittleContainer: {
-        width: '78%',
-        marginBottom: 9,
-    },
     tittle: {
-        color: colors.mainTextColor,
-        fontFamily: 'Montserrat',
-        fontSize: 15,
+        color: colors.titleTextColor,
+        fontFamily: 'Inter-Medium',
+        fontSize: 16,
     },
     messageContainer: {
-        width: '78%',
+        width: '80%',
         marginBottom: 60,
     },
     message: {
-        color: colors.subtextColor,
-        fontFamily: 'DMSans',
-        fontSize: 13,
+        color: colors.thirdColor,
+        fontFamily: 'Inter-Regular',
+        fontSize: 14,
     },
-    left: {
-        height: '100%',
-        width: '87%',
-        paddingVertical: '5%',
+    textContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-between',
+        width: units.vw * 80,
+        height: '100%',
+        paddingVertical: '2%',
         paddingLeft: '5%',
     },
-    right: {
-        height: '100%',
-        width: '13%',
-        justifyContent: 'flex-end',
-        paddingBottom: '3%',
+    containerIcon: {
+        alignSelf: 'center',
+        alignItems: 'center',
+        marginLeft: 8,
+    },
+    nullIcon: {
+        width: 46,
+        height: 46,
+        borderRadius: units.vh * 1,
+        backgroundColor: colors.greyBgColor
     },
     icon: {
-        marginRight: 8,
-    },
+        marginLeft: 8,
+        marginTop: 8
+    }
 });
