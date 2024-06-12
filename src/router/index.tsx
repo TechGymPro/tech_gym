@@ -3,7 +3,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Dashboard from '../view/dashboard';
 import Notifications from '../view/notifications';
-import EditUserInformation from '../view/editUserInformation/indext';
+import EditUserInformation from '../view/editUserInformation';
+import UserEdit from '../view/userEdit';
 import Measurements from '../view/measurements/measurementsGraph';
 import MeasurementsEdit from '../view/measurements/edit';
 import Training from '../view/training';
@@ -42,7 +43,7 @@ export const Router = () => {
 
   return (
     <NavigationContainer>
-      {!userToken ? (
+      {userToken ? (
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="SignUp"
@@ -200,7 +201,7 @@ export const Router = () => {
 const AuthenticatedDashboard = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="UserEdit"
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -222,14 +223,22 @@ const AuthenticatedDashboard = () => {
           tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Home" iconName="home" size={size} />),
         }}
       />
-        <Tab.Screen
-          name="Training"
-          component={Training}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
-          }}
-        />
+      <Tab.Screen
+        name="Training"
+        component={Training}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
+        }}
+      />
+      <Tab.Screen
+        name="UserEdit"
+        component={UserEdit}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
+        }}
+      />
       <Tab.Screen
         name="Measurements"
         component={Measurements}
