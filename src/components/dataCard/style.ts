@@ -4,9 +4,10 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     container: {
-        width: units.vw * 95,
+        width: units.vw * 85,
         height: units.vh * 12,
-        borderRadius: 20,
+        marginTop: 12,
+        borderRadius: units.vw * 2,
         overflow: 'hidden',
         alignSelf: 'center',
     },

@@ -2,7 +2,7 @@ const colors = {
     primary: '#FBBA00',
     disabledButton: '#F5C754',
     disabledButtonSecondary: '#DEDEDE',
-    secondary: '#ffffff',
+    secondary: '#FFFFFF',
     secondaryWhite: '#EEEEEE',
     darkBackground: '#000000',
     pickerBackground: '#FDFEFF',

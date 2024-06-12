@@ -4,15 +4,22 @@ import { style } from './style';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface DataCardProps {
+    type: 'training' | 'data' | 'profile';
     title: string;
     data?: string;
 }
 
-const DataCard: React.FC<DataCardProps> = ({ title, data }) => {
+const DataCard: React.FC<DataCardProps> = ({ title, data, type }) => {
     return (
         <View style={style.container}>
             <ImageBackground
-                source={require('../../assets/img/measurements-bg.jpg')}
+                source={
+                    type === 'data' ?
+                        require('../../assets/img/measurements-bg.jpg')
+                        : type === 'training' ?
+                            require('../../assets/img/measurements-bg.jpg')
+                            : require('../../assets/img/measurements-bg.jpg')
+                }
                 style={style.imgBg}
 
             >
