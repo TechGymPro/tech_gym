@@ -77,9 +77,12 @@ const DashBoardGraph = () => {
       />
       <ResizableWhiteCard
         width={units.vw * 140}
+        width={units.vw * 140}
         height={250}
         children={
           <LineChart
+            withVerticalLabels={false}
+            withHorizontalLabels={false}
             withVerticalLabels={false}
             withHorizontalLabels={false}
             data={{
@@ -94,6 +97,7 @@ const DashBoardGraph = () => {
               ],
             }}
             width={170 * units.vw} // from react-native
+            width={170 * units.vw} // from react-native
             height={units.vh * 25}
             chartConfig={{
               backgroundColor: '#fefefe',
@@ -101,6 +105,7 @@ const DashBoardGraph = () => {
               backgroundGradientTo: '#fefefe',
 
               color: (opacity = 1) => colorGraph,
+              //   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
 
               style: {
                 borderRadius: 16,
