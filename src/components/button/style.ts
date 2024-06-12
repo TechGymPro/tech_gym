@@ -13,6 +13,18 @@ export const style = StyleSheet.create({
         backgroundColor: colors.primary,
 
     },
+    buttonBottom: {
+        width: units.vw * 92,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
+        position: 'absolute',
+        bottom: 45,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.primary,
+
+    },
     smallButton: {
         width: units.vh * 40,
         height: units.vh * 6,

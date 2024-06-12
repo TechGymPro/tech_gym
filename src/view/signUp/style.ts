@@ -18,18 +18,21 @@ export const style = StyleSheet.create({
     },
     overlay: {
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: 'rgba(0,0,0,0.85)'
+        backgroundColor: 'rgba(0,0,0,0.85)',
     },
     logo: {
         alignSelf: 'center',
         width: units.vw * 65,
         height: units.vh * 8,
         marginTop: units.vh * 18,
-        marginBottom: units.vh * 30
+        marginBottom: units.vh * 30,
     },
 
     downScreenK: {
+        width: '100%',
         height: units.vh * 42,
+        position: 'absolute',
+        bottom: 0,
         alignItems: 'center',
         paddingTop: 30,
         borderTopLeftRadius: 18,
@@ -58,5 +61,5 @@ export const style = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: units.vh * 5,
         marginTop: units.vh * 1,
-    }
+    },
 });

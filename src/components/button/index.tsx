@@ -12,16 +12,17 @@ interface Props {
     disabled?: boolean;
     academy?: boolean;
     loading?: boolean;
+    isBottom?: boolean;
 }
 
-export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy, loading, type }) => {
+export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy, loading, type, isBottom }) => {
     return (
         <>
             {
                 type === 'grey' ? (
                     <TouchableOpacity
                         disabled={disabled || loading}
-                        style={[disabled ? style.disabledGreyButton : style.button]}
+                        style={[disabled ? style.disabledGreyButton : isBottom ? style.buttonBottom : style.button]}
                         onPress={() => onPress()}>
                         {!loading
                             ?
@@ -33,7 +34,7 @@ export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress
                 ) : (
                     <TouchableOpacity
                         disabled={disabled || loading}
-                        style={[disabled ? style.disabledButton : style.button]}
+                        style={[disabled ? style.disabledButton : isBottom ? style.buttonBottom : style.button]}
                         onPress={() => onPress()}>
                         {!loading
                             ?
