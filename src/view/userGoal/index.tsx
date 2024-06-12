@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, ScrollView, Text } from 'react-native';
+import { StatusBar, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import colors from '../../global/colors';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -13,7 +13,7 @@ import { CarouselBottom, CarouselTop } from '../../components/carousel';
 import DashBoardGraph from '../../components/dashBoardGraph';
 import { LongButton } from '../../components/button';
 import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
-import { View } from '@gluestack-ui/themed';
+import DataCard from '../../components/dataCard';
 
 
 const UserGoal = () => {
@@ -28,6 +28,10 @@ const UserGoal = () => {
                     <Header
                         backButton
                         hasNotificationIcon
+                    />
+                    <DataCard
+                        title={'Objetivo de peso'}
+                        data={'68 kg'}
                     />
 
                     <DashBoardGraph />
