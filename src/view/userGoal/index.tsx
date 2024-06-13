@@ -1,20 +1,16 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { StatusBar, SafeAreaView, ScrollView, View } from 'react-native';
 import colors from '../../global/colors';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { units, useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { isLoading as loadingFromAuth, userData } from '../../redux/authSlice';
-import { LoadingScreen } from '../../components/loadingScreen';
 import { Header } from '../../components/header';
-import { TitleAndSubtitleCard } from '../../components/titleAndSubtitleCard';
-import { CarouselBottom, CarouselTop } from '../../components/carousel';
 import DashBoardGraph from '../../components/dashBoardGraph';
 import { LongButton } from '../../components/button';
-import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
 import DataCard from '../../components/dataCard';
-
+import TabView from '../../components/tabview';
 
 const UserGoal = () => {
     const dispatch = useAppDispatch();
@@ -34,14 +30,15 @@ const UserGoal = () => {
                         title={'Objetivo de peso'}
                         data={'68 kg'}
                     />
-
-                    <DashBoardGraph />
-
-                    <View style={style.measurementsContainer}>
-                        <Text style={style.measurementsInfo}>Peso</Text>
-                        <Text style={style.measurementsInfo}>76 Kg</Text>
+                    <View style={{ height: units.vh * 48 }}>
+                        <DashBoardGraph />
                     </View>
-                    <LongButton title={'Editar informações'} onPress={undefined} />
+
+                    <TabView />
+
+                    <View style={{ marginBottom: units.vh * 15 }}>
+                        <LongButton title={'Editar informações'} onPress={undefined} />
+                    </View>
                     <StatusBar barStyle={'light-content'} backgroundColor={colors.primary} />
                 </ScrollView>
             </SafeAreaView>

@@ -5,9 +5,8 @@ import { units } from '../../hooks/hooks';
 export const style = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: '5%',
+        paddingHorizontal: '2%',
         backgroundColor: colors.secondary,
-        marginBottom: units.vh * 10
     },
     measurementsContainer: {
         flexDirection: 'row',
