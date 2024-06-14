@@ -1,12 +1,8 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { useState } from 'react';
-import { FlatList, Modal, SafeAreaView, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import { Header } from '../../components/header';
 import { NotificationsCard } from '../../components/notificationsCard';
-import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
-import { CardSeparator } from '../../components/separators/card';
-import { NotificationModal } from '../../components/notificationModal';
 import { style } from './style';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { getNotifications, isLoading, notification } from '../../redux/userSlice';
@@ -14,9 +10,10 @@ import { notification as notificationType } from '../../@types/interfaces';
 import { userData } from '../../redux/authSlice';
 import colors from '../../global/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SheetModal from '../../components/agreementModal';
 
 const Notifications = () => {
-    const [modalIsVisible, setModalIsVisible] = useState(false);
+    const [showActionsheet, setShowActionsheet] = useState(false);
     const notifications = useAppSelector(notification);
     const [selected, setSelected] = useState<notificationType>({
         notifications_text: '',
@@ -24,13 +21,43 @@ const Notifications = () => {
         notifications_type: 1,
         notifications_user_id: 1,
     });
+
+    const notificacoes = [{
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Anúncio para todos os alunos',
+        notifications_type: 2,
+        notifications_user_id: 1,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Promoção: indique e ganhe',
+        notifications_type: 1,
+        notifications_user_id: 2,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Não abriremos nesse feriado',
+        notifications_type: 3,
+        notifications_user_id: 3,
+    },
+    {
+        notifications_text: 'algum texto akdjhfauidhfahdfaddkfakdjfkadjfkajdfahdfiaourakfn fauifduf',
+        notifications_title: 'Não abriremos nesse feriado',
+        notifications_type: 4,
+        notifications_user_id: 4,
+    }
+    ]
+
     const loading = useAppSelector(isLoading);
     const dispatch = useAppDispatch();
     const user = useAppSelector(userData);
 
+    const handleClose = () => setShowActionsheet(false);
+    const handleOpen = () => setShowActionsheet(true);
+
     const cardClick = (e: notificationType) => {
         setSelected(e);
-        setModalIsVisible(true);
+        handleOpen();
     };
 
     const onRefresh = () => {
@@ -39,43 +66,22 @@ const Notifications = () => {
         }
     };
 
-    let array = [
-        {
-            notifications_text: 'a',
-            notifications_title: 'a',
-            notifications_type: 1,
-            notifications_user_id: 1,
-
-        },
-        {
-            notifications_text: 'b',
-            notifications_title: 'b',
-            notifications_type: 1,
-            notifications_user_id: 1,
-        },
-    ]
-
     return (
         <SafeAreaView style={style.container}>
-            <Header />
+            <Header
+                text='Notificações'
+                backButton
+            />
             <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
-                data={notifications}
+                data={notificacoes}
                 renderItem={({ item, index }: any) => (
                     <NotificationsCard key={index} onPress={() => cardClick(item)} item={item} />
                 )}
                 keyExtractor={item => String(item.notifications_user_id)}
                 scrollEnabled
-                ItemSeparatorComponent={() => (
-                    <CardSeparator customHeight={18} />
-                )}
-                ListHeaderComponent={() => (
-                    <BottomOrTopSeparator />
-                )}
-                ListFooterComponent={() => (
-                    <BottomOrTopSeparator />
-                )}
+
                 ListEmptyComponent={() => (
                     <View style={style.emptyContainer}>
                         <Icon color={colors.placeholderTextColor} name="notifications-off-outline" size={40} />
@@ -83,9 +89,14 @@ const Notifications = () => {
                     </View>
                 )}
             />
-            <Modal visible={modalIsVisible} transparent animationType="fade" >
-                <NotificationModal close={() => setModalIsVisible(false)} item={selected} />
-            </Modal>
+            <SheetModal
+                type='Notificação'
+                isOpen={showActionsheet}
+                onOpen={cardClick}
+                onClose={handleClose}
+                title={selected.notifications_title}
+                text={selected.notifications_text}
+            />
         </SafeAreaView>
     );
 };

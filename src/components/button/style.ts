@@ -4,13 +4,25 @@ import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     button: {
-        backgroundColor: colors.primary,
-        width: units.vw * 88,
+        width: units.vw * 92,
         height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: colors.primary,
+
+    },
+    buttonBottom: {
+        width: units.vw * 92,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
+        position: 'absolute',
+        bottom: 45,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.primary,
 
     },
     smallButton: {
@@ -20,67 +32,43 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    buttonSecondary: {
-        backgroundColor: colors.primary,
+    disabledGreyButton: {
         width: units.vw * 92,
         height: units.vh * 6,
-        borderRadius: units.vh * 50,
+        borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        top: units.vh * 40
+        backgroundColor: colors.disabledButtonSecondary,
     },
     shortButton: {
-        backgroundColor: colors.primary,
-        width: '88%',
-        height: 64,
-        borderRadius: 32,
+        width: units.vw * 90,
+        height: units.vh * 8,
+        borderRadius: units.vh * 3,
+        marginBottom: units.vh * 4,
         alignSelf: 'center',
         justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0
+        backgroundColor: colors.primary,
     },
     disabledButton: {
+        width: units.vw * 88,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: colors.disabledButton,
-        width: units.vw * 88,
-        height: units.vh * 6,
-        borderRadius: (units.vw * 88) / 2,
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
-    disabledGreyButton: {
-        backgroundColor: colors.disabledButtonSecondary,
-        width: units.vw * 88,
-        height: units.vh * 6,
-        borderRadius: (units.vw * 88) / 2,
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0,
-    },
-    disabledButtonSecondary: {
-        backgroundColor: colors.disabledButtonSecondary,
-        width: units.vw * 92,
-        height: units.vh * 6,
-        borderRadius: units.vh * 50,
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        top: units.vh * 40
-    },
+
     buttonText: {
         fontSize: 16,
         color: colors.mainTextColor,
         fontFamily: 'Inter-ExtraBold'
     },
     shortButtonText: {
+        alignSelf: 'center',
         fontSize: 25,
+        fontFamily: 'Poppins-Medium',
         color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium'
     },
 });

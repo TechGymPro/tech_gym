@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, View } from 'react-native';
 import { style } from './style';
 import colors from '../../global/colors';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
@@ -73,15 +73,23 @@ const VerifyMail = ({ route }: any) => {
                 title={'Confirmar Email'}
                 subtitle={'Digite abaixo o código de 6 dígitos recebido'}
             />
-            <ConfirmationCodeInput correct={correctCode} error={codeError} value={code} setValue={setCode} onCodeFilled={() => { }} />
-            <LongButton title={'Verificar'} disabled={code.length < 6 || codeError} onPress={confirmCode} loading={loading} />
-            <SmallTitlesCard
-                title={`Reenviar código em ${timeLeft} segundos`}
-                subtitle={'Reenviar código'}
-                button
-                onPress={reSendToken}
-                onPressDisabled={timeLeft !== 0}
-            />
+            <View>
+                <ConfirmationCodeInput correct={correctCode} error={codeError} value={code} setValue={setCode} onCodeFilled={() => { }} />
+                <LongButton
+                    type='grey'
+                    title={'Verificar'}
+                    disabled={code.length < 6 || codeError}
+                    onPress={confirmCode}
+                    loading={loading}
+                />
+                <SmallTitlesCard
+                    title={`Reenviar código em ${timeLeft} segundos`}
+                    subtitle={'Reenviar código'}
+                    button
+                    onPress={reSendToken}
+                    onPressDisabled={timeLeft !== 0}
+                />
+            </View>
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>
     );

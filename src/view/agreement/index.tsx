@@ -84,7 +84,10 @@ const Agreement = () => {
                 isOpen={showActionsheet}
                 onOpen={handleOpen}
                 onClose={handleClose}
-                type={'Assinar'} />
+                type={'Assinar'}
+                title='Assinar contrato?'
+                text='Ao assinar você concorda com os termos de uso apresentados no contrato.'
+            />
 
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>

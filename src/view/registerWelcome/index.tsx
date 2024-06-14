@@ -22,7 +22,7 @@ const RegisterWelcome = () => {
                     `Bem-vindo, vamos fazer algumas perguntas para criarmos seu cadastro, não se preocupe, isso só será no primeiro acesso`
                 }
             />
-            <LongButton title={'Continuar'} onPress={() => navigation.navigate('GetEmail')} />
+            <LongButton title={'Continuar'} onPress={() => navigation.navigate('GetEmail')} isBottom/>
             <StatusBar backgroundColor={colors.secondary} barStyle={'dark-content'} />
         </SafeAreaView>
     );

@@ -13,15 +13,13 @@ const RegisterConcluded = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
     return (
-        <SafeAreaView style={IsKeyboardOpen ? style.containerK : style.containerWK}>
+        <SafeAreaView style={style.containerK}>
             <ImageBackground source={require('../../assets/img/woman-training.png')} style={style.imgBg}>
-                <View style={style.containerGradient}>
-                    <LinearGradient
-                        colors={['transparent', 'rgba(255, 255, 255, 1)']}
-                        style={style.linearGradient}
-                    >
-                    </LinearGradient>
-                </View>
+                <LinearGradient
+                    colors={['transparent', 'transparent', 'rgba(255, 255, 255, 1)']}
+                    style={style.linearGradient}
+                >
+                </LinearGradient>
             </ImageBackground>
             <View style={style.signUpContainer}>
                 <Text style={style.bigText}>Cadastro concluído</Text>
@@ -30,8 +28,11 @@ const RegisterConcluded = () => {
                     vantagens para ficar mais saudável
                 </Text>
             </View>
+            <View style={{ marginBottom: 12 }}>
+                <LongButton title={'Entrar'} onPress={() => navigation.navigate('InfosII')} />
+            </View>
 
-            <LongButton title={'Entrar'} onPress={() => navigation.navigate('InfosII')} />
+
             <StatusBar hidden />
         </SafeAreaView>
     );
