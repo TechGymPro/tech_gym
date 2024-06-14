@@ -32,7 +32,7 @@ export const NotificationModal: React.FC<Props> = ({ close, item }) => {
                                 :
                                 item.notifications_type === 3
                                     ?
-                                    <IconI name="calendar-clear-outline" size={32} color={colors.goodGraph} style={style.icon} />
+                                    <IconI name="calendar-clear-outline" size={32} color={colors.green} style={style.icon} />
                                     :
                                     null
                     }
@@ -43,7 +43,7 @@ export const NotificationModal: React.FC<Props> = ({ close, item }) => {
                 <View style={style.messageContainer}>
                     <Text style={style.message}>{item.notifications_text}</Text>
                 </View>
-                <TouchableOpacity style={style.button} onPress={()=>close()}>
+                <TouchableOpacity style={style.button} onPress={() => close()}>
                     <Text style={style.buttonText}>Lida</Text>
                 </TouchableOpacity>
             </View>

@@ -101,6 +101,7 @@ const DashBoardGraph = () => {
               backgroundGradientTo: '#fefefe',
 
               color: (opacity = 1) => colorGraph,
+              //   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
 
               style: {
                 borderRadius: 16,
