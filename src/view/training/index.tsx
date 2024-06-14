@@ -14,6 +14,8 @@ import { userData } from '../../redux/authSlice';
 import { division } from '../../@types/interfaces';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../../global/colors';
+import DataCard from '../../components/dataCard';
+import TrainingCard from '../../components/trainingCard';
 
 const Training = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -32,35 +34,59 @@ const Training = () => {
         dispatch(selectTraining({ navigation, exercise: e }));
     };
 
+    const exerciseList = [
+        {
+            title: 'Costa + Bíceps + Ombro',
+            training_serie_name: 'A',
+            text: 'Exercise Group A'
+        },
+        {
+            title: 'Membros inferiores',
+            training_serie_name: 'B',
+            text: 'Exercise Group B'
+        },
+        {
+            title: 'Peitoral + Ombro',
+            training_serie_name: 'C',
+            text: 'Exercise Group C'
+        },
+        {
+            title: 'Abdominal',
+            training_serie_name: 'D',
+            text: 'Exercise Group D'
+        },
+    ]
+
     return (
         <SafeAreaView style={style.container}>
-            <Header />
-            <Image style={style.image} source={require('../../assets/img/gymGround.jpg')} />
-            {/* <FlatList
+            <Header
+                backButton
+                hasNotificationIcon
+            />
+            <DataCard
+                type='training'
+                title={'Exercícios'}
+                data={'A B C D'}
+            />
+            <FlatList
                 onRefresh={onRefresh}
                 refreshing={loading}
-                data={exercises}
+                data={exerciseList}
                 renderItem={({ item }) => (
-                    <Card disable={false} discount={false} isActive={false} options={[]} subtitle=""  title={Number(item.training_serie_name)} onPress={() => cardPress(item)} />
+                    <TrainingCard
+                        type={item.training_serie_name}
+                        title={item.title}
+                        text={item.text}
+                    />
                 )}
                 keyExtractor={item => item.training_serie_name}
                 scrollEnabled
-                ItemSeparatorComponent={() => (
-                    <CardSeparator customHeight={20} />
-                )}
-                ListHeaderComponent={() => (
-                    <BottomOrTopSeparator />
-                )}
-                ListFooterComponent={() => (
-                    <BottomOrTopSeparator />
-                )}
                 ListEmptyComponent={() => (
                     <View style={style.emptyContainer}>
                         <Icon color={colors.placeholderTextColor} name="user-slash" size={40} />
                         <Text style={style.textEmpty}>Sem exercícios registrados, por favor entre em contato com o professor mais próximo.</Text>
                     </View>
-                )} */}
-            {/* /> */}
+                )} />
         </SafeAreaView>
     );
 };

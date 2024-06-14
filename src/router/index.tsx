@@ -202,7 +202,7 @@ export const Router = () => {
 const AuthenticatedDashboard = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="Training"
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {

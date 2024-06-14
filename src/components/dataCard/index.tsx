@@ -13,16 +13,8 @@ const DataCard: React.FC<DataCardProps> = ({ title, data, type }) => {
     return (
         <View style={style.container}>
             <ImageBackground
-                source={
-                    type === 'data' ?
-                        require('../../assets/img/measurements-bg.jpg')
-                        : type === 'training' ?
-                            require('../../assets/img/measurements-bg.jpg')
-                            : require('../../assets/img/measurements-bg.jpg')
-                }
-                style={style.imgBg}
-
-            >
+                source={require('../../assets/img/measurements-bg.jpg')}
+                style={style.imgBg}>
                 <LinearGradient
                     style={{ flex: 1 }}
                     colors={['rgba(0, 0, 0, 0.8)', 'rgba(0,0,0,0.8)']}
@@ -34,6 +26,13 @@ const DataCard: React.FC<DataCardProps> = ({ title, data, type }) => {
                         </View>
                         <Image
                             style={style.imgIcon}
+                            source={
+                                type === 'data' ?
+                                    require('../../assets/img/data-icon-yellow.png')
+                                    : type === 'training' ?
+                                        require('../../assets/img/training-icon-yellow.png')
+                                        : require('../../assets/img/profile-icon-yellow.png')
+                            }
                             source={require('../../assets/img/data-icon-yellow.png')}
                         />
                     </View>
