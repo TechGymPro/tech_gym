@@ -24,6 +24,7 @@ const colors = {
     mainTextColor: '#101010',
     titleTextColor: '#141c24',
     subtitleTextColor: '#6D6D6D',
+    subtitleSecondary: '#F7FAFA',
     secondaryTextColor: '#8F8E8E',
     lightTextColor: '#ffffff',
     greyTextColor: '#CCC7C7',

@@ -42,7 +42,7 @@ export const Router = () => {
 
   return (
     <NavigationContainer>
-      {!userToken ? (
+      {userToken ? (
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
             name="SignUp"
@@ -200,7 +200,7 @@ export const Router = () => {
 const AuthenticatedDashboard = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="Training"
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -222,14 +222,14 @@ const AuthenticatedDashboard = () => {
           tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Home" iconName="home" size={size} />),
         }}
       />
-        <Tab.Screen
-          name="Training"
-          component={Training}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
-          }}
-        />
+      <Tab.Screen
+        name="Training"
+        component={Training}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
+        }}
+      />
       <Tab.Screen
         name="Measurements"
         component={Measurements}
