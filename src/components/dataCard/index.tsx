@@ -14,8 +14,7 @@ const DataCard: React.FC<DataCardProps> = ({ title, data, type }) => {
         <View style={style.container}>
             <ImageBackground
                 source={require('../../assets/img/measurements-bg.jpg')}
-                style={style.imgBg}
-            >
+                style={style.imgBg}>
                 <LinearGradient
                     style={{ flex: 1 }}
                     colors={['rgba(0, 0, 0, 0.8)', 'rgba(0,0,0,0.8)']}
@@ -34,6 +33,7 @@ const DataCard: React.FC<DataCardProps> = ({ title, data, type }) => {
                                         require('../../assets/img/training-icon-yellow.png')
                                         : require('../../assets/img/profile-icon-yellow.png')
                             }
+                            source={require('../../assets/img/data-icon-yellow.png')}
                         />
                     </View>
                 </LinearGradient>
