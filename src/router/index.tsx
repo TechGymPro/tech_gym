@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Dashboard from '../view/dashboard';
 import Notifications from '../view/notifications';
 import EditUserInformation from '../view/editUserInformation';
+import UserEdit from '../view/userEdit';
 import UserGoal from '../view/userGoal';
 import Measurements from '../view/measurements/measurementsGraph';
 import MeasurementsEdit from '../view/measurements/edit';
@@ -201,7 +202,7 @@ export const Router = () => {
 const AuthenticatedDashboard = () => {
   return (
     <Tab.Navigator
-      initialRouteName="UserGoal"
+      initialRouteName="Dashboard"
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -226,6 +227,14 @@ const AuthenticatedDashboard = () => {
       <Tab.Screen
         name="Training"
         component={Training}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
+        }}
+      />
+      <Tab.Screen
+        name="UserEdit"
+        component={UserEdit}
         options={{
           headerShown: false,
           tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Treino" iconName="training" size={size} />),
