@@ -1,7 +1,7 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, ScrollView, Text, View, Image, ImageBackground } from 'react-native';
-import { style } from './style';
+import { Text, View, Image, ImageBackground } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { style } from './style';
 
 interface DataCardProps {
     type: 'training' | 'data' | 'profile';

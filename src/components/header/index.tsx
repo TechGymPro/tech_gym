@@ -43,7 +43,7 @@ export const Header: React.FC<Props> = ({ backButton, customBackButton, text, re
                         ?
                         require('../../assets/img/notificationActive-ico.png')
                         :
-                        require('../../assets/img/notification-ico.png')} style={style.ico} />
+                        require('../../assets/img/notification-ico.png')} style={notifications && notifications.length ? style.icoActive : style.ico} />
                 </TouchableOpacity>
             )}
         </View>

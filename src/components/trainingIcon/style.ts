@@ -34,5 +34,8 @@ export const style = StyleSheet.create({
     imgIcon: {
         width: 38,
         height: 38
+    },
+    linearGradient: {
+        flex: 1
     }
 })

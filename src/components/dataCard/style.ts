@@ -7,7 +7,7 @@ export const style = StyleSheet.create({
         width: units.vw * 85,
         height: units.vh * 12,
         marginTop: 12,
-        borderRadius: units.vw * 2,
+        borderRadius: units.vw * 4,
         overflow: 'hidden',
         alignSelf: 'center',
     },
