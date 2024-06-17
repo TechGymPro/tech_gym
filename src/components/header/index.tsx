@@ -15,21 +15,21 @@ interface Props {
     text?: string;
     hasNotificationIcon?: boolean;
     returnLogoff?: boolean;
-    training?: boolean;
+    darkTheme?: boolean;
 }
 
-export const Header: React.FC<Props> = ({ backButton, customBackButton, text, returnLogoff, hasNotificationIcon, training }) => {
+export const Header: React.FC<Props> = ({ backButton, customBackButton, text, returnLogoff, hasNotificationIcon, darkTheme }) => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const notifications = useAppSelector(notification);
     const loadingAuth = useAppSelector(isLoading);
     const loadingUser = useAppSelector(isLoadingUser);
 
     return (
-        <View style={[hasNotificationIcon ? [style.container, style.containerJustifyContent] : training ? [style.container, style.darkTheme] : style.container]}>
+        <View style={[hasNotificationIcon ? [style.container, style.containerJustifyContent] : darkTheme ? [style.container, style.darkTheme] : style.container]}>
             {backButton && (
                 <TouchableOpacity disabled={loadingAuth || loadingUser} onPress={() => customBackButton ? customBackButton() : navigation.goBack()}>
                     <Image source={
-                        training ?
+                        darkTheme ?
                             require('../../assets/img/back-icon-white.png') :
                             require('../../assets/img/back-icon.png')}
                         style={style.ico}
@@ -38,7 +38,7 @@ export const Header: React.FC<Props> = ({ backButton, customBackButton, text, re
             )}
             {text && (
                 <Text style={
-                    training ? [style.hello, style.whiteHello] :
+                    darkTheme ? [style.hello, style.whiteHello] :
                         style.hello}>{text}</Text>
             )}
             {hasNotificationIcon && (

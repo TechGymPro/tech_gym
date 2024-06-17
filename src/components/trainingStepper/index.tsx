@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React, { useState } from 'react';
 import {
   Button,
   Image,
@@ -10,16 +10,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Fontisto';
 import IconI from 'react-native-vector-icons/Ionicons';
-// import VideoPlayer from 'react-native-video-controls';
+import VideoPlayer from 'react-native-video-controls';
 import { exercise } from '../../@types/interfaces';
 import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
-import { ResizableWhiteCard } from '../resizableWhiteCard';
 import { TimerModal } from '../timerModal';
 import { style } from './style';
 import { Header } from '../header';
+import TabView from '../tabview';
+import { TabButtonType } from '../tabview/tabbutons';
+import { LongButton, SmallButton } from '../button';
 
 interface Props {
   trainingName: string;
@@ -32,6 +33,17 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
   const [actualStep, setActualStep] = useState(1);
   const [counterIsActive, setCounterIsActive] = useState(false);
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
+  const [showActionsheet, setShowActionsheet] = useState(false);
+  const handleClose = () => setShowActionsheet(false);
+  const handleOpen = () => setShowActionsheet(true);
+
+
+  const training: TabButtonType[] = [
+    { title: 'Séries', value: trainings[actualStep - 1].exercise_qtd_serie },
+    { title: 'Repetições', value: trainings[actualStep - 1].exercise_qtd_rep },
+    { title: 'Observações', value: trainings[actualStep - 1].exercise_obs },
+  ]
   console.log(
     'trainings-------------------------------------------------------------------------',
   );
@@ -50,150 +62,97 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
   return (
     <View style={style.container}>
       <Header
-        text='Treino B'
+        text={`Treino ${trainingName}`}
         backButton
-        training
+        darkTheme
       />
-      <View style={style.header}>
-        <View style={style.headerUp}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Icon name="angle-left" size={25} color={colors.secondary} />
-          </TouchableOpacity>
-          <Text style={style.headerTextUp}>Treino {trainingName}</Text>
-          <Icon name="angle-left" size={25} color={colors.mainTextColor} />
-        </View>
-        <Text style={style.headerDown}>
+      <View style={style.progressContainer}>
+        <Text style={style.subtitle}>
           {actualStep} de {trainings.length} finalizados
         </Text>
+        <Text>Progress bar</Text>
       </View>
-      <ResizableWhiteCard
-        width="89%"
-        height="72%"
-        borderRadius={10}
-        children={
-          <View style={style.midContainer}>
-            {trainings[actualStep - 1].exercise_url &&
-              trainings[actualStep - 1].type === 'image' ? (
-              <Image
-                source={{ uri: trainings[actualStep - 1].exercise_url }}
-                style={style.image}
-              />
-            ) : trainings[actualStep - 1].exercise_url &&
-              trainings[actualStep - 1].type === 'video' ? (
-              <View style={stylesImg.video}>
-                {/* <VideoPlayer
-                  source={{
-                    uri: trainings[actualStep - 1].exercise_url,
-                  }}
-                  style={stylesImg.video}
-                  repeat={true} // make it a loop
-                  paused={!trainings[actualStep - 1] || !isPlaying}
-                  controls={true}
-                  muted={isMuted}
-                  tapAnywhereToPause={true}
-                /> */}
-                <View style={{ marginVertical: 2 }} />
-                <Button
-                  onPress={() => setIsPlaying(p => !p)}
-                  title={isPlaying ? 'Stop' : 'Play'}
-                />
-                <View style={{ marginVertical: 2 }} />
-                <Button
-                  onPress={() => setIsMuted(m => !m)}
-                  title={isMuted ? 'Unmute' : 'Mute'}
-                />
-              </View>
-            ) : (
-              <Image
-                source={require('../../assets/img/empty_exercise.png')}
-                style={style.image}
-              />
-            )}
-            <Text style={style.midTitle}>
-              {trainings[actualStep - 1].exercise_name}
-            </Text>
-            <View style={style.midSub}>
-              <View style={style.midLittleContainers}>
-                <Text style={style.midSubtitle}>Séries</Text>
-                <Text style={style.midNumbers}>
-                  {trainings[actualStep - 1].exercise_qtd_serie}
-                </Text>
-              </View>
-              <View style={style.midLittleContainers}>
-                <Text style={style.midSubtitle}>Repetições</Text>
-                <Text style={style.midNumbers}>
-                  {trainings[actualStep - 1].exercise_qtd_rep}
-                </Text>
-              </View>
-            </View>
-            <View style={style.midObsContainer}>
-              <Text style={style.midSubtitle}>Observação</Text>
-              <Text style={style.midObs}>
-                {trainings[actualStep - 1].exercise_obs}
-              </Text>
-            </View>
-            <TouchableOpacity
-              style={style.midButton}
-              onPress={() => setCounterIsActive(true)}>
-              <Text style={style.midButtonText}>Descansar</Text>
-              <IconI name="play" size={30} color={colors.darkBackground} />
-            </TouchableOpacity>
+
+      <View style={style.midContainer}>
+        {trainings[actualStep - 1].exercise_url &&
+          trainings[actualStep - 1].type === 'image' ? (
+          <Image
+            source={{ uri: trainings[actualStep - 1].exercise_url }}
+            style={style.image}
+          />
+        ) : trainings[actualStep - 1].exercise_url &&
+          trainings[actualStep - 1].type === 'video' ? (
+          <View style={stylesImg.video}>
+            <VideoPlayer
+              source={{
+                uri: trainings[actualStep - 1].exercise_url,
+              }}
+              style={stylesImg.video}
+              repeat={true} // make it a loop
+              paused={!trainings[actualStep - 1] || !isPlaying}
+              controls={true}
+              muted={isMuted}
+              tapAnywhereToPause={true}
+            />
+            <View style={{ marginVertical: 2 }} />
+            <Button
+              onPress={() => setIsPlaying(p => !p)}
+              title={isPlaying ? 'Stop' : 'Play'}
+            />
+            <View style={{ marginVertical: 2 }} />
+            <Button
+              onPress={() => setIsMuted(m => !m)}
+              title={isMuted ? 'Unmute' : 'Mute'}
+            />
           </View>
-        }
-      />
-      <View style={style.buttonContainer}>
+        ) : (
+          <Image
+            source={require('../../assets/img/empty_exercise.png')}
+            style={style.image}
+          />
+        )}
+        <Text style={style.exerciseTitle}>
+          {trainings[actualStep - 1].exercise_name}
+        </Text>
+
+        <TabView
+          darkTheme
+          options={training}
+        />
+
+        {/* <TouchableOpacity
+          style={style.restButton}
+          onPress={() => setCounterIsActive(true)}
+          >
+          <IconI name="play-outline" size={26} color={colors.darkBackground} />
+          <Text style={style.midButtonText}>Descansar</Text>
+        </TouchableOpacity> */}
+        <TimerModal
+          time={0}
+          isOpen={showActionsheet}
+          onOpen={handleOpen}
+          onClose={handleClose}
+        />
+      </View>
+
+      <View style={style.bottomContainer}>
         {actualStep < trainings.length && actualStep === 1 ? (
-          <TouchableOpacity
-            style={style.singleButton}
-            onPress={() => nextStep()}>
-            <Text style={style.buttonText}>Próximo</Text>
-          </TouchableOpacity>
+          <LongButton title={'Próximo'} onPress={() => nextStep()} />
         ) : actualStep < trainings.length && actualStep > 1 ? (
-          <View style={style.multipleButton}>
-            <TouchableOpacity
-              style={style.multipleButtonWhite}
-              onPress={() => previousStep()}>
-              <Text style={style.buttonText}>Voltar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={style.multipleButtonYellow}
-              onPress={() => nextStep()}>
-              <Text style={style.buttonText}>Próximo</Text>
-            </TouchableOpacity>
+          <View style={style.containerButton}>
+            <SmallButton title={'Anterior'} type='grey' onPress={() => previousStep()} />
+            <SmallButton title={'Próximo'} onPress={() => nextStep()} />
           </View>
         ) : actualStep === trainings.length && trainings.length === 1 ? (
-          <TouchableOpacity
-            style={style.singleButton}
-            onPress={() => navigation.navigate('Dashboard')}>
-            <Text style={style.buttonText}>Finalizar</Text>
-          </TouchableOpacity>
+          <LongButton title={'Finalizar'} onPress={() => navigation.navigate('Dashboard')} />
         ) : (
-          <View style={style.multipleButton}>
-            <TouchableOpacity
-              style={style.multipleButtonWhite}
-              onPress={() => previousStep()}>
-              <Text style={style.buttonText}>Voltar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={style.multipleButtonYellow}
-              onPress={() => navigation.navigate('Dashboard')}>
-              <Text style={style.buttonText}>Finalizar</Text>
-            </TouchableOpacity>
+          <View style={style.containerButton}>
+            <SmallButton title={'Anterior'} type='grey' onPress={() => previousStep()} />
+            <SmallButton title={'Finalizar'} onPress={() => navigation.navigate('Dashboard')} />
           </View>
         )}
       </View>
-      <Modal visible={counterIsActive} transparent>
-        <TimerModal
-          onclose={() => setCounterIsActive(false)}
-          next={() =>
-            actualStep === trainings.length
-              ? navigation.navigate('Dashboard')
-              : nextStep()
-          }
-          time={trainings[actualStep - 1].exercise_rest_time}
-        />
-      </Modal>
-    </View>
+    </View >
   );
 };
 

@@ -11,6 +11,7 @@ export const style = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: colors.greyBgColor,
     },
+    darkTheme: { backgroundColor: colors.secondary },
     optionContainer: {
         flexDirection: 'row',
         alignSelf: 'center',
@@ -48,6 +49,7 @@ export const style = StyleSheet.create({
         fontFamily: 'Inter-Regular',
         fontSize: 14,
         color: colors.thirdColor
-    }
+    },
+    darkThemeText: { color: colors.lightgreyBgColor },
 });
 

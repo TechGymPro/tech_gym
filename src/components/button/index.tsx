@@ -57,11 +57,11 @@ export const ShortButton: React.FC<Props> = ({ title, onPress }) => {
 };
 
 
-export const SmallButton: React.FC<Props> = ({ title, onPress }) => {
+export const SmallButton: React.FC<Props> = ({ type, title, onPress }) => {
     return (
         <>
             <TouchableOpacity
-                style={style.smallButton}
+                style={type === 'grey' ? [style.smallButton, style.greyBackground] : style.smallButton}
                 onPress={() => onPress()}
             >
                 <Text style={style.buttonText}>{title}</Text >

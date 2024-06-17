@@ -26,12 +26,14 @@ export const style = StyleSheet.create({
 
     },
     smallButton: {
-        width: units.vh * 40,
+        width: units.vh * 22,
         height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: colors.primary
     },
+    greyBackground: { backgroundColor: colors.greyBgColor },
     disabledGreyButton: {
         width: units.vw * 92,
         height: units.vh * 6,

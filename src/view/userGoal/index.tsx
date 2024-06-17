@@ -11,12 +11,18 @@ import DashBoardGraph from '../../components/dashBoardGraph';
 import { LongButton } from '../../components/button';
 import DataCard from '../../components/dataCard';
 import TabView from '../../components/tabview';
+import { TabButtonType } from '../../components/tabview/tabbutons';
 
 const UserGoal = () => {
     const dispatch = useAppDispatch();
     const userInfos = useAppSelector(userData);
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
+    const measurement: TabButtonType[] = [
+        { title: 'Altura', value: '1.65 m' },
+        { title: 'Peso', value: '70 Kg' },
+        { title: 'IMC', value: 'valorIMC' },
+    ]
     return (
         <>
             <SafeAreaView style={style.container}>
@@ -34,7 +40,7 @@ const UserGoal = () => {
                         <DashBoardGraph />
                     </View>
 
-                    <TabView />
+                    <TabView options={measurement} />
 
                     <View style={{ marginBottom: units.vh * 15 }}>
                         <LongButton title={'Editar informações'} onPress={undefined} />
