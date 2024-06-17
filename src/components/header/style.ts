@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 20,
-        paddingHorizontal: '5%',
+        paddingHorizontal: '8%',
         backgroundColor: colors.secondary,
     },
     containerJustifyContent: {

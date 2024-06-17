@@ -18,7 +18,9 @@ const TrainingIcon: React.FC<TrainingIconProps> = ({ text }) => {
                     style={{ flex: 1 }}
                     colors={['rgba(0, 0, 0, 0.8)', 'rgba(0,0,0,0.8)']}
                 >
-                    <Text style={style.title}>{text}</Text>
+                    <View style={style.textContainer}>
+                        <Text style={style.title}>{text}</Text>
+                    </View>
                 </LinearGradient>
             </ImageBackground>
         </View>
