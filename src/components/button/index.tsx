@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableOpacity, Text, DimensionValue, ActivityIndicator } from 'react-native';
-import { units } from '../../hooks/hooks';
 import { style } from './style';
 import colors from '../../global/colors';
 

@@ -4,6 +4,6 @@ import colors from '../../global/colors';
 export const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.trainingBackground,
+        backgroundColor: colors.mainTextColor,
     },
 });

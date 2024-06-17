@@ -6,6 +6,10 @@ export const style = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.secondary,
+        marginBottom: units.vh * 12
+    },
+    scroll: {
+        height: '100%'
     },
     inputContainer: {
         paddingHorizontal: '5%',

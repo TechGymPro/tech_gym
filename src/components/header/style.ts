@@ -11,6 +11,7 @@ export const style = StyleSheet.create({
         paddingHorizontal: '8%',
         backgroundColor: colors.secondary,
     },
+    darkTheme: { backgroundColor: colors.mainTextColor },
     containerJustifyContent: {
         justifyContent: 'space-between'
     },
@@ -20,10 +21,14 @@ export const style = StyleSheet.create({
         fontFamily: 'Inter',
         fontWeight: '700',
     },
+    whiteHello: {
+        color: colors.subtitleSecondary
+    },
     ico: {
         width: 22,
         height: 24,
         alignSelf: 'flex-end',
+        marginRight: 20
     },
     icoActive: {
         width: 32,

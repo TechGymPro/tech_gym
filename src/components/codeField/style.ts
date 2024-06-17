@@ -26,7 +26,7 @@ export const style = StyleSheet.create({
         lineHeight: 38,
         borderWidth: 1.75,
         borderRadius: 5,
-        borderColor: colors.badGraph,
+        borderColor: colors.errorColor,
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center',

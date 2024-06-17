@@ -44,8 +44,8 @@ export const Router = () => {
 
   return (
     <NavigationContainer>
-      {userToken ? (
-        <Stack.Navigator initialRouteName="Login">
+      {!userToken ? (
+        <Stack.Navigator initialRouteName="TrainingPlay">
           <Stack.Screen
             name="SignUp"
             component={SignUp}
@@ -202,7 +202,7 @@ export const Router = () => {
 const AuthenticatedDashboard = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Training"
+      initialRouteName="TrainingPlay"
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {

@@ -1,6 +1,6 @@
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useState} from 'react';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { useState } from 'react';
 import {
   Button,
   Image,
@@ -12,20 +12,21 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
 import IconI from 'react-native-vector-icons/Ionicons';
-import VideoPlayer from 'react-native-video-controls';
-import {exercise} from '../../@types/interfaces';
+// import VideoPlayer from 'react-native-video-controls';
+import { exercise } from '../../@types/interfaces';
 import colors from '../../global/colors';
-import {units} from '../../hooks/hooks';
-import {ResizableWhiteCard} from '../resizableWhiteCard';
-import {TimerModal} from '../timerModal';
-import {style} from './style';
+import { units } from '../../hooks/hooks';
+import { ResizableWhiteCard } from '../resizableWhiteCard';
+import { TimerModal } from '../timerModal';
+import { style } from './style';
+import { Header } from '../header';
 
 interface Props {
   trainingName: string;
   trainings: exercise[];
 }
 
-export const TrainingStepper: React.FC<Props> = ({trainingName, trainings}) => {
+export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isMuted, setIsMuted] = React.useState(false);
   const [actualStep, setActualStep] = useState(1);
@@ -48,13 +49,18 @@ export const TrainingStepper: React.FC<Props> = ({trainingName, trainings}) => {
 
   return (
     <View style={style.container}>
+      <Header
+        text='Treino B'
+        backButton
+        training
+      />
       <View style={style.header}>
         <View style={style.headerUp}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Icon name="angle-left" size={25} color={colors.secondary} />
           </TouchableOpacity>
           <Text style={style.headerTextUp}>Treino {trainingName}</Text>
-          <Icon name="angle-left" size={25} color={colors.trainingBackground} />
+          <Icon name="angle-left" size={25} color={colors.mainTextColor} />
         </View>
         <Text style={style.headerDown}>
           {actualStep} de {trainings.length} finalizados
@@ -67,15 +73,15 @@ export const TrainingStepper: React.FC<Props> = ({trainingName, trainings}) => {
         children={
           <View style={style.midContainer}>
             {trainings[actualStep - 1].exercise_url &&
-            trainings[actualStep - 1].type === 'image' ? (
+              trainings[actualStep - 1].type === 'image' ? (
               <Image
-                source={{uri: trainings[actualStep - 1].exercise_url}}
+                source={{ uri: trainings[actualStep - 1].exercise_url }}
                 style={style.image}
               />
             ) : trainings[actualStep - 1].exercise_url &&
               trainings[actualStep - 1].type === 'video' ? (
               <View style={stylesImg.video}>
-                <VideoPlayer
+                {/* <VideoPlayer
                   source={{
                     uri: trainings[actualStep - 1].exercise_url,
                   }}
@@ -85,13 +91,13 @@ export const TrainingStepper: React.FC<Props> = ({trainingName, trainings}) => {
                   controls={true}
                   muted={isMuted}
                   tapAnywhereToPause={true}
-                />
-                <View style={{marginVertical: 2}} />
+                /> */}
+                <View style={{ marginVertical: 2 }} />
                 <Button
                   onPress={() => setIsPlaying(p => !p)}
                   title={isPlaying ? 'Stop' : 'Play'}
                 />
-                <View style={{marginVertical: 2}} />
+                <View style={{ marginVertical: 2 }} />
                 <Button
                   onPress={() => setIsMuted(m => !m)}
                   title={isMuted ? 'Unmute' : 'Mute'}
