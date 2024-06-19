@@ -6,18 +6,17 @@ import { style } from './style';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectedTraining } from '../../redux/userSlice';
 
-
 const TrainingPlay = () => {
     const exercises = [{
         exercise_id: 1,
         gym_id: 2,
         exercise_name: 'Agachamento sumô',
-        exercise_url: 'url',
+        exercise_url: 'https://www.youtube.com/watch?v=V4A0QrhcBLk',
         exercise_qtd_serie: 4,
         exercise_qtd_rep: 12,
         exercise_obs: 'obs',
         exercise_rest_time: 2,
-        type: 'B'
+        type: 'video'
     },
     {
         exercise_id: 2,
@@ -27,8 +26,19 @@ const TrainingPlay = () => {
         exercise_qtd_serie: 3,
         exercise_qtd_rep: 6,
         exercise_obs: 'obs',
-        exercise_rest_time: 2,
-        type: 'A'
+        exercise_rest_time: 1,
+        type: 'no image'
+    },
+    {
+        exercise_id: 3,
+        gym_id: 2,
+        exercise_name: 'Panturrilha',
+        exercise_url: 'url',
+        exercise_qtd_serie: 2,
+        exercise_qtd_rep: 15,
+        exercise_obs: 'obs',
+        exercise_rest_time: 1,
+        type: 'no image'
     }]
     // const training = useAppSelector(selectedTraining);
     // if (training) {
@@ -42,8 +52,5 @@ const TrainingPlay = () => {
         </SafeAreaView>
     );
 }
-// };
-
 
 export default TrainingPlay;
-

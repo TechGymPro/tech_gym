@@ -9,10 +9,24 @@ export const style = StyleSheet.create({
         paddingBottom: '8%',
     },
     progressContainer: {
-        height: '12%',
-        justifyContent: 'space-evenly',
-        paddingHorizontal: '5%',
-        marginTop: '2%',
+        flex: 1,
+        width: '80%',
+        alignSelf: 'center',
+        gap: units.vh * 2,
+        marginTop: units.vh * 2,
+        marginBottom: units.vh * 2,
+    },
+    progressBar: {
+        width: '100%',
+        height: units.vh * 1,
+        borderRadius: units.vh * 12,
+        overflow: 'hidden',
+        backgroundColor: colors.greyBorderColor,
+    },
+    fill: {
+        height: '100%',
+        borderRadius: units.vh * 12,
+        backgroundColor: colors.primary,
     },
     subtitle: {
         color: colors.primary,
@@ -21,24 +35,28 @@ export const style = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: '37%',
-        borderTopRightRadius: 10,
-        borderTopLeftRadius: 10,
+        height: units.vh * 30,
+        marginTop: 10,
         resizeMode: 'cover',
+    },
+    video: {
+        width: '100%',
+        height: units.vh * 50,
+        // marginTop: 10,
+        // resizeMode: 'contain',
     },
     midContainer: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingBottom: '12%',
+        paddingHorizontal: '5%'
     },
     exerciseTitle: {
+        marginTop: units.vh * 4,
+        marginBottom: units.vh * 2,
         fontFamily: 'Inter-Bold',
-        color: colors.subtitleSecondary,
         fontSize: 32,
-        marginBottom: units.vh * 2
+        color: colors.subtitleSecondary,
     },
-
     containerButton: {
         width: '90%',
         flexDirection: 'row',
@@ -48,7 +66,6 @@ export const style = StyleSheet.create({
         gap: 20
     },
     bottomContainer: {
-        marginTop: units.vh * 15,
-        marginBottom: units.vh * 5
+        alignSelf: 'center'
     }
 });

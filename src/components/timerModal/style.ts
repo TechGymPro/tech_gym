@@ -23,12 +23,14 @@ export const style = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 14,
         color: colors.mainTextColor,
+        borderRadius: units.vh * 12
     },
     subContainer: {
         flex: 1,
         width: units.vw * 60,
         height: units.vh * 16,
         alignItems: 'center',
+        borderRadius: units.vh * 12
     },
     timerText: {
         width: units.vw * 38,

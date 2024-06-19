@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import {
-  Button,
-  Image,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import IconI from 'react-native-vector-icons/Ionicons';
-import VideoPlayer from 'react-native-video-controls';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
+// import VideoPlayer from 'react-native-video-controls';
+import Video from 'react-native-video';
 import { exercise } from '../../@types/interfaces';
-import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
 import { TimerModal } from '../timerModal';
 import { style } from './style';
@@ -31,7 +22,7 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isMuted, setIsMuted] = React.useState(false);
   const [actualStep, setActualStep] = useState(1);
-  const [counterIsActive, setCounterIsActive] = useState(false);
+
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const [showActionsheet, setShowActionsheet] = useState(false);
@@ -62,7 +53,7 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
   return (
     <View style={style.container}>
       <Header
-        text={`Treino ${trainingName}`}
+        text={`Treino B`}
         backButton
         darkTheme
       />
@@ -70,7 +61,9 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
         <Text style={style.subtitle}>
           {actualStep} de {trainings.length} finalizados
         </Text>
-        <Text>Progress bar</Text>
+        <View style={style.progressBar}>
+          <View style={[style.fill, { width: `${(actualStep / trainings.length) * 100}%` }]}></View>
+        </View>
       </View>
 
       <View style={style.midContainer}>
@@ -82,28 +75,21 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
           />
         ) : trainings[actualStep - 1].exercise_url &&
           trainings[actualStep - 1].type === 'video' ? (
-          <View style={stylesImg.video}>
-            <VideoPlayer
+          <View style={style.video}>
+            <Video
               source={{
                 uri: trainings[actualStep - 1].exercise_url,
               }}
-              style={stylesImg.video}
-              repeat={true} // make it a loop
+              style={style.video}
+              repeat={true}
               paused={!trainings[actualStep - 1] || !isPlaying}
               controls={true}
               muted={isMuted}
-              tapAnywhereToPause={true}
             />
-            <View style={{ marginVertical: 2 }} />
-            <Button
-              onPress={() => setIsPlaying(p => !p)}
-              title={isPlaying ? 'Stop' : 'Play'}
-            />
-            <View style={{ marginVertical: 2 }} />
-            <Button
-              onPress={() => setIsMuted(m => !m)}
-              title={isMuted ? 'Unmute' : 'Mute'}
-            />
+            {/* <View style={style.containerButton}>
+              <SmallButton title={isPlaying ? 'Stop' : 'Play'} onPress={() => setIsPlaying(p => !p)} />
+              <SmallButton title={isMuted ? 'Unmute' : 'Mute'} onPress={() => setIsMuted(m => !m)} />
+            </View> */}
           </View>
         ) : (
           <Image
@@ -120,18 +106,11 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
           options={training}
         />
 
-        {/* <TouchableOpacity
-          style={style.restButton}
-          onPress={() => setCounterIsActive(true)}
-          >
-          <IconI name="play-outline" size={26} color={colors.darkBackground} />
-          <Text style={style.midButtonText}>Descansar</Text>
-        </TouchableOpacity> */}
         <TimerModal
-          time={0}
           isOpen={showActionsheet}
           onOpen={handleOpen}
           onClose={handleClose}
+          restTime={trainings[actualStep - 1].exercise_rest_time}
         />
       </View>
 
@@ -155,35 +134,3 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
     </View >
   );
 };
-
-const stylesImg = StyleSheet.create({
-  container: {
-    marginTop: 10,
-    marginHorizontal: 50,
-  },
-  uri: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image: {
-    height: 50 * units.vh,
-    width: '100%',
-    marginTop: 10,
-    resizeMode: 'contain',
-  },
-  imageSmall: {
-    height: 10 * units.vh,
-    width: '100%',
-    marginTop: 10,
-    resizeMode: 'contain',
-  },
-
-  video: {
-    height: 40 * units.vh,
-    width: '100%',
-    // marginTop: 10,
-    // resizeMode: 'contain',
-  },
-});

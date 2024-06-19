@@ -1,24 +1,47 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import colors from '../../global/colors';
-import { ResizableWhiteCard } from '../resizableWhiteCard';
-import Icon from 'react-native-vector-icons/Fontisto';
-import Sound from 'react-native-sound';
+import {
+    Actionsheet, ActionsheetContent, ActionsheetBackdrop,
+    ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator
+} from '@gluestack-ui/themed';
 import IconI from 'react-native-vector-icons/Ionicons';
-import { style } from './style';
-import { Actionsheet, Button, ActionsheetContent, ActionsheetBackdrop, ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator } from '@gluestack-ui/themed';
 import { LongButton } from '../button';
+import { style } from './style';
+import colors from '../../global/colors';
+import Sound from 'react-native-sound';
+
 interface Props {
     // onclose: () => void;
     // next: () => void;
-    time: number;
     isOpen: any;
     onOpen: any;
     onClose: any;
+    restTime: number;
 }
 
-export const TimerModal: React.FC<Props> = ({ time, isOpen, onOpen, onClose, }) => {
+export const TimerModal: React.FC<Props> = ({ isOpen, onOpen, onClose, restTime }) => {
+    const [remainingTime, setRemainingTime] = useState(restTime * 60);
+
+    const startCountdown = () => {
+        const intervalId = setInterval(() => {
+            setRemainingTime(prevTime => {
+                if (prevTime <= 0) {
+                    clearInterval(intervalId);
+                    onClose();
+                    return prevTime;
+                }
+                return prevTime - 1;
+            });
+        }, 1000);
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            setRemainingTime(restTime * 60);
+            startCountdown();
+        }
+    }, [isOpen, restTime]);
     // Sound.setCategory('Playback');
 
     // var ding = new Sound('alarm.mp3', Sound.MAIN_BUNDLE, (error) => {
@@ -49,49 +72,7 @@ export const TimerModal: React.FC<Props> = ({ time, isOpen, onOpen, onClose, }) 
 
     // var [time, setTime] = useState(time);
 
-    // function startCountdown() {
-    //     let timeRemaining = time;
-
-    //     const timer = setInterval(function () {
-    //         const minutes = Math.floor((timeRemaining / 60000) % 60);
-    //         const seconds = Math.floor((timeRemaining / 1000) % 60);
-
-    //         console.log(`${minutes}:${seconds}`);
-
-    //         timeRemaining -= 1000;
-
-    //         setTime(time -= 1000);
-
-    //         if (timeRemaining <= 0) {
-    //             clearInterval(timer);
-    //             console.log("Time's up!");
-    //             play();
-    //         }
-    //     }, 1000);
-    // }
-
-    // useEffect(() => {
-    //     startCountdown();
-    // }, []);
-
     return (
-        // <View style={style.container}>
-        //     <ResizableWhiteCard height="40%" width="90%" children={
-        //         <View style={style.subContainer}>
-        //             <TouchableOpacity onPress={onclose} style={style.buttonClose}>
-        //                 <Icon name="angle-left" size={23} color={colors.darkBackground} />
-        //             </TouchableOpacity>
-        //             <Text style={style.counterText}>{Math.floor((time / 60000) % 60) <= 9 ? `0${Math.floor((time / 60000) % 60)}` : Math.floor((time / 60000) % 60)}:{Math.floor((time / 1000) % 60) <= 9 ? `0${Math.floor((time / 1000) % 60)}` : Math.floor((time / 1000) % 60)}</Text>
-        //             <TouchableOpacity style={style.button} onPress={() => {
-        //                 next();
-        //                 onclose();
-        //                 stop();
-        //             }}>
-        //                 <Text style={style.buttonText}>Finalizar</Text>
-        //             </TouchableOpacity>
-        //         </View>
-        //     } />
-        // </View>
         <>
             <TouchableOpacity
                 style={style.restButton}
@@ -108,11 +89,11 @@ export const TimerModal: React.FC<Props> = ({ time, isOpen, onOpen, onClose, }) 
                     </ActionsheetDragIndicatorWrapper>
                     <View style={style.timerContainer}>
                         <View style={style.subContainer}>
-                            <Text style={style.timerText}>00</Text>
+                            <Text style={style.timerText}>{String(Math.floor(remainingTime / 60)).padStart(2, '0')}</Text>
                             <Text style={style.counterText}>Minutos</Text>
                         </View>
                         <View style={style.subContainer}>
-                            <Text style={style.timerText}>00</Text>
+                            <Text style={style.timerText}>{String(remainingTime % 60).padStart(2, '0')}</Text>
                             <Text style={style.counterText}>Segundos</Text>
                         </View>
                     </View>
@@ -122,4 +103,3 @@ export const TimerModal: React.FC<Props> = ({ time, isOpen, onOpen, onClose, }) 
         </>
     );
 };
-
