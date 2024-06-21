@@ -31,6 +31,7 @@ import { useAuth } from '../global/auth';
 import colors from '../global/colors';
 import { units } from '../hooks/hooks';
 import { TabBarIconComponent } from './component/tabBarIconComponent';
+import StudentSettings from '../view/studentSettings';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -202,7 +203,7 @@ export const Router = () => {
 const AuthenticatedDashboard = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Training"
+      initialRouteName="StudentSettings"
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -254,6 +255,14 @@ const AuthenticatedDashboard = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Peso" iconName="data" size={size} />),
+        }}
+      />
+      <Tab.Screen
+        name="StudentSettings"
+        component={StudentSettings}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, focused }) => (<TabBarIconComponent focused={focused} label="Config" iconName="settings" size={size} />),
         }}
       />
     </Tab.Navigator>

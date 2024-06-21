@@ -9,7 +9,7 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         gap: 20,
         paddingHorizontal: '5%',
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.lightgreyBgColor,
     },
     containerJustifyContent: {
         justifyContent: 'space-between'
