@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
-// import VideoPlayer from 'react-native-video-controls';
+import { Image, Text, View } from 'react-native';
 import Video from 'react-native-video';
 import { exercise } from '../../@types/interfaces';
-import { units } from '../../hooks/hooks';
 import { TimerModal } from '../timerModal';
 import { style } from './style';
 import { Header } from '../header';
@@ -86,10 +84,6 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
               controls={true}
               muted={isMuted}
             />
-            {/* <View style={style.containerButton}>
-              <SmallButton title={isPlaying ? 'Stop' : 'Play'} onPress={() => setIsPlaying(p => !p)} />
-              <SmallButton title={isMuted ? 'Unmute' : 'Mute'} onPress={() => setIsMuted(m => !m)} />
-            </View> */}
           </View>
         ) : (
           <Image
