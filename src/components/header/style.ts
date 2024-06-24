@@ -8,8 +8,8 @@ export const style = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 20,
-        paddingHorizontal: '8%',
-        backgroundColor: colors.secondary,
+        paddingHorizontal: '5%',
+        backgroundColor: colors.lightgreyBgColor,
     },
     darkTheme: { backgroundColor: colors.mainTextColor },
     containerJustifyContent: {
