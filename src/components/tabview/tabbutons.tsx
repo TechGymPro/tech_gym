@@ -5,29 +5,39 @@ import { style } from './style';
 
 export type TabButtonType = {
     title: string;
-    value: string;
+    value: string | number;
 }
 
 interface TabButtonsProps {
-    buttons: TabButtonType[];
+    darkTheme?: boolean;
+    options: TabButtonType[];
     selectedTab: number;
     setSelectedTab: (index: number) => void;
 }
 
 
-const TabButtons: React.FC<TabButtonsProps> = ({ buttons, selectedTab, setSelectedTab }) => {
+const TabButtons: React.FC<TabButtonsProps> = ({ options, selectedTab, setSelectedTab, darkTheme }) => {
     return (
-        <View style={style.tabContainer}>
+        <View style={darkTheme ? [style.tabContainer, style.darkTheme] : style.tabContainer}>
             <View style={style.optionContainer}>
-                {buttons.map((button, index) => {
-                    const bgColor = selectedTab === index ? colors.lightgreyBgColor : colors.greyBgColor;
+                {options.map((option, index) => {
+                    let bgColor: string;
+                    let txtColor: string;
+                    if ((selectedTab === index) && darkTheme) {
+                        bgColor = colors.disabledButton
+                        txtColor = colors.titleTextColor
+                    } else {
+                        bgColor = colors.lightgreyBgColor
+                        txtColor = colors.thirdColor
+                    }
+
                     return (
                         <Pressable
                             key={index}
                             style={[style.option, { backgroundColor: bgColor }]}
                             onPress={() => setSelectedTab(index)}
                         >
-                            <Text style={style.optionText}>{button.title}</Text>
+                            <Text style={[style.optionText, { color: txtColor }]}>{option.title}</Text>
                         </Pressable>
                     )
                 })}

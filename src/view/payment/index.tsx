@@ -26,7 +26,7 @@ const Payment = () => {
 
     return (
         <SafeAreaView style={style.container}>
-            <ScrollView style={{ height: '100%' }}>
+            <ScrollView style={style.scroll}>
                 <Header
                     backButton
                 />
@@ -50,7 +50,7 @@ const Payment = () => {
                             _icon: {
                                 ':checked': {
                                     color: colors.primary,
-                                    borderColor: colors.goodGraph
+                                    borderColor: colors.green
                                 },
                                 color: colors.secondary,
                             },
@@ -81,7 +81,7 @@ const Payment = () => {
                             _icon: {
                                 ':checked': {
                                     color: colors.primary,
-                                    borderColor: colors.goodGraph
+                                    borderColor: colors.green
                                 },
                                 color: colors.secondary,
                             },
@@ -112,7 +112,7 @@ const Payment = () => {
                             _icon: {
                                 ':checked': {
                                     color: colors.primary,
-                                    borderColor: colors.goodGraph
+                                    borderColor: colors.green
                                 },
                                 color: colors.secondary,
                             },

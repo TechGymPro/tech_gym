@@ -3,7 +3,6 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import colors from '../../global/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { style } from '../../assets/fonts/style';
-import { FlatList } from 'react-native-gesture-handler';
 
 interface Props {
     subtitle: string;

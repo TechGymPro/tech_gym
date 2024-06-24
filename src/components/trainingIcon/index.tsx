@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, ScrollView, Text, View, Image, ImageBackground } from 'react-native';
+import { Text, View, ImageBackground } from 'react-native';
 import { style } from './style';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -15,10 +15,12 @@ const TrainingIcon: React.FC<TrainingIconProps> = ({ text }) => {
                 style={style.imgBg}
             >
                 <LinearGradient
-                    style={{ flex: 1 }}
+                    style={style.linearGradient}
                     colors={['rgba(0, 0, 0, 0.8)', 'rgba(0,0,0,0.8)']}
                 >
-                    <Text style={style.title}>{text}</Text>
+                    <View style={style.textContainer}>
+                        <Text style={style.title}>{text}</Text>
+                    </View>
                 </LinearGradient>
             </ImageBackground>
         </View>

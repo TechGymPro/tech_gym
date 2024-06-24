@@ -19,7 +19,7 @@ const colors = {
     placeholderTextColor: '#939393',
     thirdColor: '#405473',
     borderSecondary: '#E5E8EB',
-    trainingBackground: '#121212',
+    // trainingBackground: '#121212',
     mainTextColor: '#101010',
     titleTextColor: '#141c24',
     subtitleTextColor: '#6D6D6D',

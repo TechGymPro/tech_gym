@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import colors from '../../global/colors';
 import IconE from 'react-native-vector-icons/Entypo';
-import IconM from 'react-native-vector-icons/MaterialCommunityIcons';
-import IconI from 'react-native-vector-icons/Ionicons';
 import { style } from './style';
 import { notification } from '../../@types/interfaces';
 
