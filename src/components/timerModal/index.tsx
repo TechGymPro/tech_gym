@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import {
     Actionsheet, ActionsheetContent, ActionsheetBackdrop,
     ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator
@@ -10,6 +10,7 @@ import { LongButton } from '../button';
 import { style } from './style';
 import colors from '../../global/colors';
 import Sound from 'react-native-sound';
+import { units } from '../../hooks/hooks';
 
 interface Props {
     // onclose: () => void;
@@ -74,12 +75,17 @@ export const TimerModal: React.FC<Props> = ({ isOpen, onOpen, onClose, restTime 
 
     return (
         <>
-            <TouchableOpacity
-                style={style.restButton}
-                onPress={onOpen}
-            >
-                <IconI name="play-outline" size={26} color={colors.darkBackground} />
-                <Text style={style.midButtonText}>Descansar</Text>
+            <TouchableOpacity onPress={onOpen}>
+                <ImageBackground
+                    source={require('../../assets/img/imgBgButton.jpg')}
+                    style={style.imageBackground}
+                    imageStyle={{ borderRadius: units.vw * 8 }}
+                >
+                    <View style={style.restButton}>
+                        <IconI name="play-outline" size={26} color={colors.darkBackground} />
+                        <Text style={style.midButtonText}>Descansar</Text>
+                    </View>
+                </ImageBackground>
             </TouchableOpacity>
             <Actionsheet isOpen={isOpen} onClose={onClose}>
                 <ActionsheetBackdrop />

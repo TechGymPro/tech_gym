@@ -26,9 +26,9 @@ export const style = StyleSheet.create({
         borderRadius: 50
     },
     optionText: {
-        color: colors.titleTextColor,
         fontFamily: 'Inter-Medium',
-        fontSize: 14
+        fontSize: 14,
+        color: colors.titleTextColor,
     },
     measurementsContainer: {
         width: units.vw * 90,

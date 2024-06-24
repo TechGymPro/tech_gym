@@ -26,24 +26,22 @@ export const style = StyleSheet.create({
     fill: {
         height: '100%',
         borderRadius: units.vh * 12,
-        backgroundColor: colors.primary,
+        backgroundColor: colors.disabledButton,
     },
     subtitle: {
-        color: colors.primary,
         fontFamily: 'Inter-Medium',
         fontSize: 16,
+        color: colors.disabledButton,
     },
     image: {
         width: '100%',
-        height: units.vh * 30,
+        height: units.vh * 25,
         marginTop: 10,
         resizeMode: 'cover',
     },
     video: {
         width: '100%',
-        height: units.vh * 50,
-        // marginTop: 10,
-        // resizeMode: 'contain',
+        height: units.vh * 25,
     },
     midContainer: {
         flex: 1,

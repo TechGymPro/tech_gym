@@ -110,18 +110,18 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
 
       <View style={style.bottomContainer}>
         {actualStep < trainings.length && actualStep === 1 ? (
-          <LongButton title={'Próximo'} onPress={() => nextStep()} />
+          <LongButton type='secondaryYellow' title={'Próximo'} onPress={() => nextStep()} />
         ) : actualStep < trainings.length && actualStep > 1 ? (
           <View style={style.containerButton}>
             <SmallButton title={'Anterior'} type='grey' onPress={() => previousStep()} />
-            <SmallButton title={'Próximo'} onPress={() => nextStep()} />
+            <SmallButton type='secondaryYellow' title={'Próximo'} onPress={() => nextStep()} />
           </View>
         ) : actualStep === trainings.length && trainings.length === 1 ? (
-          <LongButton title={'Finalizar'} onPress={() => navigation.navigate('Dashboard')} />
+          <LongButton type='secondaryYellow' title={'Finalizar'} onPress={() => navigation.navigate('Dashboard')} />
         ) : (
           <View style={style.containerButton}>
             <SmallButton title={'Anterior'} type='grey' onPress={() => previousStep()} />
-            <SmallButton title={'Finalizar'} onPress={() => navigation.navigate('Dashboard')} />
+            <SmallButton type='secondaryYellow' title={'Finalizar'} onPress={() => navigation.navigate('Dashboard')} />
           </View>
         )}
       </View>
