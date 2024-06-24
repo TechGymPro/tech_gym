@@ -15,23 +15,31 @@ interface Props {
     text?: string;
     hasNotificationIcon?: boolean;
     returnLogoff?: boolean;
+    darkTheme?: boolean;
 }
 
-export const Header: React.FC<Props> = ({ backButton, customBackButton, text, returnLogoff, hasNotificationIcon }) => {
+export const Header: React.FC<Props> = ({ backButton, customBackButton, text, returnLogoff, hasNotificationIcon, darkTheme }) => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const notifications = useAppSelector(notification);
     const loadingAuth = useAppSelector(isLoading);
     const loadingUser = useAppSelector(isLoadingUser);
 
     return (
-        <View style={[hasNotificationIcon ? [style.container, style.containerJustifyContent] : style.container]}>
+        <View style={[hasNotificationIcon ? [style.container, style.containerJustifyContent] : darkTheme ? [style.container, style.darkTheme] : style.container]}>
             {backButton && (
                 <TouchableOpacity disabled={loadingAuth || loadingUser} onPress={() => customBackButton ? customBackButton() : navigation.goBack()}>
-                    <Image source={require('../../assets/img/back-icon.png')} style={style.ico} />
+                    <Image source={
+                        darkTheme ?
+                            require('../../assets/img/back-icon-white.png') :
+                            require('../../assets/img/back-icon.png')}
+                        style={style.ico}
+                    />
                 </TouchableOpacity>
             )}
             {text && (
-                <Text style={style.hello}>{text}</Text>
+                <Text style={
+                    darkTheme ? [style.hello, style.whiteHello] :
+                        style.hello}>{text}</Text>
             )}
             {hasNotificationIcon && (
                 <TouchableOpacity
@@ -43,7 +51,7 @@ export const Header: React.FC<Props> = ({ backButton, customBackButton, text, re
                         ?
                         require('../../assets/img/notificationActive-ico.png')
                         :
-                        require('../../assets/img/notification-ico.png')} style={style.ico} />
+                        require('../../assets/img/notification-ico.png')} style={notifications && notifications.length ? style.icoActive : style.ico} />
                 </TouchableOpacity>
             )}
         </View>

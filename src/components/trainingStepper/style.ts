@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
+import { units } from '../../hooks/hooks';
 
 export const style = StyleSheet.create({
     container: {
@@ -7,128 +8,62 @@ export const style = StyleSheet.create({
         justifyContent: 'space-between',
         paddingBottom: '8%',
     },
-    header: {
-        height: '12%',
-        justifyContent: 'space-evenly',
-        paddingHorizontal: '5%',
-        marginTop: '2%',
-    },
-    headerUp: {
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'space-between',
-    },
-    headerTextUp: {
-        color: colors.lightTextColor,
-        fontSize: 24,
-        fontFamily: 'Montserrat',
-    },
-    headerDown: {
-        color: colors.primary,
-        fontFamily: 'Montserrat',
+    progressContainer: {
+        flex: 1,
+        width: '80%',
         alignSelf: 'center',
-        fontSize: 20,
+        gap: units.vh * 2,
+        marginTop: units.vh * 2,
+        marginBottom: units.vh * 2,
+    },
+    progressBar: {
+        width: '100%',
+        height: units.vh * 1,
+        borderRadius: units.vh * 12,
+        overflow: 'hidden',
+        backgroundColor: colors.greyBorderColor,
+    },
+    fill: {
+        height: '100%',
+        borderRadius: units.vh * 12,
+        backgroundColor: colors.disabledButton,
+    },
+    subtitle: {
+        fontFamily: 'Inter-Medium',
+        fontSize: 16,
+        color: colors.disabledButton,
     },
     image: {
         width: '100%',
-        height: '37%',
-        borderTopRightRadius: 10,
-        borderTopLeftRadius: 10,
+        height: units.vh * 25,
+        marginTop: 10,
         resizeMode: 'cover',
+    },
+    video: {
+        width: '100%',
+        height: units.vh * 25,
     },
     midContainer: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingBottom: '12%',
+        paddingHorizontal: '5%'
     },
-    midTitle: {
-        fontFamily: 'Montserrat',
-        color: colors.mainTextColor,
-        fontSize: 24,
+    exerciseTitle: {
+        marginTop: units.vh * 4,
+        marginBottom: units.vh * 2,
+        fontFamily: 'Inter-Bold',
+        fontSize: 32,
+        color: colors.subtitleSecondary,
     },
-    midSubtitle: {
-        fontFamily: 'Montserrat',
-        color: colors.thirdColor,
-        fontSize: 20,
-    },
-    midSub: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    midNumbers: {
-        fontFamily: 'Montserrat-Regular',
-        color: colors.mainTextColor,
-        fontSize: 24,
-    },
-    midLittleContainers: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '45%',
-    },
-    midObs: {
-        fontFamily: 'Montserrat-Regular',
-        color: colors.mainTextColor,
-        fontSize: 14,
-        marginHorizontal: '15%',
-        textAlign: 'center',
-    },
-    midButton: {
-        backgroundColor: colors.primary,
-        height: 50,
-        width: '50%',
-        borderRadius: 12,
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        flexDirection: 'row',
-    },
-    midButtonText: {
-        fontFamily: 'Montserrat',
-        color: colors.mainTextColor,
-        fontSize: 20,
-    },
-    midObsContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    buttonContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 40,
-    },
-    singleButton: {
-        height: 40,
-        backgroundColor: colors.primary,
+    containerButton: {
         width: '90%',
-        alignSelf: 'center',
-        borderRadius: 14,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    buttonText: {
-        color: colors.mainTextColor,
-        fontFamily: 'Poppins-Medium',
-    },
-    multipleButton: {
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        width: '100%',
-    },
-    multipleButtonYellow: {
-        height: 40,
-        backgroundColor: colors.primary,
-        borderRadius: 14,
-        width: '42%',
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center',
+        gap: 20
     },
-    multipleButtonWhite: {
-        height: 40,
-        backgroundColor: colors.secondary,
-        borderRadius: 14,
-        width: '42%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+    bottomContainer: {
+        alignSelf: 'center'
+    }
 });

@@ -7,8 +7,8 @@ export const style = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignSelf: 'center',
-        justifyContent: 'space-between',
         alignItems: 'center',
+        justifyContent: 'space-between',
         width: units.vw * 85,
         paddingHorizontal: '6%',
         paddingVertical: '4%',
@@ -18,7 +18,7 @@ export const style = StyleSheet.create({
         shadowColor: 'rgba(0, 0, 0, 0.6)',
         shadowOpacity: 1,
         shadowRadius: 4,
-        elevation: 1,
+        elevation: 5,
     },
     textContainer: {
         maxWidth: units.vw * 50,

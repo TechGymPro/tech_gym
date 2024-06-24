@@ -1,10 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
-import { Header } from '../../components/header';
-import { Card } from '../../components/card';
-import { BottomOrTopSeparator } from '../../components/separators/bottomOrUp';
-import { CardSeparator } from '../../components/separators/card';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import { useNavigation, ParamListBase } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
@@ -14,6 +10,7 @@ import { userData } from '../../redux/authSlice';
 import { division } from '../../@types/interfaces';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../../global/colors';
+import { Header } from '../../components/header';
 import DataCard from '../../components/dataCard';
 import TrainingCard from '../../components/trainingCard';
 

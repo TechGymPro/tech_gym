@@ -24,7 +24,6 @@ const InfosIV = () => {
                 subtitle={'Qual seu objetivo de peso'}
                 marginCustom
             />
-
             <WeightHeightPicker
                 dataSource={weights}
                 value={selectedWeight}
