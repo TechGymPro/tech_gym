@@ -15,7 +15,6 @@ interface TabButtonsProps {
     setSelectedTab: (index: number) => void;
 }
 
-
 const TabButtons: React.FC<TabButtonsProps> = ({ options, selectedTab, setSelectedTab, darkTheme }) => {
     return (
         <View style={darkTheme ? [style.tabContainer, style.darkTheme] : style.tabContainer}>

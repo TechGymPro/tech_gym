@@ -52,4 +52,3 @@ export const style = StyleSheet.create({
     },
     darkThemeText: { color: colors.lightgreyBgColor },
 });
-

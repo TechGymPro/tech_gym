@@ -23,6 +23,10 @@ export const style = StyleSheet.create({
         paddingRight: 20,
         color: colors.secondary,
     },
+    containerTop: {
+        flex: 1,
+        alignItems: 'center'
+    },
     containerImageTop: {
         width: units.vw * 85,
         height: units.vh * 24,

@@ -1,7 +1,6 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, ScrollView, Text, View, Image, ImageBackground } from 'react-native';
+import { Text, View } from 'react-native';
 import { style } from './style';
-import LinearGradient from 'react-native-linear-gradient';
 import TrainingIcon from '../trainingIcon';
 
 interface TrainingCardProps {

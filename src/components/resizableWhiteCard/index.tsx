@@ -14,7 +14,6 @@ interface Props {
     borderRadius?: number;
 }
 
-
 export const ResizableWhiteCard: React.FC<Props> = ({
     height, width, children,
     marginBottom, marginLeft,
@@ -36,4 +35,3 @@ export const ResizableWhiteCard: React.FC<Props> = ({
         </View>
     );
 };
-

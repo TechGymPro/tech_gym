@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
 
-
 export const style = StyleSheet.create({
     container: {
         justifyContent: 'space-between',
@@ -24,8 +23,5 @@ export const style = StyleSheet.create({
         paddingBottom: 6,
         marginLeft: 2,
         fontFamily: 'Inter-Medium',
-    },
-    text: {
-
-    },
+    }
 });

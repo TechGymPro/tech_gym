@@ -65,7 +65,6 @@ const VerifyPhone = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [code]);
 
-
     return (
         <SafeAreaView style={style.container}>
             <Header

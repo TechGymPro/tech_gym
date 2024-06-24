@@ -21,4 +21,3 @@ export const SettingsCard: React.FC<Props> = ({ onPress, item }) => {
         </TouchableOpacity>
     );
 };
-

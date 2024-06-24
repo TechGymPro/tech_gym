@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
-// import Carousel from 'react-native-reanimated-carousel'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { units } from '../../hooks/hooks';
+import colors from '../../global/colors';
 import { style } from './style';
 import { listCarouselBottom, listCarouselTop } from './carouselData';
-import { units } from '../../hooks/hooks';
 import LinearGradient from 'react-native-linear-gradient';
-import colors from '../../global/colors';
-
 
 interface Props {
     item: any;
@@ -48,16 +46,12 @@ export function CarouselBottom() {
                 loop
             />
         </View>
-    )
-}
-
-
+    );
+};
 
 const CardItemTop: React.FC<Props> = ({ item, index }) => {
     return (
-
         <View style={style.containerImageTop} key={index}>
-
             <ImageBackground
                 source={item.imgURL}
                 style={style.imageTop}
@@ -73,7 +67,6 @@ const CardItemTop: React.FC<Props> = ({ item, index }) => {
                                 {item.body}
                             </Text>
                         </TouchableOpacity>
-
                     </View>
                 </LinearGradient>
             </ImageBackground>
@@ -86,7 +79,7 @@ export function CarouselTop() {
     const [index, setIndex] = useState(0);
 
     return (
-        <View style={{ flex: 1, alignItems: 'center' }}>
+        <View style={style.containerTop}>
             <Carousel
                 vertical={false}
                 layoutCardOffset={9}

@@ -81,4 +81,3 @@ const PropositionOptions = () => {
 }
 
 export default PropositionOptions;
-

@@ -53,4 +53,3 @@ const UserGoal = () => {
 };
 
 export default UserGoal;
-

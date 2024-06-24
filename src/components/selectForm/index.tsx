@@ -39,5 +39,3 @@ export const SelectForm: React.FC<Props> = ({ label, items, onChange, value }) =
         </View>
     );
 };
-
-

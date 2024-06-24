@@ -44,14 +44,12 @@ export const TimerModal: React.FC<Props> = ({ isOpen, onOpen, onClose, restTime 
         }
     }, [isOpen, restTime]);
     // Sound.setCategory('Playback');
-
     // var ding = new Sound('alarm.mp3', Sound.MAIN_BUNDLE, (error) => {
     //     if (error) {
     //         console.log('failed to load the sound', error);
     //         return;
     //     }
     // });
-
     // const play = () => {
     //     ding.play(success => {
     //         if (!success) {
@@ -59,19 +57,15 @@ export const TimerModal: React.FC<Props> = ({ isOpen, onOpen, onClose, restTime 
     //         }
     //     });
     // };
-
     // const stop = () => {
     //     ding.stop();
     // };
-
     // useEffect(() => {
     // ding.setVolume(1);
     // return () => {
     //     ding.release();
     // };
     // }, []);
-
-    // var [time, setTime] = useState(time);
 
     return (
         <>

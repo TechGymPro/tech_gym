@@ -43,7 +43,6 @@ const CreditCard: React.FC<Props> = ({ cardCvv, cardDueDate, cardName, cardNumbe
                 </View>
             </View>
         </View>
-
     );
 };
 

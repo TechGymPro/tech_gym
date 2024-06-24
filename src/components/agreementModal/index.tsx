@@ -1,8 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { style } from './style';
-import { Actionsheet, Button, ActionsheetContent, ActionsheetBackdrop, ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator } from '@gluestack-ui/themed';
-import { LongButton, ShortButton } from '../button';
+import {
+    Actionsheet, Button, ActionsheetContent, ActionsheetBackdrop,
+    ActionsheetDragIndicatorWrapper, ActionsheetDragIndicator
+} from '@gluestack-ui/themed';
+import { LongButton } from '../button';
 
 interface SheetModalProps {
     isOpen: any;
@@ -13,7 +16,6 @@ interface SheetModalProps {
     text?: string;
 }
 const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type, title, text }) => {
-
     return (
         <>
             {type === 'Assinar' &&
@@ -48,7 +50,7 @@ const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type, 
 
                     {type === 'Notificação' &&
                         (
-                            <View style={{ marginTop: 22 }}>
+                            <View style={style.notificationContainer}>
                                 <LongButton title={'Lida'} onPress={isOpen} />
                             </View>
                         )
@@ -58,6 +60,5 @@ const SheetModal: React.FC<SheetModalProps> = ({ isOpen, onOpen, onClose, type, 
         </>
     );
 };
-
 
 export default SheetModal;

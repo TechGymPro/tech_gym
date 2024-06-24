@@ -17,4 +17,3 @@ export const style = StyleSheet.create({
         color: colors.errorColor,
     }
 });
-

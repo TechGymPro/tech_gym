@@ -35,8 +35,6 @@ export const Card: React.FC<Props> = ({ subtitle, title, onPress, options, disab
                     </View>
                 )}
             </View>
-
-
             {options.map(option =>
             (
                 <View style={style.optionsContainer}>
@@ -48,4 +46,3 @@ export const Card: React.FC<Props> = ({ subtitle, title, onPress, options, disab
         </TouchableOpacity>
     );
 };
-

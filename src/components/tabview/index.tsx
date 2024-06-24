@@ -25,8 +25,17 @@ const TabView: React.FC<TabViewProps> = ({ options, darkTheme }) => {
                 setSelectedTab={setSelectedTab}
             />
             <View style={style.measurementsContainer}>
-                <Text style={darkTheme ? [style.measurementsInfo, style.darkThemeText] : style.measurementsInfo}>{options[selectedTab].title}</Text>
-                <Text style={darkTheme ? [style.measurementsInfo, style.darkThemeText] : style.measurementsInfo}>{options[selectedTab].value}</Text>
+                <Text style={darkTheme ?
+                    [style.measurementsInfo, style.darkThemeText] :
+                    style.measurementsInfo}
+                >
+                    {options[selectedTab].title}
+                </Text>
+                <Text style={darkTheme ? [style.measurementsInfo, style.darkThemeText] :
+                    style.measurementsInfo}
+                >
+                    {options[selectedTab].value}
+                </Text>
             </View>
         </>
     )

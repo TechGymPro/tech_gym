@@ -9,7 +9,6 @@ import { userData } from '../../redux/authSlice';
 import { SettingsCard } from '../../components/settingsCard';
 import { LongButton } from '../../components/button';
 import SwitchItem from '../../components/switchItem';
-import CustomSwitch from '../../components/switchItem';
 
 const StudentSettings = () => {
     const [selected, setSelected] = useState(false)
@@ -75,5 +74,3 @@ const StudentSettings = () => {
 };
 
 export default StudentSettings;
-
-

@@ -7,7 +7,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { style } from './style';
 import LinearGradient from 'react-native-linear-gradient';
 
-
 const InitialScreen = () => {
     const IsKeyboardOpen = useKeyboardVisible();
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -40,4 +39,3 @@ const InitialScreen = () => {
 };
 
 export default InitialScreen;
-

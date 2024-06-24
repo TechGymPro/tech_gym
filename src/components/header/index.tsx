@@ -57,5 +57,3 @@ export const Header: React.FC<Props> = ({ backButton, customBackButton, text, re
         </View>
     );
 };
-
-

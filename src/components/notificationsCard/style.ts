@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../global/colors';
 import { units } from '../../hooks/hooks';
-import { Center } from '@gluestack-ui/themed';
 
 export const style = StyleSheet.create({
     container: {

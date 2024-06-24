@@ -2,7 +2,7 @@ interface CarouselItem {
     title: string;
     body: string;
     imgURL: any;
-}
+};
 
 export const listCarouselBottom: CarouselItem[] = [
     {
@@ -20,7 +20,7 @@ export const listCarouselBottom: CarouselItem[] = [
         body: 'Acompanhe sua academia',
         imgURL: require('../../assets/img/carrossel1.png')
     }
-]
+];
 
 export const listCarouselTop: CarouselItem[] = [
     {
@@ -38,4 +38,4 @@ export const listCarouselTop: CarouselItem[] = [
         body: 'Explorar Agora',
         imgURL: require('../../assets/img/woman-crossfit.png')
     }
-]
+];

@@ -12,7 +12,6 @@ import ConfirmationCodeInput from '../../components/codeField';
 import { LongButton } from '../../components/button';
 import { SmallTitlesCard } from '../../components/smallTitlesCard';
 
-
 const VerifyMail = ({ route }: any) => {
     const { student_email } = useAppSelector(userData);
     const loading = useAppSelector(isLoading);

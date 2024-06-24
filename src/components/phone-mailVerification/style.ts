@@ -7,4 +7,3 @@ export const style = StyleSheet.create({
         backgroundColor: colors.secondary,
     }
 });
-

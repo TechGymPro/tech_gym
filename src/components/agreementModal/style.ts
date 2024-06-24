@@ -46,6 +46,9 @@ export const style = StyleSheet.create({
     },
     smallGreyButton: {
         backgroundColor: colors.greyBgColor,
+    },
+    notificationContainer: {
+        marginTop: 22
     }
 });
 

@@ -31,9 +31,7 @@ const DataCard: React.FC<DataCardProps> = ({ title, data, type }) => {
                                     require('../../assets/img/data-icon-yellow.png')
                                     : type === 'training' ?
                                         require('../../assets/img/training-icon-yellow.png')
-                                        : require('../../assets/img/profile-icon-yellow.png')
-                            }
-                        />
+                                        : require('../../assets/img/profile-icon-yellow.png')} />
                     </View>
                 </LinearGradient>
             </ImageBackground>

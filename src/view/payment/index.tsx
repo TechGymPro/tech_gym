@@ -20,9 +20,7 @@ const Payment = () => {
     const [cep, setCep] = useState<string>('');
     const [cvv, setCvv] = useState<string>('');
 
-    const handleOnPress = () => {
-
-    }
+    const handleOnPress = () => { }
 
     return (
         <SafeAreaView style={style.container}>

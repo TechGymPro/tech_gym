@@ -29,7 +29,8 @@ export const NotificationsCard: React.FC<Props> = ({ onPress, item }) => {
                                 source={require('../../assets/img/notificationtype-shopping-icon.png')}
                             />
                             :
-                            <View style={style.nullIcon}></View>}
+                            <View style={style.nullIcon}></View>
+                }
             </View>
             <View style={style.textContainer}>
                 <View>
@@ -43,4 +44,3 @@ export const NotificationsCard: React.FC<Props> = ({ onPress, item }) => {
         </TouchableOpacity>
     );
 };
-

@@ -12,7 +12,12 @@ export const DashboardCard: React.FC<Props> = ({ item }) => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
     return (
-        <TouchableOpacity style={style.container} onPress={() => item.icon === 'training' ? navigation.navigate('Training') : item.icon === 'fitness' ? navigation.navigate('Measurements') : item.icon === 'settings' ? navigation.navigate('EditUserInformation') : item.icon === 'notification' ? navigation.navigate('Notifications') : null}>
+        <TouchableOpacity style={style.container} onPress={() => item.icon === 'training' ? navigation.navigate('Training')
+            : item.icon === 'fitness' ? navigation.navigate('Measurements')
+                : item.icon === 'settings' ? navigation.navigate('EditUserInformation')
+                    : item.icon === 'notification' ? navigation.navigate('Notifications')
+                        : null}
+        >
             {item.icon === 'training'
                 ?
                 <Image source={require('../../assets/img/training-ico.png')} style={style.icoTraining} />
@@ -34,5 +39,3 @@ export const DashboardCard: React.FC<Props> = ({ item }) => {
         </TouchableOpacity>
     );
 };
-
-

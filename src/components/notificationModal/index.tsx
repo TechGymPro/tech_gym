@@ -12,7 +12,6 @@ interface Props {
     item: notification;
 }
 
-
 export const NotificationModal: React.FC<Props> = ({ close, item }) => {
     return (
         <View style={style.backgroundContainer}>
@@ -51,4 +50,3 @@ export const NotificationModal: React.FC<Props> = ({ close, item }) => {
         </View>
     );
 };
-

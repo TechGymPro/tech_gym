@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { ResizableWhiteCard } from '../resizableWhiteCard';
-import colors from '../../global/colors';
 import { units, useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { getStudentData, userData } from '../../redux/authSlice';
+import colors from '../../global/colors';
 import { style } from './style';
 
-//RESTA VALIDAR AS CORES DO GRÁFICO E SE EXISTEM AS LEGENDAS
 const DashBoardGraph = () => {
   const dispatch = useAppDispatch();
 
@@ -83,29 +82,22 @@ const DashBoardGraph = () => {
             withVerticalLabels={false}
             withHorizontalLabels={false}
             data={{
-              datasets: [
-                {
-                  data: [
-                    user?.student_initial_weight || 65,
-                    user?.student_actual_weight || 80,
-                    user?.student_wished_weight || 75,
-                  ],
-                },
-              ],
+              datasets: [{
+                data: [
+                  user?.student_initial_weight || 65,
+                  user?.student_actual_weight || 80,
+                  user?.student_wished_weight || 75,
+                ]
+              }]
             }}
-            width={170 * units.vw} // from react-native
+            width={170 * units.vw}
             height={units.vh * 25}
             chartConfig={{
               backgroundColor: '#fefefe',
               backgroundGradientFrom: '#fefefe',
               backgroundGradientTo: '#fefefe',
-
               color: (opacity = 1) => colorGraph,
-              //   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-
-              style: {
-                borderRadius: 16,
-              },
+              style: { borderRadius: 16 },
               propsForDots: {
                 r: '1',
                 strokeWidth: '1',
@@ -117,11 +109,7 @@ const DashBoardGraph = () => {
             withVerticalLines={false}
             withHorizontalLines={false}
             bezier
-            style={{
-              borderRadius: 16,
-              marginLeft: 2 * units.vw,
-              marginTop: 2 * units.vw,
-            }}
+            style={{ borderRadius: 16, marginLeft: 2 * units.vw, marginTop: 2 * units.vw }}
           />
         }
       />

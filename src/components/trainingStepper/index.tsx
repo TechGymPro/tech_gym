@@ -27,7 +27,6 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
   const handleClose = () => setShowActionsheet(false);
   const handleOpen = () => setShowActionsheet(true);
 
-
   const training: TabButtonType[] = [
     { title: 'Séries', value: trainings[actualStep - 1].exercise_qtd_serie },
     { title: 'Repetições', value: trainings[actualStep - 1].exercise_qtd_rep },
@@ -63,7 +62,6 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
           <View style={[style.fill, { width: `${(actualStep / trainings.length) * 100}%` }]}></View>
         </View>
       </View>
-
       <View style={style.midContainer}>
         {trainings[actualStep - 1].exercise_url &&
           trainings[actualStep - 1].type === 'image' ? (
@@ -99,7 +97,6 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
           darkTheme
           options={training}
         />
-
         <TimerModal
           isOpen={showActionsheet}
           onOpen={handleOpen}
@@ -107,7 +104,6 @@ export const TrainingStepper: React.FC<Props> = ({ trainingName, trainings }) =>
           restTime={trainings[actualStep - 1].exercise_rest_time}
         />
       </View>
-
       <View style={style.bottomContainer}>
         {actualStep < trainings.length && actualStep === 1 ? (
           <LongButton type='secondaryYellow' title={'Próximo'} onPress={() => nextStep()} />

@@ -14,7 +14,6 @@ const InfosIII = () => {
     const weights = Array.from({ length: 141 }, (_, i) => i + 40);
     const [selectedWeight, setSelectedWeight] = useState(weights.indexOf(70));
 
-
     return (
         <SafeAreaView style={style.container}>
             <Header

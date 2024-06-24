@@ -40,5 +40,5 @@ export const style = StyleSheet.create({
         height: '100%',
         flexDirection: 'row',
         justifyContent: 'flex-end',
-    },
+    }
 });

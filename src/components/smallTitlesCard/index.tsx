@@ -25,5 +25,3 @@ export const SmallTitlesCard: React.FC<Props> = ({ title, subtitle, button, onPr
         </View>
     );
 };
-
-

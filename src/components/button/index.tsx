@@ -14,7 +14,7 @@ interface Props {
     isBottom?: boolean;
 }
 
-export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress, disabled, academy, loading, type, isBottom }) => {
+export const LongButton: React.FC<Props> = ({ title, onPress, disabled, loading, type, isBottom }) => {
     return (
         <>
             {
@@ -67,8 +67,7 @@ export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress
                                         <ActivityIndicator color={colors.secondary} size={'large'} />
                                     }
                                 </TouchableOpacity>
-                            )
-            }
+                            )}
         </>
     );
 };
@@ -80,7 +79,6 @@ export const ShortButton: React.FC<Props> = ({ title, onPress }) => {
         </TouchableOpacity>
     );
 };
-
 
 export const SmallButton: React.FC<Props> = ({ type, title, onPress }) => {
     return (
@@ -96,4 +94,3 @@ export const SmallButton: React.FC<Props> = ({ type, title, onPress }) => {
         </>
     );
 };
-

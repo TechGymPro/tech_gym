@@ -39,4 +39,3 @@ const RegisterConcluded = () => {
 };
 
 export default RegisterConcluded;
-

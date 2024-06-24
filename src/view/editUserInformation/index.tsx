@@ -21,21 +21,13 @@ import { style } from './style';
 const EditUserInformation = () => {
   const user = useAppSelector(userData);
   const dispatch = useAppDispatch();
-  const [birthday, setBirthday] = useState(
-    user && user.student_birth
-      ? new Date(user.student_birth).toLocaleDateString('en-GB')
-      : '',
-  );
-  const [email, setEmail] = useState(
-    user && user.student_email ? user.student_email : '',
-  );
+
+  const [birthday, setBirthday] = useState(user && user.student_birth ? new Date(user.student_birth).toLocaleDateString('en-GB') : '');
+
+  const [email, setEmail] = useState(user && user.student_email ? user.student_email : '');
   const [newPassword, setNewPassword] = useState('');
-  const [name, setName] = useState(
-    user && user.student_name ? user.student_name : '',
-  );
-  const [objective, setObjective] = useState(
-    user && user.objective_id ? user.objective_id : 1,
-  );
+  const [name, setName] = useState(user && user.student_name ? user.student_name : '');
+  const [objective, setObjective] = useState(user && user.objective_id ? user.objective_id : 1);
   const [loading, setLoading] = useState(false);
 
   const save = async () => {
@@ -58,18 +50,13 @@ const EditUserInformation = () => {
               : null,
         });
 
-        if (email !== user.student_email) {
-          dispatch(updateUserEmail(email));
-        }
-        if (name !== user.student_name) {
-          dispatch(updateUserName(name));
-        }
-        if (objective !== user.objective_id) {
-          dispatch(updateUserObjective(objective));
-        }
-        if (birthday !== user.student_birth) {
-          dispatch(updateUserBirthday(new Date(birthday)));
-        }
+        if (email !== user.student_email) { dispatch(updateUserEmail(email)) }
+
+        if (name !== user.student_name) { dispatch(updateUserName(name)) }
+
+        if (objective !== user.objective_id) { dispatch(updateUserObjective(objective)) }
+
+        if (birthday !== user.student_birth) { dispatch(updateUserBirthday(new Date(birthday))) }
 
         Alert.alert('Salvo com sucesso');
         setLoading(false);

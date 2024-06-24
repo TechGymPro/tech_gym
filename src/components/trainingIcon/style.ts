@@ -5,7 +5,7 @@ import { units } from '../../hooks/hooks';
 export const style = StyleSheet.create({
     container: {
         flex: 1,
-        maxWidth: units.vw * 26,
+        width: '40%',
         maxHeight: units.vh * 8,
         borderRadius: units.vw * 4,
         overflow: 'hidden',
@@ -36,6 +36,8 @@ export const style = StyleSheet.create({
         height: 38
     },
     linearGradient: {
-        flex: 1
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })

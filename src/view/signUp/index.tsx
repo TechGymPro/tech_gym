@@ -9,7 +9,6 @@ import { style } from './style';
 import { isLoading, sendPhoneToken, updateUserPhone, userData } from '../../redux/authSlice';
 import { InputForm } from '../../components/inputFom';
 
-
 const SignUp = () => {
     const IsKeyboardOpen = useKeyboardVisible();
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -62,7 +61,6 @@ const SignUp = () => {
                         />
                     </View>
                 </View>
-
             </ImageBackground>
             <StatusBar barStyle={'light-content'} backgroundColor={colors.darkBackground} />
         </SafeAreaView>
@@ -70,4 +68,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-

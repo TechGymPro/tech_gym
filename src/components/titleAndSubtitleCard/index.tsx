@@ -19,5 +19,3 @@ export const TitleAndSubtitleCard: React.FC<Props> = ({ title, subtitle, marginC
         </View>
     );
 };
-
-

@@ -4,7 +4,6 @@ import { Text, View } from 'react-native';
 import colors from '../../global/colors';
 import ScrollPicker from 'react-native-wheel-scrollview-picker';
 
-
 interface WeightHeightPickerProps {
     dataSource: number[];
     value: number;
@@ -13,13 +12,12 @@ interface WeightHeightPickerProps {
 }
 
 export const WeightHeightPicker: React.FC<WeightHeightPickerProps> = ({ dataSource, value, onChange, dimension }) => {
-
     return (
         <View style={style.container}>
             <ScrollPicker
                 selectedIndex={value}
                 dataSource={dataSource}
-                renderItem={(data, index, isSelected) => {
+                renderItem={(data, isSelected) => {
                     return (
 
                         <View style={style.itemContainer}>
@@ -40,6 +38,5 @@ export const WeightHeightPicker: React.FC<WeightHeightPickerProps> = ({ dataSour
                 activeItemTextStyle={style.text}
             />
         </View>
-
     )
 };

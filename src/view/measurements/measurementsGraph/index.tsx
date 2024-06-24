@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Image, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
-import Icon from 'react-native-vector-icons/Feather';
 import { ResizableWhiteCard } from '../../../components/resizableWhiteCard';
 import colors from '../../../global/colors';
 import { units, useAppDispatch, useAppSelector } from '../../../hooks/hooks';
@@ -184,4 +183,3 @@ const Measurements = () => {
 };
 
 export default Measurements;
-

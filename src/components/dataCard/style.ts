@@ -39,4 +39,4 @@ export const style = StyleSheet.create({
         width: 38,
         height: 38
     }
-})
+});
