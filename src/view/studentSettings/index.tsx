@@ -9,6 +9,7 @@ import { userData } from '../../redux/authSlice';
 import { SettingsCard } from '../../components/settingsCard';
 import { LongButton } from '../../components/button';
 import SwitchItem from '../../components/switchItem';
+import CustomSwitch from '../../components/switchItem';
 
 const StudentSettings = () => {
     const [selected, setSelected] = useState(false)
@@ -67,7 +68,7 @@ const StudentSettings = () => {
             <SwitchItem text={'Modo escuro'} />
             <SwitchItem text={'Opção 2'} />
             <View style={style.buttonContainer}>
-                <LongButton disabled type='grey' title={'Sair'} onPress={undefined} />
+                <LongButton type='lightGrey' title={'Sair'} onPress={undefined} />
             </View>
         </SafeAreaView>
     );

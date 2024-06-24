@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Switch, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { Switch } from "react-native-switch";
 import { style } from "./style";
 
 interface SwitchProps {
@@ -15,11 +16,20 @@ const SwitchItem: React.FC<SwitchProps> = ({ text }) => {
             <Text style={style.tittle}>{text}</Text>
             <View>
                 <Switch
-                    style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
-                    trackColor={{ false: '#E3E8F2', true: '#FBBA00' }}
-                    thumbColor={isEnabled ? '#ffffff' : '#ffffff'}
-                    onValueChange={toggleSwitch}
                     value={isEnabled}
+                    disabled={false}
+                    renderActiveText={false}
+                    renderInActiveText={false}
+                    changeValueImmediately={true}
+                    backgroundActive={'#FBBA00'}
+                    backgroundInactive={'#E3E8F2'}
+                    circleSize={22}
+                    circleBorderWidth={0}
+                    barHeight={28}
+                    switchWidthMultiplier={2.4}
+                    onValueChange={toggleSwitch}
+                    switchRightPx={2}
+                    switchLeftPx={2}
                 />
             </View>
         </View>

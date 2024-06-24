@@ -41,6 +41,15 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.disabledButtonSecondary,
     },
+    lightGreyButton: {
+        width: units.vw * 90,
+        height: units.vh * 6,
+        borderRadius: (units.vw * 88) / 2,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.greyBgColor,
+    },
     shortButton: {
         width: units.vw * 90,
         height: units.vh * 8,
@@ -59,11 +68,15 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.disabledButton,
     },
-
     buttonText: {
         fontSize: 16,
         color: colors.mainTextColor,
-        fontFamily: 'Inter-ExtraBold'
+        fontFamily: 'Inter-Bold'
+    },
+    lightGreyButtonText: {
+        fontSize: 14,
+        color: colors.titleTextColor,
+        fontFamily: 'Inter-Bold'
     },
     shortButtonText: {
         alignSelf: 'center',

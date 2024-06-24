@@ -12,9 +12,9 @@ export const style = StyleSheet.create({
         backgroundColor: colors.lightgreyBgColor,
     },
     tittle: {
-        color: colors.titleTextColor,
         fontFamily: 'Inter-Regular',
         fontSize: 16,
+        color: colors.titleTextColor,
     },
     subContainer: {
         width: units.vw * 90,

@@ -5,7 +5,7 @@ import { style } from './style';
 import colors from '../../global/colors';
 
 interface Props {
-    type?: 'grey';
+    type?: 'grey' | 'lightGrey';
     title: string;
     customMarginBottom?: DimensionValue;
     onPress: Function;
@@ -31,19 +31,32 @@ export const LongButton: React.FC<Props> = ({ title, customMarginBottom, onPress
                             <ActivityIndicator color={colors.secondary} size={'large'} />
                         }
                     </TouchableOpacity>
-                ) : (
-                    <TouchableOpacity
-                        disabled={disabled || loading}
-                        style={[disabled ? style.disabledButton : isBottom ? style.buttonBottom : style.button]}
-                        onPress={() => onPress()}>
-                        {!loading
-                            ?
-                            <Text style={style.buttonText}>{title}</Text >
-                            :
-                            <ActivityIndicator color={colors.secondary} size={'large'} />
-                        }
-                    </TouchableOpacity>
-                )
+                ) :
+                    type === 'lightGrey' ? (
+                        <TouchableOpacity
+                            style={style.lightGreyButton}
+                            onPress={() => onPress()}>
+                            {!loading
+                                ?
+                                <Text style={style.buttonText}>{title}</Text >
+                                :
+                                <ActivityIndicator color={colors.secondary} size={'large'} />
+                            }
+                        </TouchableOpacity>
+                    ) :
+                        (
+                            <TouchableOpacity
+                                disabled={disabled || loading}
+                                style={[disabled ? style.disabledButton : isBottom ? style.buttonBottom : style.button]}
+                                onPress={() => onPress()}>
+                                {!loading
+                                    ?
+                                    <Text style={style.buttonText}>{title}</Text >
+                                    :
+                                    <ActivityIndicator color={colors.secondary} size={'large'} />
+                                }
+                            </TouchableOpacity>
+                        )
             }
         </>
     );

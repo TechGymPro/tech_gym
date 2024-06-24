@@ -46,6 +46,7 @@
     "react-native-snap-carousel": "4.0.0-beta.6",
     "react-native-sound": "^0.11.2",
     "react-native-svg": "13.4.0",
+    "react-native-switch": "^1.5.1",
     "react-native-vector-icons": "^10.1.0",
     "react-native-video": "^6.1.2",
     "react-native-video-controls": "^2.8.1",
