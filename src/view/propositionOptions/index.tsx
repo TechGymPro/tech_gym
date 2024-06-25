@@ -33,9 +33,11 @@ const cardsContent = [{
 
 const PropositionOptions = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [disable, setDisable] = useState(true)
 
     function handlePress(index: number) {
         setActiveIndex(activeIndex === index ? null : index);
+        setDisable(false);
     }
 
     function alert() {
@@ -72,6 +74,7 @@ const PropositionOptions = () => {
                     )}
                 </View>
                 <LongButton
+                    disabled={disable}
                     title={'Pagar'}
                     onPress={() => alert()}
                 />

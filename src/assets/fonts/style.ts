@@ -19,15 +19,15 @@ export const style = StyleSheet.create({
         justifyContent: 'space-between'
     },
     discountText: {
+        fontFamily: 'PlusJakartaSans-Medium',
         paddingHorizontal: '5%',
         paddingVertical: '2%',
         fontSize: 12,
-        fontFamily: 'PlusJakartaSans-Medium',
         borderRadius: units.vh * 10,
         color: colors.titleTextColor
     },
     yellowFlag: {
-        backgroundColor: colors.primary
+        backgroundColor: colors.disabledButton
     },
     greenFlag: {
         marginTop: units.vh * 2,
@@ -38,12 +38,12 @@ export const style = StyleSheet.create({
     title: {
         fontFamily: 'PlusJakartaSans-ExtraBold',
         fontSize: 36,
-        color: colors.titleTextColor,//800
+        color: colors.titleTextColor,
     },
     subtitle: {
         fontFamily: 'PlusJakartaSans-Bold',
         fontSize: 16,
-        color: colors.titleTextColor,//700
+        color: colors.titleTextColor,
     },
     optionsText: {
         fontFamily: 'PlusJakartaSans-Regular',
@@ -53,7 +53,7 @@ export const style = StyleSheet.create({
     activeBorder: {
         borderWidth: 2,
         borderRadius: 15,
-        borderColor: colors.primary
+        borderColor: colors.disabledButton
     },
     inactiveBorder: {
         borderWidth: 2,

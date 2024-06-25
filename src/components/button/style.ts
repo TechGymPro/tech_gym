@@ -53,7 +53,7 @@ export const style = StyleSheet.create({
         backgroundColor: colors.primary,
     },
     disabledButton: {
-        width: units.vw * 88,
+        width: units.vw * 92,
         height: units.vh * 6,
         borderRadius: (units.vw * 88) / 2,
         alignSelf: 'center',
@@ -77,7 +77,7 @@ export const style = StyleSheet.create({
     },
     buttonText: {
         fontSize: 16,
-        color: colors.mainTextColor,
+        color: colors.titleTextColor,
         fontFamily: 'Inter-Bold'
     },
     shortButtonText: {

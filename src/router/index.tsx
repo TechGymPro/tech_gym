@@ -46,7 +46,7 @@ export const Router = () => {
   return (
     <NavigationContainer>
       {!userToken ? (
-        <Stack.Navigator initialRouteName="TrainingPlay">
+        <Stack.Navigator initialRouteName="Agreement">
           <Stack.Screen
             name="SignUp"
             component={SignUp}
